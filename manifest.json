@@ -1,0 +1,17 @@
+{
+  "vendor": "vtex",
+  "name": "rich-text",
+  "version": "0.0.1",
+  "title": "Rich Text",
+  "description": "Rich text component",
+  "defaultLocale": "pt-BR",
+  "builders": {
+    "messages": "1.x",
+    "store": "0.x",
+    "react": "3.x"
+  },
+  "mustUpdateAt": "2019-04-02",
+  "scripts": {
+    "postreleasy": "vtex publish --verbose"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "button-label": "Buy",
+  "editor.productSummary.title": "Product Summary",
+  "editor.productSummary.description": "The product summary showing the main product informations",
+  "editor.productSummary.isOneClickBuy.title": "Should redirect to checkout after clicking on buy",
+  "editor.productSummary.showBadge.title": "Show the discount badge",
+  "editor.productSummary.badgeText.title": "Badge's text",
+  "editor.productSummary.buyButtonText.title": "Custom buy button's text",
+  "editor.productSummary.hideBuyButton.title": "Hides the buy button completely",
+  "editor.productSummary.showCollections.title": "Show the collections badges",
+  "editor.productSummary.displayBuyButton.title": "Buy button display mode",
+  "editor.productSummary.displayBuyButton.option.none": "Never show",
+  "editor.productSummary.displayBuyButton.option.always": "Always show",
+  "editor.productSummary.quantity-error": "It wasn't possible to select the specified amount",
+  "editor.productSummary.unit": "Unit",
+  "editor.productSummary.attachmentName": "{sign} {quantity}x {name}",
+  "editor.productSummary.displayBuyButton.option.hover": "Show on hover (web)",
+  "productSummary.missingOptionName": "No {name}"
+}
