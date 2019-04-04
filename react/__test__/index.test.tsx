@@ -5,8 +5,6 @@ import RichText from '../index'
 
 import { textPositionValues, textAlignmentValues } from '../SchemaTypes'
 
-// [I\'m an inline-style link with title](https://www.google.com "Google\'s Homepage")\n**Bollllddd**\n*this is talic*
-
 describe('Rich text component', () => {
   const defaultProps = {
     font: 't-body',
@@ -19,7 +17,6 @@ describe('Rich text component', () => {
     const component = render(
       <RichText {...defaultProps} text={'**be bold**'} />
     )
-    // console.log('teste COMPONENT: ', component.asFragment())
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
@@ -32,7 +29,6 @@ describe('Rich text component', () => {
         }
       />
     )
-    // console.log('teste COMPONENT: ', component.asFragment())
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
@@ -45,7 +41,6 @@ describe('Rich text component', () => {
         }
       />
     )
-    // console.log('teste COMPONENT: ', component.asFragment())
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
