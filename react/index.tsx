@@ -59,11 +59,11 @@ interface Props {
   textPosition: textPositionValues
 }
 
-interface VtexComponent extends FunctionComponent<Props> {
-  schema: any
+interface VTEXIOComponent extends FunctionComponent<Props> {
+  schema?: any
 }
 
-const RichText: VtexComponent = ({
+const RichText: FunctionComponent<Props> = ({
   font,
   text,
   textAlignment,
@@ -123,7 +123,9 @@ RichText.defaultProps = {
   textColor: 'c-on-base',
 }
 
-RichText.schema = {
+const MemoizedRichText: VTEXIOComponent = memo(RichText)
+
+MemoizedRichText.schema = {
   title: 'editor.rich-text.title',
   description: 'editor.rich-text.description',
   type: 'object',
@@ -165,4 +167,4 @@ RichText.schema = {
   },
 }
 
-export default memo(RichText)
+export default MemoizedRichText
