@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rich text component should render and sanitize malicious javascript 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p>
+        <a>
+          HEHEHE
+        </a>
+      </p>
+      
+
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should render and sanitize malicious javascript 2`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      &lt;DIV STYLE="background-image: url(&#1;javascript:alert('XSS'))"&gt;
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should render and sanitize malicious text 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p>
+        Hi everyone! This is 
+        <span
+          class="b strong"
+        >
+          how
+        </span>
+         you do XSS 
+      </p>
+      
+
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should render and sanitize malicious text 2`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p>
+        <a
+          class="link"
+        >
+          some text
+        </a>
+      </p>
+      
+
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should render link with title 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p>
+        <a
+          class="link"
+          href="https://www.google.com"
+          title="Google's Homepage"
+        >
+          I'm an inline-style link with title
+        </a>
+        <br />
+        <span
+          class="b strong"
+        >
+          Bollllddd
+        </span>
+        <br />
+        <span
+          class="i italic"
+        >
+          this is talic
+        </span>
+      </p>
+      
+
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should render with bold 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p>
+        <span
+          class="b strong"
+        >
+          be bold
+        </span>
+      </p>
+      
+
+    </div>
+  </div>
+</DocumentFragment>
+`;
