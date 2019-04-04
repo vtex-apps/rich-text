@@ -117,8 +117,7 @@ const RichText: VtexComponent = ({
 
 RichText.defaultProps = {
   font: 't-body',
-  text:
-    '[I\'m an inline-style link with title](https://www.google.com "Google\'s Homepage")\n**Bollllddd**\n*this is talic*',
+  text: '',
   textPosition: defaultValues.textPosition,
   textAlignment: defaultValues.textAlignment,
   textColor: 'c-on-base',
