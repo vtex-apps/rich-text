@@ -1,9 +1,9 @@
 {
   "editor.rich-text.title": "Rich Text",
   "editor.rich-text.description": "Un componente que muestra texto escrito en lenguaje Markdown.",
-  "editor.rich-text.textPosition.title": "textPosition",
+  "editor.rich-text.textPosition.title": "Posición del texto",
   "editor.rich-text.textPosition.description": "Elija en qué posición el texto debe aparecer (izquierda, centro o derecha)",
-  "editor.rich-text.textAlignment.title": "textAlignment",
+  "editor.rich-text.textAlignment.title": "Alineación del texto",
   "editor.rich-text.textAlignment.description": "Controla la alineación de los textos dentro del componente",
   "editor.rich-text.textPosition.left": "Izquierda",
   "editor.rich-text.textPosition.center": "Centro",
@@ -11,8 +11,8 @@
   "editor.rich-text.textAlignment.left": "Izquierda",
   "editor.rich-text.textAlignment.center": "Centro",
   "editor.rich-text.textAlignment.right": "Derecha",
-  "editor.rich-text.font.title": "font",
+  "editor.rich-text.font.title": "Token de Tipografía",
   "editor.rich-text.font.description": "Especifique el token de fuente que se utilizará como predeterminado",
-  "editor.rich-text.textColor.title": "textColor",
+  "editor.rich-text.textColor.title": "Token de color",
   "editor.rich-text.textColor.description": "Especifique el token de color del texto a utilizar"
 }

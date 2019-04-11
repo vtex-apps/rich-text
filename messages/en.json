@@ -1,9 +1,11 @@
 {
   "editor.rich-text.title": "Rich Text",
   "editor.rich-text.description": "A component which displays text written in Markdown language",
-  "editor.rich-text.textPosition.title": "textPosition",
+  "editor.rich-text.text.title": "Text",
+  "editor.rich-text.text.description": "Text in markdown language to be displayed",
+  "editor.rich-text.textPosition.title": "Text Position",
   "editor.rich-text.textPosition.description": "Choose in which position of the component text will be displayed, left, center or right",
-  "editor.rich-text.textAlignment.title": "textAlignment",
+  "editor.rich-text.textAlignment.title": "Text Alignment",
   "editor.rich-text.textAlignment.description": "Control the text alignment inside component",
   "editor.rich-text.textPosition.left": "Left",
   "editor.rich-text.textPosition.center": "Center",
@@ -11,8 +13,8 @@
   "editor.rich-text.textAlignment.left": "Left",
   "editor.rich-text.textAlignment.center": "Center",
   "editor.rich-text.textAlignment.right": "Right",
-  "editor.rich-text.font.title": "font",
+  "editor.rich-text.font.title": "Font token",
   "editor.rich-text.font.description": "Specify the font token to be used as default",
-  "editor.rich-text.textColor.title": "textColor",
+  "editor.rich-text.textColor.title": "Text Color token",
   "editor.rich-text.textColor.description": "Specify the text color token to be used"
 }
