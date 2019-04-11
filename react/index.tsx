@@ -90,11 +90,11 @@ const RichText: FunctionComponent<Props> = ({
   if (!isMounted) {
     const renderer = new Renderer()
     renderer.paragraph = text => `<p class="lh-copy ${styles.paragraph}">${text}</p>`
-    renderer.strong = text => `<span class="b lh-copy ${styles.strong}">${text}</span>`
-    renderer.em = text => `<span class="i lh-copy ${styles.italic}">${text}</span>`
-    renderer.heading = text => `<span class="lh-copy ${styles.heading}">${text}</span>`
+    renderer.strong = text => `<span class="b ${styles.strong}">${text}</span>`
+    renderer.em = text => `<span class="i ${styles.italic}">${text}</span>`
+    renderer.heading = text => `<span class="${styles.heading}">${text}</span>`
     renderer.link = (href: string, title: string, text: string) =>
-      `<a class="lh-copy ${styles.link}" href="${href}" ${
+      `<a class="${styles.link}" href="${href}" ${
         title ? `title="${title}"` : ''
       }>${text}</a>`
     renderer.html = html => escapeHtml(html)

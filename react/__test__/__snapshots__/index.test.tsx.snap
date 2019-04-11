@@ -41,7 +41,7 @@ exports[`Rich text component should render and sanitize malicious text 1`] = `
       >
         Hi everyone! This is 
         <span
-          class="b lh-copy strong"
+          class="b strong"
         >
           how
         </span>
@@ -62,7 +62,7 @@ exports[`Rich text component should render and sanitize malicious text 2`] = `
         class="lh-copy paragraph"
       >
         <a
-          class="lh-copy link"
+          class="link"
         >
           some text
         </a>
@@ -82,7 +82,7 @@ exports[`Rich text component should render link with title 1`] = `
         class="lh-copy paragraph"
       >
         <a
-          class="lh-copy link"
+          class="link"
           href="https://www.google.com"
           title="Google's Homepage"
         >
@@ -90,13 +90,13 @@ exports[`Rich text component should render link with title 1`] = `
         </a>
         <br />
         <span
-          class="b lh-copy strong"
+          class="b strong"
         >
           Bollllddd
         </span>
         <br />
         <span
-          class="i lh-copy italic"
+          class="i italic"
         >
           this is talic
         </span>
@@ -116,7 +116,7 @@ exports[`Rich text component should render with bold 1`] = `
         class="lh-copy paragraph"
       >
         <span
-          class="b lh-copy strong"
+          class="b strong"
         >
           be bold
         </span>
