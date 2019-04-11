@@ -1230,11 +1230,6 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/dompurify@0.0.32":
-  version "0.0.32"
-  resolved "https://registry.yarnpkg.com/@types/dompurify/-/dompurify-0.0.32.tgz#ccc4148d7f2e0598006611e82e840806fab4b268"
-  integrity sha512-OPiBf1Xgi5umND0m0LpBhxfRVat3dMCXeB4SBVzAIa0sKniJ9z2g9cN0trL1OcmkQnjDV14yCyRH26G2L0zWFQ==
-
 "@types/escape-html@^0.0.20":
   version "0.0.20"
   resolved "https://registry.yarnpkg.com/@types/escape-html/-/escape-html-0.0.20.tgz#cae698714dd61ebee5ab3f2aeb9a34ba1011735a"
@@ -1637,6 +1632,11 @@ assign-symbols@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
   integrity sha1-WWZ/QfrdTyDMvCu5a41Pf3jsA2c=
+
+assignment@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/assignment/-/assignment-2.0.0.tgz#ffd17b21bf5d6b22e777b989681a815456a3dd3e"
+  integrity sha1-/9F7Ib9dayLnd7mJaBqBVFaj3T4=
 
 ast-types-flow@0.0.7, ast-types-flow@^0.0.7:
   version "0.0.7"
@@ -2522,11 +2522,6 @@ domexception@^1.0.1:
   dependencies:
     webidl-conversions "^4.0.2"
 
-dompurify@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-1.0.10.tgz#18d7353631c86ee25049e38fbca8c6b2c5a2af87"
-  integrity sha512-huhl3DSWX5LaA7jDtnj3XQdJgWW1wYouNW7N0drGzQa4vEUSVWyeFN+Atx6HP4r5cang6oQytMom6I4yhGJj5g==
-
 ecc-jsbn@~0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"
@@ -3341,6 +3336,11 @@ has@^1.0.1, has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+he@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/he/-/he-0.5.0.tgz#2c05ffaef90b68e860f3fd2b54ef580989277ee2"
+  integrity sha1-LAX/rvkLaOhg8/0rVO9YCYknfuI=
+
 hoist-non-react-statics@^2.5.5:
   version "2.5.5"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
@@ -3483,6 +3483,14 @@ inquirer@^6.2.2:
     string-width "^2.1.0"
     strip-ansi "^5.0.0"
     through "^2.3.6"
+
+insane@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/insane/-/insane-2.6.2.tgz#c2ab68bb3e006ab451560d1b446917329c0a8120"
+  integrity sha1-wqtouz4AarRRVg0bRGkXMpwKgSA=
+  dependencies:
+    assignment "2.0.0"
+    he "0.5.0"
 
 intl-format-cache@^2.0.5:
   version "2.1.0"
