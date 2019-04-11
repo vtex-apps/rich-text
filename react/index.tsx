@@ -65,12 +65,13 @@ interface VTEXIOComponent extends FunctionComponent<Props> {
 }
 
 const sanitizerConfig = { 
-  allowedTags: ['p', 'span', 'a', 'div', 'br'], 
+  allowedTags: ['p', 'span', 'a', 'div', 'br', 'img'], 
   allowedAttributes:{
     a: ['class', 'href', 'title'],
     span: ['class'],
     p: ['class'],
     div: ['class'],
+    img: ['class', 'src', 'title', 'alt'],
   }, 
 }
 
@@ -88,14 +89,17 @@ const RichText: FunctionComponent<Props> = ({
 
   if (!isMounted) {
     const renderer = new Renderer()
-    renderer.strong = text => `<span class="b ${styles.strong}">${text}</span>`
-    renderer.em = text => `<span class="i ${styles.italic}">${text}</span>`
-    renderer.heading = text => `<span class="${styles.heading}">${text}</span>`
+    renderer.paragraph = text => `<p class="lh-copy ${styles.paragraph}">${text}</p>`
+    renderer.strong = text => `<span class="b lh-copy ${styles.strong}">${text}</span>`
+    renderer.em = text => `<span class="i lh-copy ${styles.italic}">${text}</span>`
+    renderer.heading = text => `<span class="lh-copy ${styles.heading}">${text}</span>`
     renderer.link = (href: string, title: string, text: string) =>
-      `<a class="${styles.link}" href="${href}" ${
+      `<a class="lh-copy ${styles.link}" href="${href}" ${
         title ? `title="${title}"` : ''
       }>${text}</a>`
     renderer.html = html => escapeHtml(html)
+    renderer.image = (href: string, title: string, text: string) =>
+      `<img class="${styles.image}" src="${href}" alt="${text}" title="${title}"/>`
 
     marked.setOptions({
       gfm: true,

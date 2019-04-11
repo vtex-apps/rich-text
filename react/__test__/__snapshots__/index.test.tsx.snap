@@ -6,13 +6,13 @@ exports[`Rich text component should render and sanitize malicious javascript 1`]
     class="container flex tl items-start justify-start t-body c-on-base"
   >
     <div>
-      <p>
+      <p
+        class="lh-copy paragraph"
+      >
         <a>
           HEHEHE
         </a>
       </p>
-      
-
     </div>
   </div>
 </DocumentFragment>
@@ -36,17 +36,17 @@ exports[`Rich text component should render and sanitize malicious text 1`] = `
     class="container flex tl items-start justify-start t-body c-on-base"
   >
     <div>
-      <p>
+      <p
+        class="lh-copy paragraph"
+      >
         Hi everyone! This is 
         <span
-          class="b strong"
+          class="b lh-copy strong"
         >
           how
         </span>
          you do XSS 
       </p>
-      
-
     </div>
   </div>
 </DocumentFragment>
@@ -58,15 +58,15 @@ exports[`Rich text component should render and sanitize malicious text 2`] = `
     class="container flex tl items-start justify-start t-body c-on-base"
   >
     <div>
-      <p>
+      <p
+        class="lh-copy paragraph"
+      >
         <a
-          class="link"
+          class="lh-copy link"
         >
           some text
         </a>
       </p>
-      
-
     </div>
   </div>
 </DocumentFragment>
@@ -78,9 +78,11 @@ exports[`Rich text component should render link with title 1`] = `
     class="container flex tl items-start justify-start t-body c-on-base"
   >
     <div>
-      <p>
+      <p
+        class="lh-copy paragraph"
+      >
         <a
-          class="link"
+          class="lh-copy link"
           href="https://www.google.com"
           title="Google's Homepage"
         >
@@ -88,19 +90,17 @@ exports[`Rich text component should render link with title 1`] = `
         </a>
         <br />
         <span
-          class="b strong"
+          class="b lh-copy strong"
         >
           Bollllddd
         </span>
         <br />
         <span
-          class="i italic"
+          class="i lh-copy italic"
         >
           this is talic
         </span>
       </p>
-      
-
     </div>
   </div>
 </DocumentFragment>
@@ -112,15 +112,55 @@ exports[`Rich text component should render with bold 1`] = `
     class="container flex tl items-start justify-start t-body c-on-base"
   >
     <div>
-      <p>
+      <p
+        class="lh-copy paragraph"
+      >
         <span
-          class="b strong"
+          class="b lh-copy strong"
         >
           be bold
         </span>
       </p>
-      
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
+exports[`Rich text component should render with image 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        Inline-style:
+        <br />
+                  
+        <img
+          alt="alt text"
+          class="image"
+          src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png"
+          title="Logo Title Text 1"
+        />
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should render with paragraph 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        IAM BOLD
+      </p>
     </div>
   </div>
 </DocumentFragment>

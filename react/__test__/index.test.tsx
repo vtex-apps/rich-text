@@ -20,6 +20,13 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+  it('should render with paragraph', () => {
+    const component = render(
+      <RichText {...defaultProps} text={'IAM BOLD'} />
+    )
+    expect(component).toBeDefined()
+    expect(component.asFragment()).toMatchSnapshot()
+  })
   it('should render link with title', () => {
     const component = render(
       <RichText
@@ -73,4 +80,18 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+  it('should render with image', () => {
+    const component = render(
+      <RichText
+        {...defaultProps}
+        text={
+          `Inline-style: 
+          ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")`
+        }
+      />
+    )
+    expect(component).toBeDefined()
+    expect(component.asFragment()).toMatchSnapshot()
+  })
 })
+
