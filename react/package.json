@@ -7,15 +7,14 @@
     "test": "vtex-test-tools test"
   },
   "dependencies": {
-    "dompurify": "^1.0.10",
     "escape-html": "^1.0.3",
+    "insane": "^2.6.2",
     "marked": "^0.6.1",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
-    "@types/dompurify": "0.0.32",
     "@types/escape-html": "^0.0.20",
     "@types/jest": "^24.0.9",
     "@types/marked": "^0.6.4",

@@ -1,9 +1,10 @@
 import React, { FunctionComponent, memo, useEffect, useState } from 'react'
 import marked, { Renderer } from 'marked'
 import { values } from 'ramda'
-import DOMPurify from 'dompurify'
 import escapeHtml from 'escape-html'
+import insane from 'insane'
 
+ //@ts-ignore
 import styles from './richText.css'
 
 import {
@@ -63,6 +64,16 @@ interface VTEXIOComponent extends FunctionComponent<Props> {
   schema?: any
 }
 
+const sanitizerConfig = { 
+  allowedTags: ['p', 'span', 'a', 'div', 'br'], 
+  allowedAttributes:{
+    a: ['class', 'href', 'title'],
+    span: ['class'],
+    p: ['class'],
+    div: ['class'],
+  }, 
+}
+
 const RichText: FunctionComponent<Props> = ({
   font,
   text,
@@ -103,7 +114,7 @@ const RichText: FunctionComponent<Props> = ({
     'textPosition'
   )
 
-  const html = DOMPurify.sanitize(marked(text))
+  const html = insane(marked(text), sanitizerConfig)
   return (
     <div
       className={`${
