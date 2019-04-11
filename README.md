@@ -140,7 +140,8 @@ Below, we describe the namespaces that are defined in the product-summary.
 | `italic`           | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx)   |  Token inserted in items that were marked as italic during markdown conversion  |
 | `link`           | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx)   |  Token inserted in items that were marked as links during markdown conversion  |
 | `heading`           | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx)   |  Token inserted in items that were marked as headers during markdown conversion  |
-
+| `paragraph`           | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx)   |  Token inserted in items that were marked as paragraphs during markdown conversion  |
+| `image`           | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx)   |  Token inserted in items that were marked as images during markdown conversion  |
 
 ## Troubleshooting
 

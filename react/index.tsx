@@ -65,12 +65,13 @@ interface VTEXIOComponent extends FunctionComponent<Props> {
 }
 
 const sanitizerConfig = { 
-  allowedTags: ['p', 'span', 'a', 'div', 'br'], 
+  allowedTags: ['p', 'span', 'a', 'div', 'br', 'img'], 
   allowedAttributes:{
     a: ['class', 'href', 'title'],
     span: ['class'],
     p: ['class'],
     div: ['class'],
+    img: ['class', 'src', 'title', 'alt'],
   }, 
 }
 
@@ -88,6 +89,7 @@ const RichText: FunctionComponent<Props> = ({
 
   if (!isMounted) {
     const renderer = new Renderer()
+    renderer.paragraph = text => `<p class="lh-copy ${styles.paragraph}">${text}</p>`
     renderer.strong = text => `<span class="b ${styles.strong}">${text}</span>`
     renderer.em = text => `<span class="i ${styles.italic}">${text}</span>`
     renderer.heading = text => `<span class="${styles.heading}">${text}</span>`
@@ -96,6 +98,8 @@ const RichText: FunctionComponent<Props> = ({
         title ? `title="${title}"` : ''
       }>${text}</a>`
     renderer.html = html => escapeHtml(html)
+    renderer.image = (href: string, title: string, text: string) =>
+      `<img class="${styles.image}" src="${href}" alt="${text}" title="${title}"/>`
 
     marked.setOptions({
       gfm: true,
