@@ -1,6 +1,8 @@
 {
   "editor.rich-text.title": "Title of Rich Text component",
   "editor.rich-text.description": "Description of Rich Text component",
+  "editor.rich-text.text.title": "Title of text property",
+  "editor.rich-text.text.description": "Description of text property",
   "editor.rich-text.textPosition.title": "Title of textPosition property",
   "editor.rich-text.textPosition.description": "Description of textPosition property",
   "editor.rich-text.textAlignment.title": "Title of textAlignment property",
@@ -12,5 +14,7 @@
   "editor.rich-text.textAlignment.center": "Name of enum value to align text to the center",
   "editor.rich-text.textAlignment.right": "Name of enum value to align text to the right",
   "editor.rich-text.font.title": "Title of font property",
-  "editor.rich-text.font.description": "Description of font property"
+  "editor.rich-text.font.description": "Description of font property",
+  "editor.rich-text.textColor.title": "Title of textColor property",
+  "editor.rich-text.textColor.description": "Description of textColor property"
 }
