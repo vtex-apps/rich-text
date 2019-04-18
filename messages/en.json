@@ -16,5 +16,7 @@
   "editor.rich-text.font.title": "Font token",
   "editor.rich-text.font.description": "Specify the font token to be used as default",
   "editor.rich-text.textColor.title": "Text Color token",
-  "editor.rich-text.textColor.description": "Specify the text color token to be used"
+  "editor.rich-text.textColor.description": "Specify the text color token to be used",
+  "editor.rich-text.blockClass.title": "Block class",
+  "editor.rich-text.blockClass.description": "Unique class name to be appended to block classes"
 }

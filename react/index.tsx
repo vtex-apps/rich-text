@@ -3,6 +3,7 @@ import marked, { Renderer } from 'marked'
 import { values } from 'ramda'
 import escapeHtml from 'escape-html'
 import insane from 'insane'
+import { generateBlockClass, BlockClass } from '@vtex/css-handles'
 
  //@ts-ignore
 import styles from './richText.css'
@@ -52,7 +53,7 @@ const safelyGetToken = (
   propName: PropTokensNames
 ) => tokenMap[valueWanted] || defaultValues[propName]
 
-interface Props {
+interface Props extends BlockClass {
   font: string
   text: string
   textAlignment: textAlignmentValues
@@ -81,6 +82,7 @@ const RichText: FunctionComponent<Props> = ({
   textAlignment,
   textColor,
   textPosition,
+  blockClass,
 }) => {
   const [isMounted, setMounted] = useState(false)
   useEffect(() => {
@@ -89,22 +91,22 @@ const RichText: FunctionComponent<Props> = ({
 
   if (!isMounted) {
     const renderer = new Renderer()
-    renderer.paragraph = text => `<p class="lh-copy ${styles.paragraph}">${text}</p>`
-    renderer.strong = text => `<span class="b ${styles.strong}">${text}</span>`
-    renderer.em = text => `<span class="i ${styles.italic}">${text}</span>`
-    renderer.heading = text => `<span class="${styles.heading}">${text}</span>`
+    renderer.paragraph = text => `<p class="lh-copy ${generateBlockClass(styles.paragraph, blockClass)}">${text}</p>`
+    renderer.strong = text => `<span class="b ${generateBlockClass(styles.strong, blockClass)}">${text}</span>`
+    renderer.em = text => `<span class="i ${generateBlockClass(styles.italic, blockClass)}">${text}</span>`
+    renderer.heading = text => `<span class="${generateBlockClass(styles.heading, blockClass)}">${text}</span>`
     renderer.link = (href: string, title: string, text: string) =>
-      `<a class="${styles.link}" href="${href}" ${
+      `<a class="${generateBlockClass(styles.link, blockClass)}" href="${href}" ${
         title ? `title="${title}"` : ''
       }>${text}</a>`
     renderer.html = html => escapeHtml(html)
     renderer.image = (href: string, title: string, text: string) =>
-      `<img class="${styles.image}" src="${href}" alt="${text}" title="${title}"/>`
+      `<img class="${generateBlockClass(styles.image, blockClass)}" src="${href}" alt="${text}" title="${title}"/>`
 
     marked.setOptions({
       gfm: true,
       breaks: true,
-      sanitize: false, //Use DOMPurify for sanitizing
+      sanitize: false, //Use insane lib for sanitizing
       smartLists: true,
       renderer,
     })
@@ -122,7 +124,7 @@ const RichText: FunctionComponent<Props> = ({
   return (
     <div
       className={`${
-        styles.container
+        generateBlockClass(styles.container, blockClass)
       } flex ${alignToken} ${itemsToken} ${justifyToken} ${font} ${textColor}`}
     >
       <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -178,6 +180,12 @@ MemoizedRichText.schema = {
       description: 'editor.rich-text.textColor.description',
       type: 'string',
       default: 'c-on-base',
+    },
+    blockClass: {
+      title: 'editor.rich-text.blockClass.title',
+      description: 'editor.rich-text.blockClass.description',
+      type: 'string',
+      default: null,
     },
   },
 }
