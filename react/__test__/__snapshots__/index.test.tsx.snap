@@ -157,10 +157,10 @@ exports[`Rich text component should render with image block class props 1`] = `
   >
     <div>
       <p
-        class="lh-copy paragraph paragraph--home"
+        class="lh-copy paragraph"
       >
         <a
-          class="link link--home"
+          class="link"
           href="https://www.google.com"
           title="Google's Homepage"
         >
@@ -168,13 +168,13 @@ exports[`Rich text component should render with image block class props 1`] = `
         </a>
         <br />
         <span
-          class="b strong strong--home"
+          class="b strong"
         >
           Bollllddd
         </span>
         <br />
         <span
-          class="i italic italic--home"
+          class="i italic"
         >
           this is talic
         </span>

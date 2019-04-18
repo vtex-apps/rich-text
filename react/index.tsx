@@ -91,17 +91,17 @@ const RichText: FunctionComponent<Props> = ({
 
   if (!isMounted) {
     const renderer = new Renderer()
-    renderer.paragraph = text => `<p class="lh-copy ${generateBlockClass(styles.paragraph, blockClass)}">${text}</p>`
-    renderer.strong = text => `<span class="b ${generateBlockClass(styles.strong, blockClass)}">${text}</span>`
-    renderer.em = text => `<span class="i ${generateBlockClass(styles.italic, blockClass)}">${text}</span>`
-    renderer.heading = text => `<span class="${generateBlockClass(styles.heading, blockClass)}">${text}</span>`
+    renderer.paragraph = text => `<p class="lh-copy ${styles.paragraph}">${text}</p>`
+    renderer.strong = text => `<span class="b ${styles.strong}">${text}</span>`
+    renderer.em = text => `<span class="i ${styles.italic}">${text}</span>`
+    renderer.heading = text => `<span class="${styles.heading}">${text}</span>`
     renderer.link = (href: string, title: string, text: string) =>
-      `<a class="${generateBlockClass(styles.link, blockClass)}" href="${href}" ${
+      `<a class="${styles.link}" href="${href}" ${
         title ? `title="${title}"` : ''
       }>${text}</a>`
     renderer.html = html => escapeHtml(html)
     renderer.image = (href: string, title: string, text: string) =>
-      `<img class="${generateBlockClass(styles.image, blockClass)}" src="${href}" alt="${text}" title="${title}"/>`
+      `<img class="${styles.image}" src="${href}" alt="${text}" title="${title}"/>`
 
     marked.setOptions({
       gfm: true,
