@@ -150,6 +150,40 @@ exports[`Rich text component should render with image 1`] = `
 </DocumentFragment>
 `;
 
+exports[`Rich text component should render with image block class props 1`] = `
+<DocumentFragment>
+  <div
+    class="container container--home flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph paragraph--home"
+      >
+        <a
+          class="link link--home"
+          href="https://www.google.com"
+          title="Google's Homepage"
+        >
+          I'm an inline-style link with title
+        </a>
+        <br />
+        <span
+          class="b strong strong--home"
+        >
+          Bollllddd
+        </span>
+        <br />
+        <span
+          class="i italic italic--home"
+        >
+          this is talic
+        </span>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Rich text component should render with paragraph 1`] = `
 <DocumentFragment>
   <div
