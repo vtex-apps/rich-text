@@ -16,5 +16,7 @@
   "editor.rich-text.font.title": "Token de fonte",
   "editor.rich-text.font.description": "Especifique o token de fonte para ser usado como padrão",
   "editor.rich-text.textColor.title": "Token de cor",
-  "editor.rich-text.textColor.description": "Especifique o token de cor do texto para ser usado como padrão"
+  "editor.rich-text.textColor.description": "Especifique o token de cor do texto para ser usado como padrão",
+  "editor.rich-text.blockClass.title": "Classe do bloco",
+  "editor.rich-text.blockClass.description": "Nome da classe do bloco para ser anexado as classes padrão do bloco"
 }

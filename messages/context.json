@@ -16,5 +16,7 @@
   "editor.rich-text.font.title": "Title of font property",
   "editor.rich-text.font.description": "Description of font property",
   "editor.rich-text.textColor.title": "Title of textColor property",
-  "editor.rich-text.textColor.description": "Description of textColor property"
+  "editor.rich-text.textColor.description": "Description of textColor property",
+  "editor.rich-text.blockClass.title": "Title of blockClass prop on Storefront",
+  "editor.rich-text.blockClass.description": "Description of blockClass prop on Storefront"
 }

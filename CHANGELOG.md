@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.4] - 2019-04-22
+### Added
+- `blockClass` prop.
+
 ## [0.1.3] - 2019-04-11
 ### Fixed
 - Fix properties strings in Storefront.

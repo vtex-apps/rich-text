@@ -3,6 +3,7 @@ import marked, { Renderer } from 'marked'
 import { values } from 'ramda'
 import escapeHtml from 'escape-html'
 import insane from 'insane'
+import { generateBlockClass, BlockClass } from '@vtex/css-handles'
 
  //@ts-ignore
 import styles from './richText.css'
@@ -52,7 +53,7 @@ const safelyGetToken = (
   propName: PropTokensNames
 ) => tokenMap[valueWanted] || defaultValues[propName]
 
-interface Props {
+interface Props extends BlockClass {
   font: string
   text: string
   textAlignment: textAlignmentValues
@@ -81,6 +82,7 @@ const RichText: FunctionComponent<Props> = ({
   textAlignment,
   textColor,
   textPosition,
+  blockClass,
 }) => {
   const [isMounted, setMounted] = useState(false)
   useEffect(() => {
@@ -104,7 +106,7 @@ const RichText: FunctionComponent<Props> = ({
     marked.setOptions({
       gfm: true,
       breaks: true,
-      sanitize: false, //Use DOMPurify for sanitizing
+      sanitize: false, //Use insane lib for sanitizing
       smartLists: true,
       renderer,
     })
@@ -122,7 +124,7 @@ const RichText: FunctionComponent<Props> = ({
   return (
     <div
       className={`${
-        styles.container
+        generateBlockClass(styles.container, blockClass)
       } flex ${alignToken} ${itemsToken} ${justifyToken} ${font} ${textColor}`}
     >
       <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -178,6 +180,12 @@ MemoizedRichText.schema = {
       description: 'editor.rich-text.textColor.description',
       type: 'string',
       default: 'c-on-base',
+    },
+    blockClass: {
+      title: 'editor.rich-text.blockClass.title',
+      description: 'editor.rich-text.blockClass.description',
+      type: 'string',
+      default: null,
     },
   },
 }

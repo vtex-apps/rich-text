@@ -93,5 +93,18 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+  it('should render with image block class props', () => {
+    const component = render(
+      <RichText
+        {...defaultProps}
+        text={
+          `[I\'m an inline-style link with title](https://www.google.com "Google\'s Homepage")\n**Bollllddd**\n*this is talic*`
+        }
+        blockClass="home"
+      />
+    )
+    expect(component).toBeDefined()
+    expect(component.asFragment()).toMatchSnapshot()
+  })
 })
 
