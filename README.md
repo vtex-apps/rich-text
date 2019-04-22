@@ -67,7 +67,7 @@ Now, you can change the behavior of the `rich-text` block that is in the minicar
 
 ### Blocks API
 
-When implementing this app as a block, various inner blocks may be available. The following interface lists the available blocks within product summary and describes if they are required or optional.
+When implementing this app as a block, various inner blocks may be available. The following interface lists the available blocks within rich-text and describes if they are required or optional.
 
 ```json
 {
@@ -81,7 +81,7 @@ For now this block does not have any required or optional blocks.
 
 #### Configuration
 
-Through the Storefront, you can change the product-summary's behavior and interface. However, you also can make in your theme app, as Store theme does.
+Through the Storefront, you can change the rich-text's behavior and interface. However, you also can make in your theme app, as Store theme does.
 
 | Prop name           | Type      | Description                                                                                 |
 | ------------------- | --------- | ------------------------------------------------------------------------------------------- |
@@ -90,6 +90,7 @@ Through the Storefront, you can change the product-summary's behavior and interf
 | `text`        | `String` | Text written in markdown language to be displayed              |
 | `textAlignment`  | `TextAlignmentEnum` | Control the text alignment inside component. Default: `"LEFT"`                                                                |
 | `textPosition`       | `TextPostionEnum` | Choose in which position of the component text will be displayed, left, center or right. Default: `"LEFT"`                                                           |
+| `blockClass`       | `String` | Unique class name to be appended to block classes. Default: `null`                                                           |
 
 Here are the possible values of `TextPostionEnum`
 
@@ -131,7 +132,7 @@ To use this CSS API, you must add the `styles` builder and create an app styling
 
 #### CSS Namespaces
 
-Below, we describe the namespaces that are defined in the product-summary.
+Below, we describe the namespaces that are defined in the rich-text.
 
 | Token name                 | Component                                                                                                                                                                                                                                                                                                                                                                     | Description                                                   |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -153,5 +154,5 @@ To execute our tests go to `react/` folder and run `yarn test`
 
 ### Travis CI
 
-[![Build Status](https://travis-ci.org/vtex-apps/product-summary.svg?branch=master)](https://travis-ci.org/vtex-apps/rich-text)
+[![Build Status](https://travis-ci.org/vtex-apps/rich-text.svg?branch=master)](https://travis-ci.org/vtex-apps/rich-text)
 [![Coverage Status](https://coveralls.io/repos/github/vtex-apps/rich-text/badge.svg?branch=master)](https://coveralls.io/github/vtex-apps/rich-text?branch=master)
