@@ -15,15 +15,15 @@ export const textPositionTypes: Record<
   { name: string; value: textPositionValues }
 > = {
   TEXT_POSITION_CENTER: {
-    name: 'editor.rich-text.textPosition.center',
+    name: 'admin/editor.rich-text.textPosition.center',
     value: textPositionValues.CENTER,
   },
   TEXT_POSITION_LEFT: {
-    name: 'editor.rich-text.textPosition.left',
+    name: 'admin/editor.rich-text.textPosition.left',
     value: textPositionValues.LEFT,
   },
   TEXT_POSITION_RIGHT: {
-    name: 'editor.rich-text.textPosition.right',
+    name: 'admin/editor.rich-text.textPosition.right',
     value: textPositionValues.RIGHT,
   },
 }
@@ -33,15 +33,15 @@ export const textAlignmentTypes: Record<
   { name: string; value: textAlignmentValues }
 > = {
   TEXT_ALIGNMENT_CENTER: {
-    name: 'editor.rich-text.textAlignment.center',
+    name: 'admin/editor.rich-text.textAlignment.center',
     value: textAlignmentValues.CENTER,
   },
   TEXT_ALIGNMENT_LEFT: {
-    name: 'editor.rich-text.textAlignment.left',
+    name: 'admin/editor.rich-text.textAlignment.left',
     value: textAlignmentValues.LEFT,
   },
   TEXT_ALIGNMENT_RIGHT: {
-    name: 'editor.rich-text.textAlignment.right',
+    name: 'admin/editor.rich-text.textAlignment.right',
     value: textAlignmentValues.RIGHT,
   },
 }
