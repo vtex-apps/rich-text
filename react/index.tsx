@@ -59,6 +59,7 @@ interface Props extends BlockClass {
   textAlignment: textAlignmentValues
   textColor: string
   textPosition: textPositionValues
+  htmlId?: string
 }
 
 interface VTEXIOComponent extends FunctionComponent<Props> {
@@ -83,6 +84,7 @@ const RichText: FunctionComponent<Props> = ({
   textColor,
   textPosition,
   blockClass,
+  htmlId,
 }) => {
   const [isMounted, setMounted] = useState(false)
   useEffect(() => {
@@ -123,6 +125,7 @@ const RichText: FunctionComponent<Props> = ({
   const html = insane(marked(text), sanitizerConfig)
   return (
     <div
+      id={htmlId}
       className={`${
         generateBlockClass(styles.container, blockClass)
       } flex ${alignToken} ${itemsToken} ${justifyToken} ${font} ${textColor}`}

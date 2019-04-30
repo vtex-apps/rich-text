@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.0] - 2019-04-30
+### Added
+- Added `htmlId` prop.
+
 ## [0.1.5] - 2019-04-25
 ### Changed
 - Add scope to messages and add `isLayout` on appropriate schema props.
