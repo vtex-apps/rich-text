@@ -125,7 +125,7 @@ const RichText: FunctionComponent<Props> = ({
   const html = insane(marked(text), sanitizerConfig)
   return (
     <div
-      {...{id: htmlId}}
+      id={htmlId}
       className={`${
         generateBlockClass(styles.container, blockClass)
       } flex ${alignToken} ${itemsToken} ${justifyToken} ${font} ${textColor}`}
