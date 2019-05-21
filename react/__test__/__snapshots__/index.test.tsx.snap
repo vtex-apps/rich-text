@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Rich text component should render an iframe 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        <span
+          class="b strong"
+        >
+          <iframe
+            frameborder="0"
+            height="100%"
+            src="https://invictastores.typeform.com/to/KmycOT?typeform-embed=embed-widget&embed-hide-footer=true&embed-hide-headers=true&embed-opacity=50&typeform-embed-id=d0pe3"
+            style="border: 0px;"
+            width="100%"
+          />
+        </span>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Rich text component should render and sanitize malicious javascript 1`] = `
 <DocumentFragment>
   <div

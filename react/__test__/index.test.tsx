@@ -13,6 +13,7 @@ describe('Rich text component', () => {
     textAlignment: textAlignmentValues.LEFT,
     textColor: 'c-on-base',
   }
+
   it('should render with bold', () => {
     const component = render(
       <RichText {...defaultProps} text={'**be bold**'} />
@@ -20,6 +21,7 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+
   it('should render with paragraph', () => {
     const component = render(
       <RichText {...defaultProps} text={'IAM BOLD'} />
@@ -27,6 +29,7 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+
   it('should render link with title', () => {
     const component = render(
       <RichText
@@ -39,6 +42,7 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+
   it('should render and sanitize malicious text', () => {
     const component = render(
       <RichText
@@ -51,6 +55,7 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+
   it('should render and sanitize malicious text', () => {
     const component = render(
       <RichText {...defaultProps} text={'[some text](javascript:exec())'} />
@@ -58,6 +63,7 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+
   it('should render and sanitize malicious javascript', () => {
     const component = render(
       <RichText
@@ -68,6 +74,7 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+
   it('should render and sanitize malicious javascript', () => {
     const component = render(
       <RichText
@@ -80,6 +87,7 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+
   it('should render with image', () => {
     const component = render(
       <RichText
@@ -93,6 +101,7 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+
   it('should render with image block class props', () => {
     const component = render(
       <RichText
@@ -103,6 +112,20 @@ describe('Rich text component', () => {
         blockClass="home"
       />
     )
+    expect(component).toBeDefined()
+    expect(component.asFragment()).toMatchSnapshot()
+  })
+
+  it('should render an iframe', () => {
+    const component = render(
+      <RichText
+        {...defaultProps}
+        text={ // It must be preceeded by Markdown tag or any other string, otherwise the lib marked escapes the iframe HTML tag.
+          "__<iframe frameborder=\"0\" height=\"100%\" src=\"https://invictastores.typeform.com/to/KmycOT?typeform-embed=embed-widget&amp;embed-hide-footer=true&amp;embed-hide-headers=true&amp;embed-opacity=50&amp;typeform-embed-id=d0pe3\" width=\"100%\" style=\"border: 0px;\"></iframe>__"
+        }
+      />
+    )
+
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
