@@ -6,14 +6,14 @@ import insane from 'insane'
 import { generateBlockClass, BlockClass } from '@vtex/css-handles'
 
  //@ts-ignore
-import styles from './richText.css'
+import styles from './styles/index.css'
 
 import {
   textPositionTypes,
   textAlignmentTypes,
   textPositionValues,
   textAlignmentValues,
-} from './SchemaTypes'
+} from './typings/SchemaTypes'
 
 const justifyTokens = {
   [textPositionValues.LEFT]: 'justify-start',

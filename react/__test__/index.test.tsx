@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '@vtex/test-tools/react'
 import RichText from '../index'
 
-import { textPositionValues, textAlignmentValues } from '../SchemaTypes'
+import { textPositionValues, textAlignmentValues } from '../typings/SchemaTypes'
 
 describe('Rich text component', () => {
   const defaultProps = {
