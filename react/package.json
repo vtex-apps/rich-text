@@ -23,18 +23,10 @@
     "@types/ramda": "^0.26.6",
     "@types/react": "^16.8.6",
     "@vtex/test-tools": "^0.2.0",
-    "babel-eslint": "10.0.1",
-    "babel-jest": "^24.3.0",
-    "babel-preset-react-app": "^7.0.2",
     "eslint": "^5.16.0",
     "eslint-config-vtex-react": "^4.0.0",
-    "eslint-plugin-import": "2.16.0",
-    "jest": "^24.3.0",
-    "jest-dom": "^3.1.2",
     "prettier": "^1.16.4",
     "react-dom": "^16.8.4",
-    "react-testing-library": "^6.0.0",
-    "typescript": "^3.4.1",
-    "typescript-babel-jest": "^1.0.6"
+    "typescript": "^3.4.1"
   }
 }
