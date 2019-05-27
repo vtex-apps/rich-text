@@ -7,8 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.3.0] - 2019-05-21
+## [0.4.0] - 2019-05-27
+### Added
+- i18n content edition support through CMS.
 
+## [0.3.0] - 2019-05-21
 ### Added
 - Allow `iframe` HTML tag.
 

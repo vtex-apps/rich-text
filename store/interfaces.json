@@ -1,5 +1,14 @@
 {
   "rich-text": {
-    "component": "index"
+    "component": "index",
+    "content": {
+      "properties": {
+        "text": {
+          "title": "admin/editor.rich-text.text.title",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": ""
+        }
+      }
+    }
   }
 }

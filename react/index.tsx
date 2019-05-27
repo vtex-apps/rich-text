@@ -1,11 +1,14 @@
 import React, { FunctionComponent, memo, useEffect, useState } from 'react'
+import { injectIntl, InjectedIntlProps } from 'react-intl'
 import marked, { Renderer } from 'marked'
 import { values } from 'ramda'
 import escapeHtml from 'escape-html'
 import insane from 'insane'
 import { generateBlockClass, BlockClass } from '@vtex/css-handles'
 
- //@ts-ignore
+import { formatIOMessage } from 'vtex.native-types'
+
+//@ts-ignore
 import styles from './styles/index.css'
 
 import {
@@ -53,7 +56,7 @@ const safelyGetToken = (
   propName: PropTokensNames
 ) => tokenMap[valueWanted] || defaultValues[propName]
 
-interface Props extends BlockClass {
+interface Props extends BlockClass, InjectedIntlProps {
   font: string
   text: string
   textAlignment: textAlignmentValues
@@ -66,16 +69,16 @@ interface VTEXIOComponent extends FunctionComponent<Props> {
   schema?: any
 }
 
-const sanitizerConfig = { 
+const sanitizerConfig = {
   allowedTags: ['p', 'span', 'a', 'div', 'br', 'img', 'iframe'],
-  allowedAttributes:{
+  allowedAttributes: {
     a: ['class', 'href', 'title'],
     span: ['class'],
     p: ['class'],
     div: ['class'],
     img: ['class', 'src', 'title', 'alt'],
-    iframe: ['frameborder', 'height', 'src', 'width', 'style']
-  }, 
+    iframe: ['frameborder', 'height', 'src', 'width', 'style'],
+  },
 }
 
 const RichText: FunctionComponent<Props> = ({
@@ -86,6 +89,7 @@ const RichText: FunctionComponent<Props> = ({
   textPosition,
   blockClass,
   htmlId,
+  intl,
 }) => {
   const [isMounted, setMounted] = useState(false)
   useEffect(() => {
@@ -94,7 +98,8 @@ const RichText: FunctionComponent<Props> = ({
 
   if (!isMounted) {
     const renderer = new Renderer()
-    renderer.paragraph = text => `<p class="lh-copy ${styles.paragraph}">${text}</p>`
+    renderer.paragraph = text =>
+      `<p class="lh-copy ${styles.paragraph}">${text}</p>`
     renderer.strong = text => `<span class="b ${styles.strong}">${text}</span>`
     renderer.em = text => `<span class="i ${styles.italic}">${text}</span>`
     renderer.heading = text => `<span class="${styles.heading}">${text}</span>`
@@ -104,7 +109,9 @@ const RichText: FunctionComponent<Props> = ({
       }>${text}</a>`
     renderer.html = html => escapeHtml(html)
     renderer.image = (href: string, title: string, text: string) =>
-      `<img class="${styles.image}" src="${href}" alt="${text}" title="${title}"/>`
+      `<img class="${
+        styles.image
+      }" src="${href}" alt="${text}" title="${title}"/>`
 
     marked.setOptions({
       gfm: true,
@@ -123,13 +130,18 @@ const RichText: FunctionComponent<Props> = ({
     'textPosition'
   )
 
-  const html = insane(marked(text), sanitizerConfig)
+  const html = insane(
+    //TODO: While markdown component isn't released, it needs to be done this way.
+    marked(formatIOMessage({ id: text, intl })),
+    sanitizerConfig
+  )
   return (
     <div
       id={htmlId}
-      className={`${
-        generateBlockClass(styles.container, blockClass)
-      } flex ${alignToken} ${itemsToken} ${justifyToken} ${font} ${textColor}`}
+      className={`${generateBlockClass(
+        styles.container,
+        blockClass
+      )} flex ${alignToken} ${itemsToken} ${justifyToken} ${font} ${textColor}`}
     >
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
@@ -151,12 +163,6 @@ MemoizedRichText.schema = {
   description: 'admin/editor.rich-text.description',
   type: 'object',
   properties: {
-    text: {
-      title: 'admin/editor.rich-text.text.title',
-      description: 'admin/editor.rich-text.textPosition.description',
-      type: 'string',
-      default: '',
-    },
     textPosition: {
       title: 'admin/editor.rich-text.textPosition.title',
       description: 'admin/editor.rich-text.textPosition.description',
@@ -199,4 +205,4 @@ MemoizedRichText.schema = {
   },
 }
 
-export default MemoizedRichText
+export default injectIntl(MemoizedRichText)
