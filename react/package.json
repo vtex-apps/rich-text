@@ -11,7 +11,8 @@
     "escape-html": "^1.0.3",
     "insane": "^2.6.2",
     "marked": "^0.6.1",
-    "ramda": "^0.26.1"
+    "ramda": "^0.26.1",
+    "react-intl": "^2.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",

@@ -13,5 +13,9 @@
   "mustUpdateAt": "2019-04-02",
   "scripts": {
     "postreleasy": "vtex publish --verbose"
-  }
+  },
+  "dependencies": {
+    "vtex.native-types": "0.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
