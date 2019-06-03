@@ -129,5 +129,31 @@ describe('Rich text component', () => {
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+
+  it('should render a link with target', () => {
+    const { asFragment } = render(
+      <RichText
+        {...defaultProps}
+        text="<a href='https://google.com' target='_blank'>bc</a>"
+      />
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should render a table', () => {
+    const { asFragment } = render(
+      <RichText
+        {...defaultProps}
+        text={`
+foo|bar
+---|---
+teste|abc
+        `}
+      />
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
 })
 

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Support for table.
+- Support for `target` attribute in `<a>` tags.
+
 ## [0.4.0] - 2019-05-27
 ### Added
 - i18n content edition support through CMS.
