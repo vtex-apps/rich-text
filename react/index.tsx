@@ -70,12 +70,15 @@ interface VTEXIOComponent extends FunctionComponent<Props> {
 }
 
 const sanitizerConfig = {
-  allowedTags: ['p', 'span', 'a', 'div', 'br', 'img', 'iframe'],
+  allowedTags: ['p', 'span', 'a', 'div', 'br', 'img', 'iframe', 'table', 'thead', 'tbody', 'tr', 'td', 'th'],
   allowedAttributes: {
-    a: ['class', 'href', 'title'],
+    a: ['class', 'href', 'title', 'target'],
     span: ['class'],
     p: ['class'],
     div: ['class'],
+    table: ['class'],
+    thead: ['class'],
+    tbody: ['class'],
     img: ['class', 'src', 'title', 'alt'],
     iframe: ['frameborder', 'height', 'src', 'width', 'style'],
   },
@@ -108,6 +111,15 @@ const RichText: FunctionComponent<Props> = ({
         title ? `title="${title}"` : ''
       }>${text}</a>`
     renderer.html = html => escapeHtml(html)
+    renderer.table = (header, body) => `
+    <table class="${styles.table}">
+      <thead class="${styles.tableHead}">
+        ${header}
+      </thead>
+      <tbody class="${styles.tableBody}">
+        ${body}
+      </tbody>
+    </table>`
     renderer.image = (href: string, title: string, text: string) =>
       `<img class="${
         styles.image

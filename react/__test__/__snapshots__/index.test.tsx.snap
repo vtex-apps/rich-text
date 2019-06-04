@@ -1,5 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Rich text component should render a link with target 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        <a
+          href="https://google.com"
+          target="_blank"
+        >
+          bc
+        </a>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should render a table 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      
+    
+      <table
+        class="table"
+      >
+        
+      
+        <thead
+          class="tableHead"
+        >
+          
+        
+          <tr>
+            
+
+            <th>
+              foo
+            </th>
+            
+
+            <th>
+              bar
+            </th>
+            
+
+          </tr>
+          
+
+      
+        </thead>
+        
+      
+        <tbody
+          class="tableBody"
+        >
+          
+        
+          <tr>
+            
+
+            <td>
+              teste
+            </td>
+            
+
+            <td>
+              abc
+            </td>
+            
+
+          </tr>
+          
+
+      
+        </tbody>
+        
+    
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Rich text component should render an iframe 1`] = `
 <DocumentFragment>
   <div
