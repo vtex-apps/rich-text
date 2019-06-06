@@ -1,5 +1,6 @@
 react/__mocks__/
 react/__tests__/
+react/__test__/
 react/node_modules/
 react/test-setup.js
 svg/
