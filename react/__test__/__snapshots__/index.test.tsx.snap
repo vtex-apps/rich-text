@@ -222,6 +222,41 @@ exports[`Rich text component should render link with title 1`] = `
 </DocumentFragment>
 `;
 
+exports[`Rich text component should render list 1`] = `
+<DocumentFragment>
+  <div
+    class="container container--home flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        Teste 
+      </p>
+      <div
+        class="list"
+      >
+        <p
+          class="listItem"
+        >
+          Item 1
+        </p>
+        <p
+          class="listItem"
+        >
+          Item 2
+        </p>
+        <p
+          class="listItem"
+        >
+          Item 3
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Rich text component should render with bold 1`] = `
 <DocumentFragment>
   <div
@@ -311,6 +346,27 @@ exports[`Rich text component should render with paragraph 1`] = `
       >
         IAM BOLD
       </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should render with two different heading levels 1`] = `
+<DocumentFragment>
+  <div
+    class="container container--home flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <span
+        class="heading heading-level-1"
+      >
+        Heading 1
+      </span>
+      <span
+        class="heading heading-level-3"
+      >
+        Heading level 3
+      </span>
     </div>
   </div>
 </DocumentFragment>
