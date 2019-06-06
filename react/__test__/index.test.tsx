@@ -154,6 +154,31 @@ teste|abc
     )
 
     expect(asFragment()).toMatchSnapshot()
+  it('should render with two different heading levels', () => {
+    const component = render(
+      <RichText
+        {...defaultProps}
+        text={
+          `# Heading 1 # \n ### Heading level 3 ##`
+        }
+        blockClass="home"
+      />
+    )
+    expect(component).toBeDefined()
+    expect(component.asFragment()).toMatchSnapshot()
+  })
+  it('should render list', () => {
+    const component = render(
+      <RichText
+        {...defaultProps}
+        text={
+          `Teste \n * Item 1\n * Item 2\n * Item 3`
+        }
+        blockClass="home"
+      />
+    )
+    expect(component).toBeDefined()
+    expect(component.asFragment()).toMatchSnapshot()
   })
 })
 

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.6.0] - 2019-06-06
+### Added
+- Support for lists.
+- Support heading levels in css.
+
 ## [0.5.0] - 2019-06-03
 
 ### Added
