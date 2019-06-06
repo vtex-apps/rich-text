@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Main interface's native type from `text` to `richText`.
+
 ## [0.6.1] - 2019-06-06
 ### Fixed
 - Fixed issue that causes syntax error on IE11, due to the use of ES6 features.

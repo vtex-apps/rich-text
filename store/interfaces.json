@@ -5,7 +5,7 @@
       "properties": {
         "text": {
           "title": "admin/editor.rich-text.text.title",
-          "$ref": "app:vtex.native-types#/definitions/text",
+          "$ref": "app:vtex.native-types#/definitions/richText",
           "default": ""
         }
       }
