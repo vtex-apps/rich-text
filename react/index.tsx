@@ -70,7 +70,7 @@ interface VTEXIOComponent extends FunctionComponent<Props> {
 }
 
 const sanitizerConfig = {
-  allowedTags: ['p', 'span', 'a', 'div', 'br', 'img', 'iframe', 'table', 'thead', 'tbody', 'tr', 'td', 'th'],
+  allowedTags: ['p', 'span', 'a', 'div', 'br', 'img', 'iframe', 'table', 'thead', 'tbody', 'tr', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'li'],
   allowedAttributes: {
     a: ['class', 'href', 'title', 'target'],
     span: ['class'],
@@ -81,8 +81,18 @@ const sanitizerConfig = {
     tbody: ['class'],
     img: ['class', 'src', 'title', 'alt'],
     iframe: ['frameborder', 'height', 'src', 'width', 'style'],
+    h1: ['class'],
+    h2: ['class'],
+    h3: ['class'],
+    h4: ['class'],
+    h5: ['class'],
+    h6: ['class'],
+    ul: ['class'],
+    li: ['class'],
   },
 }
+
+const getLevel = (level:number) => level > 0 && level <= 6 ? level + 1 : 6
 
 const RichText: FunctionComponent<Props> = ({
   font,
@@ -105,7 +115,7 @@ const RichText: FunctionComponent<Props> = ({
       `<p class="lh-copy ${styles.paragraph}">${text}</p>`
     renderer.strong = text => `<span class="b ${styles.strong}">${text}</span>`
     renderer.em = text => `<span class="i ${styles.italic}">${text}</span>`
-    renderer.heading = (text: string, level: number) => `<span class="${styles.heading} ${styles[`heading-level-${level}`]}">${text}</span>`
+    renderer.heading = (text: string, level: number) => `<h${getLevel(level)} class="${styles.heading} t-heading-${level} ${styles[`heading-level-${level}`]}">${text}</h${getLevel(level)}>`
     renderer.link = (href: string, title: string, text: string) =>
       `<a class="${styles.link}" href="${href}" ${
         title ? `title="${title}"` : ''
@@ -124,8 +134,8 @@ const RichText: FunctionComponent<Props> = ({
       `<img class="${
         styles.image
       }" src="${href}" alt="${text}" title="${title}"/>`
-    renderer.list = (body: string) => `<div class="${styles.list}">${body}</div>`
-    renderer.listitem = (text: string) => `<p class="${styles.listItem}">${text}</p>`
+    renderer.list = (body: string) => `<ul class="${styles.list}">${body}</ul>`
+    renderer.listitem = (text: string) => `<li class="${styles.listItem}">${text}</li>`
 
     marked.setOptions({
       gfm: true,
