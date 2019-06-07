@@ -21,6 +21,73 @@ exports[`Rich text component should render a link with target 1`] = `
 </DocumentFragment>
 `;
 
+exports[`Rich text component should render a link with target as query string on markdown and erase ? 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        <a
+          class="link"
+          href="https://www.google.com"
+          target="_blank"
+        >
+          text
+        </a>
+          
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should render a link with target as query string on markdown and keep others params 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        <a
+          class="link"
+          href="https://www.google.com?foo=tree&bar=lala"
+          target="_blank"
+        >
+          text
+        </a>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should render a link with target as query string on markdown and keep others params, remove trailing & 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        <a
+          class="link"
+          href="https://www.google.com?foo=tree&bar=lala"
+          target="_blank"
+        >
+          text
+        </a>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Rich text component should render a table 1`] = `
 <DocumentFragment>
   <div
@@ -233,25 +300,25 @@ exports[`Rich text component should render list 1`] = `
       >
         Teste 
       </p>
-      <div
+      <ul
         class="list"
       >
-        <p
+        <li
           class="listItem"
         >
           Item 1
-        </p>
-        <p
+        </li>
+        <li
           class="listItem"
         >
           Item 2
-        </p>
-        <p
+        </li>
+        <li
           class="listItem"
         >
           Item 3
-        </p>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
 </DocumentFragment>
@@ -335,6 +402,29 @@ exports[`Rich text component should render with image block class props 1`] = `
 </DocumentFragment>
 `;
 
+exports[`Rich text component should render with image no title 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        Inline-style:
+        <br />
+                  
+        <img
+          alt="alt text"
+          class="image"
+          src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png"
+        />
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Rich text component should render with paragraph 1`] = `
 <DocumentFragment>
   <div
@@ -357,16 +447,16 @@ exports[`Rich text component should render with two different heading levels 1`]
     class="container container--home flex tl items-start justify-start t-body c-on-base"
   >
     <div>
-      <span
-        class="heading heading-level-1"
+      <h1
+        class="heading t-heading-1 heading-level-1"
       >
         Heading 1
-      </span>
-      <span
-        class="heading heading-level-3"
+      </h1>
+      <h3
+        class="heading t-heading-3 heading-level-3"
       >
         Heading level 3
-      </span>
+      </h3>
     </div>
   </div>
 </DocumentFragment>

@@ -102,6 +102,20 @@ describe('Rich text component', () => {
     expect(component.asFragment()).toMatchSnapshot()
   })
 
+  it('should render with image no title', () => {
+    const component = render(
+      <RichText
+        {...defaultProps}
+        text={
+          `Inline-style: 
+          ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)`
+        }
+      />
+    )
+    expect(component).toBeDefined()
+    expect(component.asFragment()).toMatchSnapshot()
+  })
+
   it('should render with image block class props', () => {
     const component = render(
       <RichText
@@ -141,6 +155,36 @@ describe('Rich text component', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
+  it('should render a link with target as query string on markdown and erase ?', () => {
+    const { asFragment } = render(
+      <RichText
+        {...defaultProps}
+        text="[text](https://www.google.com?target=_blank)  "
+      />
+    )
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should render a link with target as query string on markdown and keep others params', () => {
+    const { asFragment } = render(
+      <RichText
+        {...defaultProps}
+        text="[text](https://www.google.com?target=_blank&foo=tree\&bar=lala)"
+      />
+    )
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('should render a link with target as query string on markdown and keep others params, remove trailing &', () => {
+    const { asFragment } = render(
+      <RichText
+        {...defaultProps}
+        text="[text](https://www.google.com?foo=tree\&bar=lala&target=_blank)"
+      />
+    )
+    expect(asFragment()).toMatchSnapshot()
+  })
+
   it('should render a table', () => {
     const { asFragment } = render(
       <RichText
@@ -154,6 +198,7 @@ teste|abc
     )
 
     expect(asFragment()).toMatchSnapshot()
+  })
   it('should render with two different heading levels', () => {
     const component = render(
       <RichText
