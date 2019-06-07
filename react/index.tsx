@@ -1,7 +1,7 @@
 import React, { FunctionComponent, memo, useEffect, useState } from 'react'
 import { injectIntl, InjectedIntlProps } from 'react-intl'
 import marked, { Renderer } from 'marked'
-import { values } from 'ramda'
+import { values, last, test } from 'ramda'
 import escapeHtml from 'escape-html'
 import insane from 'insane'
 import { generateBlockClass, BlockClass } from '@vtex/css-handles'
@@ -70,7 +70,7 @@ interface VTEXIOComponent extends FunctionComponent<Props> {
 }
 
 const sanitizerConfig = {
-  allowedTags: ['p', 'span', 'a', 'div', 'br', 'img', 'iframe', 'table', 'thead', 'tbody', 'tr', 'td', 'th'],
+  allowedTags: ['p', 'span', 'a', 'div', 'br', 'img', 'iframe', 'table', 'thead', 'tbody', 'tr', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'li'],
   allowedAttributes: {
     a: ['class', 'href', 'title', 'target'],
     span: ['class'],
@@ -81,7 +81,27 @@ const sanitizerConfig = {
     tbody: ['class'],
     img: ['class', 'src', 'title', 'alt'],
     iframe: ['frameborder', 'height', 'src', 'width', 'style'],
+    h1: ['class'],
+    h2: ['class'],
+    h3: ['class'],
+    h4: ['class'],
+    h5: ['class'],
+    h6: ['class'],
+    ul: ['class'],
+    li: ['class'],
   },
+}
+
+const getLevel = (level:number) => level > 0 && level <= 6 ? level : 6
+
+const getTargetFromUrl = (url: string) => {
+  const urlSplit = url.split('?')
+  if (urlSplit.length < 2) {
+    return ''
+  }
+  const qs = urlSplit[1]
+  const hastTargetBlank = qs.includes('target=_blank')
+  return hastTargetBlank ? 'target=_blank' : ''
 }
 
 const RichText: FunctionComponent<Props> = ({
@@ -105,11 +125,16 @@ const RichText: FunctionComponent<Props> = ({
       `<p class="lh-copy ${styles.paragraph}">${text}</p>`
     renderer.strong = text => `<span class="b ${styles.strong}">${text}</span>`
     renderer.em = text => `<span class="i ${styles.italic}">${text}</span>`
-    renderer.heading = (text: string, level: number) => `<span class="${styles.heading} ${styles[`heading-level-${level}`]}">${text}</span>`
-    renderer.link = (href: string, title: string, text: string) =>
-      `<a class="${styles.link}" href="${href}" ${
-        title ? `title="${title}"` : ''
-      }>${text}</a>`
+    renderer.heading = (text: string, level: number) => `<h${getLevel(level)} class="${styles.heading} t-heading-${getLevel(level)} ${styles[`heading-level-${getLevel(level)}`]}">${text}</h${getLevel(level)}>`
+    renderer.link = (href: string, title: string, text: string) => {
+      const targetAtr = getTargetFromUrl(href)
+      const targetRemoved = !!targetAtr ? href.replace(/target=_blank/, '').replace(/\?\&/,'?') : href
+
+      //clean trailing ? or &
+      const cleanHref = test(/\?|\&/, last(targetRemoved)) ? targetRemoved.slice(0, -1) : targetRemoved
+      const titleAtr = title ? `title="${title}"` : ''
+      return `<a class="${styles.link}" href=${cleanHref} ${titleAtr} ${targetAtr}>${text}</a>`
+    }
     renderer.html = html => escapeHtml(html)
     renderer.table = (header, body) => `
     <table class="${styles.table}">
@@ -123,9 +148,9 @@ const RichText: FunctionComponent<Props> = ({
     renderer.image = (href: string, title: string, text: string) =>
       `<img class="${
         styles.image
-      }" src="${href}" alt="${text}" title="${title}"/>`
-    renderer.list = (body: string) => `<div class="${styles.list}">${body}</div>`
-    renderer.listitem = (text: string) => `<p class="${styles.listItem}">${text}</p>`
+      }" src="${href}" alt="${text}" ${title ? `title="${title}"` : ''} />`
+    renderer.list = (body: string) => `<ul class="${styles.list}">${body}</ul>`
+    renderer.listitem = (text: string) => `<li class="${styles.listItem}">${text}</li>`
 
     marked.setOptions({
       gfm: true,
