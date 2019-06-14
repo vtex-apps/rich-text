@@ -104,6 +104,33 @@ const getTargetFromUrl = (url: string) => {
   return hastTargetBlank ? 'target=_blank' : ''
 }
 
+const typography = [
+  't-heading-1',
+  't-heading-2',
+  't-heading-3',
+  't-heading-4',
+  't-heading-5',
+  't-heading-6',
+  't-body',
+  't-small',
+  't-mini',
+  't-code',
+]
+
+const sanitizeFont = (font: string) => {
+  if (!font) {
+    return 't-body'
+  }
+
+  const first = font.split(' ')[0]
+
+  if (typography.indexOf(first) !== -1) {
+    return first
+  }
+
+  return 't-body'
+}
+
 const RichText: FunctionComponent<Props> = ({
   font,
   text,
@@ -174,13 +201,14 @@ const RichText: FunctionComponent<Props> = ({
     marked(formatIOMessage({ id: text, intl })),
     sanitizerConfig
   )
+
   return (
     <div
       id={htmlId}
       className={`${generateBlockClass(
         styles.container,
         blockClass
-      )} flex ${alignToken} ${itemsToken} ${justifyToken} ${font} ${textColor}`}
+      )} flex ${alignToken} ${itemsToken} ${justifyToken} ${sanitizeFont(font)} ${textColor}`}
     >
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>

@@ -199,6 +199,7 @@ teste|abc
 
     expect(asFragment()).toMatchSnapshot()
   })
+
   it('should render with two different heading levels', () => {
     const component = render(
       <RichText
@@ -212,6 +213,7 @@ teste|abc
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+
   it('should render list', () => {
     const component = render(
       <RichText
@@ -224,6 +226,15 @@ teste|abc
     )
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
+  })
+
+  it('should sanitize the font prop', () => {
+    const typography = 't-heading-1'
+    const { container } = render(<RichText {...defaultProps} text="foo" font={`${typography} foo`} />)
+
+    const element = container.querySelector(`.${typography}`)
+
+    expect(element).toBeDefined()
   })
 })
 
