@@ -233,8 +233,21 @@ teste|abc
     const { container } = render(<RichText {...defaultProps} text="foo" font={`${typography} foo`} />)
 
     const element = container.querySelector(`.${typography}`)
+    const notFound = container.querySelector('.foo')
 
-    expect(element).toBeDefined()
+    expect(element).toBeTruthy()
+    expect(notFound).toBeFalsy()
+  })
+
+  it('should sanitize the textColor prop', () => {
+    const color = 'c-muted-1'
+    const { container } = render(<RichText {...defaultProps} text="foo" textColor={`${color} foo`} />)
+
+    const element = container.querySelector(`.${color}`)
+    const notFound = container.querySelector('.foo')
+
+    expect(element).toBeTruthy()
+    expect(notFound).toBeFalsy()
   })
 })
 

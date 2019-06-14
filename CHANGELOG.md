@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - Avoid passing classes that are not typography tokens to the `font` prop.
+- Avoid passing classes that are not color tokens to the `textColor` prop.
 
 ## [0.7.1] - 2019-06-07
 ### Changed

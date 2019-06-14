@@ -124,11 +124,25 @@ const sanitizeFont = (font: string) => {
 
   const first = font.split(' ')[0]
 
-  if (typography.indexOf(first) !== -1) {
+  if (typography.indexOf(first) === -1) {
+    return 'tbody'
+  }
+
+  return first
+}
+
+const sanitizeColor = (color: string) => {
+  if (!color) {
+    return 'c-on-base'
+  }
+
+  const first = color.split(' ')[0]
+
+  if (first.indexOf('c-') === 0) {
     return first
   }
 
-  return 't-body'
+  return 'c-on-base'
 }
 
 const RichText: FunctionComponent<Props> = ({
@@ -208,7 +222,7 @@ const RichText: FunctionComponent<Props> = ({
       className={`${generateBlockClass(
         styles.container,
         blockClass
-      )} flex ${alignToken} ${itemsToken} ${justifyToken} ${sanitizeFont(font)} ${textColor}`}
+      )} flex ${alignToken} ${itemsToken} ${justifyToken} ${sanitizeFont(font)} ${sanitizeColor(textColor)}`}
     >
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
