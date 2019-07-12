@@ -10,5 +10,8 @@
         }
       }
     }
+  },
+  "rich-text.static": {
+    "component": "Static"
   }
 }

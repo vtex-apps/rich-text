@@ -145,7 +145,7 @@ const sanitizeColor = (color: string) => {
   return 'c-on-base'
 }
 
-const RichText: FunctionComponent<Props> = ({
+export const RichText: FunctionComponent<Props> = ({
   font,
   text,
   textAlignment,
