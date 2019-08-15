@@ -125,7 +125,7 @@ const sanitizeFont = (font: string) => {
   const first = font.split(' ')[0]
 
   if (typography.indexOf(first) === -1) {
-    return 'tbody'
+    return 't-body'
   }
 
   return first
