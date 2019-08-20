@@ -4,7 +4,7 @@
   "admin/editor.rich-text.text.title": "Texto",
   "admin/editor.rich-text.text.description": "Texto em linguagem markdown a ser mostrado",
   "admin/editor.rich-text.textPosition.title": "Posição do texto",
-  "admin/editor.rich-text.textPosition.description": "Escolha emqual posição o texto deve ser apresentado (esquerda, centro ou direita)",
+  "admin/editor.rich-text.textPosition.description": "Escolha em qual posição o texto deve ser apresentado (esquerda, centro ou direita)",
   "admin/editor.rich-text.textAlignment.title": "Alinhamento do texto",
   "admin/editor.rich-text.textAlignment.description": "Controla o alinhamento dos textos dentro do componente",
   "admin/editor.rich-text.textPosition.left": "Esquerda",
