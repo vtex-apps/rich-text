@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.7.4] - 2019-08-29
+
 ## [0.7.3] - 2019-08-15
 ### Fixed
 - Name of the typography token.
