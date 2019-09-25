@@ -90,9 +90,10 @@ const sanitizerConfig = {
     ul: ['class'],
     li: ['class'],
   },
+  allowedSchemes: ['http', 'https', 'mailto', 'tel'],
 }
 
-const getLevel = (level:number) => level > 0 && level <= 6 ? level : 6
+const getLevel = (level: number) => level > 0 && level <= 6 ? level : 6
 
 const getTargetFromUrl = (url: string) => {
   const urlSplit = url.split('?')
@@ -169,12 +170,24 @@ const RichText: FunctionComponent<Props> = ({
     renderer.heading = (text: string, level: number) => `<h${getLevel(level)} class="${styles.heading} t-heading-${getLevel(level)} ${styles[`heading-level-${getLevel(level)}`]}">${text}</h${getLevel(level)}>`
     renderer.link = (href: string, title: string, text: string) => {
       const targetAtr = getTargetFromUrl(href)
-      const targetRemoved = !!targetAtr ? href.replace(/target=_blank/, '').replace(/\?\&/,'?') : href
+      const targetRemoved = !!targetAtr ? href.replace(/target=_blank/, '').replace(/\?\&/, '?') : href
 
       //clean trailing ? or &
       const cleanHref = test(/\?|\&/, last(targetRemoved)) ? targetRemoved.slice(0, -1) : targetRemoved
       const titleAtr = title ? `title="${title}"` : ''
-      return `<a class="${styles.link}" href=${cleanHref} ${titleAtr} ${targetAtr}>${text}</a>`
+
+      let finalLink = `<a class="${styles.link}" href="${cleanHref}"`
+      if (titleAtr) {
+        finalLink += ` ${titleAtr}`
+      }
+
+      if (targetAtr) {
+        finalLink += ` ${targetAtr}`
+      }
+
+      finalLink += `>${text}</a>`
+      return finalLink
+      // return `<a class="${styles.link}" href="${cleanHref}" ${titleAtr} ${targetAtr}>${text}</a>`
     }
     renderer.html = html => escapeHtml(html)
     renderer.table = (header, body) => `
@@ -188,7 +201,7 @@ const RichText: FunctionComponent<Props> = ({
     </table>`
     renderer.image = (href: string, title: string, text: string) =>
       `<img class="${
-        styles.image
+      styles.image
       }" src="${href}" alt="${text}" ${title ? `title="${title}"` : ''} />`
     renderer.list = (body: string) => `<ul class="${styles.list}">${body}</ul>`
     renderer.listitem = (text: string) => `<li class="${styles.listItem}">${text}</li>`
