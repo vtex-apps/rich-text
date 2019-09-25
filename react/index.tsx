@@ -187,7 +187,6 @@ const RichText: FunctionComponent<Props> = ({
 
       finalLink += `>${text}</a>`
       return finalLink
-      // return `<a class="${styles.link}" href="${cleanHref}" ${titleAtr} ${targetAtr}>${text}</a>`
     }
     renderer.html = html => escapeHtml(html)
     renderer.table = (header, body) => `
