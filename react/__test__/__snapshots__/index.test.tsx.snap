@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Rich text component should allow mailto scheme on link 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        <a
+          class="link"
+          href="mailto:test@vtex.com.br"
+        >
+          Mail me
+        </a>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should allow tel scheme on link 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        <a
+          class="link"
+          href="tel:+18882165252"
+        >
+          Telefone
+        </a>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Rich text component should render a link with target 1`] = `
 <DocumentFragment>
   <div

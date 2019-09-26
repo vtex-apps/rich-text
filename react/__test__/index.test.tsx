@@ -249,5 +249,17 @@ teste|abc
     expect(element).toBeTruthy()
     expect(notFound).toBeFalsy()
   })
+
+  it('should allow tel scheme on link', () => {
+    const component = render(<RichText {...defaultProps} text="[Telefone](tel:+18882165252)" />)
+    expect(component).toBeDefined()
+    expect(component.asFragment()).toMatchSnapshot()
+  })
+
+  it('should allow mailto scheme on link', () => {
+    const component = render(<RichText {...defaultProps} text="[Mail me](mailto:test@vtex.com.br)" />)
+    expect(component).toBeDefined()
+    expect(component.asFragment()).toMatchSnapshot()
+  })
 })
 
