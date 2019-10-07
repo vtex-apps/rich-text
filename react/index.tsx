@@ -4,12 +4,11 @@ import marked, { Renderer } from 'marked'
 import { values, last, test } from 'ramda'
 import escapeHtml from 'escape-html'
 import insane from 'insane'
-import { generateBlockClass, BlockClass } from '@vtex/css-handles'
+import { useCssHandles } from 'vtex.css-handles'
 
 import { formatIOMessage } from 'vtex.native-types'
 
-//@ts-ignore
-import styles from './styles/index.css'
+const CSS_HANDLES = ['container', 'paragraph', 'strong', 'italic', 'heading', 'link', 'table', 'tableHead', 'tableBody', 'heading-level-1', 'heading-level-2', 'heading-level-3', 'heading-level-4', 'heading-level-5', 'heading-level-6', 'list', 'listItem', 'image'] as const
 
 import {
   textPositionTypes,
@@ -56,7 +55,7 @@ const safelyGetToken = (
   propName: PropTokensNames
 ) => tokenMap[valueWanted] || defaultValues[propName]
 
-interface Props extends BlockClass, InjectedIntlProps {
+interface Props extends InjectedIntlProps {
   font: string
   text: string
   textAlignment: textAlignmentValues
@@ -146,17 +145,36 @@ const sanitizeColor = (color: string) => {
   return 'c-on-base'
 }
 
+const getHeadingLevelClass = (handles: Record<string, string>, level: number) => {
+  switch (level) {
+    case 1:
+      return handles['heading-level-1']
+    case 2:
+      return handles['heading-level-2']
+    case 3:
+      return handles['heading-level-3']
+    case 4:
+      return handles['heading-level-4']
+    case 5:
+      return handles['heading-level-5']
+    case 6:
+      return handles['heading-level-6']
+    default:
+      return ''
+  }
+}
+
 const RichText: FunctionComponent<Props> = ({
   font,
   text,
   textAlignment,
   textColor,
   textPosition,
-  blockClass,
   htmlId,
   intl,
 }) => {
   const [isMounted, setMounted] = useState(false)
+  const handles = useCssHandles(CSS_HANDLES)
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -164,10 +182,10 @@ const RichText: FunctionComponent<Props> = ({
   if (!isMounted) {
     const renderer = new Renderer()
     renderer.paragraph = text =>
-      `<p class="lh-copy ${styles.paragraph}">${text}</p>`
-    renderer.strong = text => `<span class="b ${styles.strong}">${text}</span>`
-    renderer.em = text => `<span class="i ${styles.italic}">${text}</span>`
-    renderer.heading = (text: string, level: number) => `<h${getLevel(level)} class="${styles.heading} t-heading-${getLevel(level)} ${styles[`heading-level-${getLevel(level)}`]}">${text}</h${getLevel(level)}>`
+      `<p class="lh-copy ${handles.paragraph}">${text}</p>`
+    renderer.strong = text => `<span class="b ${handles.strong}">${text}</span>`
+    renderer.em = text => `<span class="i ${handles.italic}">${text}</span>`
+    renderer.heading = (text: string, level: number) => `<h${getLevel(level)} class="${handles.heading} t-heading-${getLevel(level)} ${getHeadingLevelClass(handles, getLevel(level))}">${text}</h${getLevel(level)}>`
     renderer.link = (href: string, title: string, text: string) => {
       const targetAtr = getTargetFromUrl(href)
       const targetRemoved = !!targetAtr ? href.replace(/target=_blank/, '').replace(/\?\&/, '?') : href
@@ -176,7 +194,7 @@ const RichText: FunctionComponent<Props> = ({
       const cleanHref = test(/\?|\&/, last(targetRemoved)) ? targetRemoved.slice(0, -1) : targetRemoved
       const titleAtr = title ? `title="${title}"` : ''
 
-      let finalLink = `<a class="${styles.link}" href="${cleanHref}"`
+      let finalLink = `<a class="${handles.link}" href="${cleanHref}"`
       if (titleAtr) {
         finalLink += ` ${titleAtr}`
       }
@@ -190,20 +208,20 @@ const RichText: FunctionComponent<Props> = ({
     }
     renderer.html = html => escapeHtml(html)
     renderer.table = (header, body) => `
-    <table class="${styles.table}">
-      <thead class="${styles.tableHead}">
+    <table class="${handles.table}">
+      <thead class="${handles.tableHead}">
         ${header}
       </thead>
-      <tbody class="${styles.tableBody}">
+      <tbody class="${handles.tableBody}">
         ${body}
       </tbody>
     </table>`
     renderer.image = (href: string, title: string, text: string) =>
       `<img class="${
-      styles.image
+      handles.image
       }" src="${href}" alt="${text}" ${title ? `title="${title}"` : ''} />`
-    renderer.list = (body: string) => `<ul class="${styles.list}">${body}</ul>`
-    renderer.listitem = (text: string) => `<li class="${styles.listItem}">${text}</li>`
+    renderer.list = (body: string) => `<ul class="${handles.list}">${body}</ul>`
+    renderer.listitem = (text: string) => `<li class="${handles.listItem}">${text}</li>`
 
     marked.setOptions({
       gfm: true,
@@ -231,10 +249,7 @@ const RichText: FunctionComponent<Props> = ({
   return (
     <div
       id={htmlId}
-      className={`${generateBlockClass(
-        styles.container,
-        blockClass
-      )} flex ${alignToken} ${itemsToken} ${justifyToken} ${sanitizeFont(font)} ${sanitizeColor(textColor)}`}
+      className={`${handles.container} flex ${alignToken} ${itemsToken} ${justifyToken} ${sanitizeFont(font)} ${sanitizeColor(textColor)}`}
     >
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
