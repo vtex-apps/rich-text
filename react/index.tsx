@@ -4,11 +4,33 @@ import marked, { Renderer } from 'marked'
 import { values, last, test } from 'ramda'
 import escapeHtml from 'escape-html'
 import insane from 'insane'
-import { useCssHandles } from 'vtex.css-handles'
+import { useCssHandles, CssHandles } from 'vtex.css-handles'
 
 import { formatIOMessage } from 'vtex.native-types'
 
-const CSS_HANDLES = ['container', 'paragraph', 'strong', 'italic', 'heading', 'link', 'table', 'tableHead', 'tableBody', 'heading-level-1', 'heading-level-2', 'heading-level-3', 'heading-level-4', 'heading-level-5', 'heading-level-6', 'list', 'listItem', 'image'] as const
+//@ts-ignore
+import styles from './styles/index.css'
+
+const CSS_HANDLES = [
+  'container',
+  'paragraph',
+  'strong',
+  'italic',
+  'heading',
+  'link',
+  'table',
+  'tableHead',
+  'tableBody',
+  'headingLevel1',
+  'headingLevel2',
+  'headingLevel3',
+  'headingLevel4',
+  'headingLevel5',
+  'headingLevel6',
+  'list',
+  'listItem',
+  'image'
+] as const
 
 import {
   textPositionTypes,
@@ -67,6 +89,8 @@ interface Props extends InjectedIntlProps {
 interface VTEXIOComponent extends FunctionComponent<Props> {
   schema?: any
 }
+
+type RichTextCssHandles = CssHandles<typeof CSS_HANDLES>
 
 const sanitizerConfig = {
   allowedTags: ['p', 'span', 'a', 'div', 'br', 'img', 'iframe', 'table', 'thead', 'tbody', 'tr', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'li'],
@@ -145,23 +169,30 @@ const sanitizeColor = (color: string) => {
   return 'c-on-base'
 }
 
-const getHeadingLevelClass = (handles: Record<string, string>, level: number) => {
+const getHeadingLevelClass = (handles: RichTextCssHandles, level: number) => {
   switch (level) {
     case 1:
-      return handles['heading-level-1']
+      return handles.headingLevel1
     case 2:
-      return handles['heading-level-2']
+      return handles.headingLevel2
     case 3:
-      return handles['heading-level-3']
+      return handles.headingLevel3
     case 4:
-      return handles['heading-level-4']
+      return handles.headingLevel4
     case 5:
-      return handles['heading-level-5']
+      return handles.headingLevel5
     case 6:
-      return handles['heading-level-6']
+      return handles.headingLevel6
     default:
       return ''
   }
+}
+
+const renderHeading = (handles: RichTextCssHandles) => (text: string, level: number) => {
+  const levelNumber = getLevel(level)
+  const classes =
+    `${handles.heading} t-heading-${levelNumber} ${getHeadingLevelClass(handles, levelNumber)} ${styles[`heading-level-${levelNumber}`]}`
+  return `<h${levelNumber} class="${classes}">${text}</h${levelNumber}>`
 }
 
 const RichText: FunctionComponent<Props> = ({
@@ -185,7 +216,7 @@ const RichText: FunctionComponent<Props> = ({
       `<p class="lh-copy ${handles.paragraph}">${text}</p>`
     renderer.strong = text => `<span class="b ${handles.strong}">${text}</span>`
     renderer.em = text => `<span class="i ${handles.italic}">${text}</span>`
-    renderer.heading = (text: string, level: number) => `<h${getLevel(level)} class="${handles.heading} t-heading-${getLevel(level)} ${getHeadingLevelClass(handles, getLevel(level))}">${text}</h${getLevel(level)}>`
+    renderer.heading = renderHeading(handles)
     renderer.link = (href: string, title: string, text: string) => {
       const targetAtr = getTargetFromUrl(href)
       const targetRemoved = !!targetAtr ? href.replace(/target=_blank/, '').replace(/\?\&/, '?') : href
