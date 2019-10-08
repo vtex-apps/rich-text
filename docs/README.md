@@ -8,6 +8,7 @@ For example, the text:
 `[Help](https://help.vtex.com/en/faq/what-is-vtex-io).\n**Be Bold!**\n*This is italic*`
 
 Is converted to:
+
 ```
 <div>
       <p>
@@ -19,7 +20,7 @@ Is converted to:
         <br />
         <span class="i">This is italic</span>
       </p>
-      
+
 
     </div>
   </div>
@@ -83,30 +84,30 @@ For now this block does not have any required or optional blocks.
 
 Through the Storefront, you can change the rich-text's behavior and interface. However, you also can make in your theme app, as Store theme does.
 
-| Prop name           | Type      | Description                                                                                 |
-| ------------------- | --------- | ------------------------------------------------------------------------------------------- |
-| `font`     | `String` | Define the tachyon token to be used as font. Default: `t-body`    |
-| `textColor`     | `String` | Define the tachyon token to be used as text color. Default: `c-on-base`                                          |
-| `text`        | `String` | Text written in markdown language to be displayed              |
-| `textAlignment`  | `TextAlignmentEnum` | Control the text alignment inside component. Default: `"LEFT"`                                                                |
-| `textPosition`       | `TextPostionEnum` | Choose in which position of the component text will be displayed, left, center or right. Default: `"LEFT"`                                                           |
-| `blockClass`       | `String` | Unique class name to be appended to block classes. Default: `null`                                                           |
+| Prop name       | Type                | Description                                                                                                |
+| --------------- | ------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `font`          | `String`            | Define the tachyon token to be used as font. Default: `t-body`                                             |
+| `textColor`     | `String`            | Define the tachyon token to be used as text color. Default: `c-on-base`                                    |
+| `text`          | `String`            | Text written in markdown language to be displayed                                                          |
+| `textAlignment` | `TextAlignmentEnum` | Control the text alignment inside component. Default: `"LEFT"`                                             |
+| `textPosition`  | `TextPostionEnum`   | Choose in which position of the component text will be displayed, left, center or right. Default: `"LEFT"` |
+| `blockClass`    | `String`            | Unique class name to be appended to block classes. Default: `null`                                         |
 
 Here are the possible values of `TextPostionEnum`
 
-| Enum name | Enum value | Description |
-| --------- | ---- | ----------- |
-| Left | 'LEFT' | Text will be to the left. If `isFullModeStyle` is false, image will be on the right |
-| Center | 'CENTER' | Text will be in the center. Not applicable if `isFullModeStyle` is false. |
-| Right | 'RIGHT' | Text will be to the right. If `isFullModeStyle` is false, image will be on the left |
+| Enum name | Enum value | Description                                                                         |
+| --------- | ---------- | ----------------------------------------------------------------------------------- |
+| Left      | 'LEFT'     | Text will be to the left. If `isFullModeStyle` is false, image will be on the right |
+| Center    | 'CENTER'   | Text will be in the center. Not applicable if `isFullModeStyle` is false.           |
+| Right     | 'RIGHT'    | Text will be to the right. If `isFullModeStyle` is false, image will be on the left |
 
 Here are the possible values of `TextAlignmentEnum`
 
-| Enum name | Enum value | Description |
-| --------- | ---- | ----------- |
-| Left | 'LEFT' | Text alignment will be to the left. |
-| Center | 'CENTER' | Text alignment will be to the center. |
-| Right | 'RIGHT' | Text alignment will be to the right. |
+| Enum name | Enum value | Description                           |
+| --------- | ---------- | ------------------------------------- |
+| Left      | 'LEFT'     | Text alignment will be to the left.   |
+| Center    | 'CENTER'   | Text alignment will be to the center. |
+| Right     | 'RIGHT'    | Text alignment will be to the right.  |
 
 ### Styles API
 
@@ -134,15 +135,27 @@ To use this CSS API, you must add the `styles` builder and create an app styling
 
 Below, we describe the namespaces that are defined in the rich-text.
 
-| Token name                 | Component                                                                                                                                                                                                                                                                                                                                                                     | Description                                                   |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `container`                | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | The main container of `Rich Text`                        |
-| `strong`          | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx)    |  Token inserted in items that were marked as bold during markdown conversion.                                        
-| `italic`           | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx)   |  Token inserted in items that were marked as italic during markdown conversion  |
-| `link`           | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx)   |  Token inserted in items that were marked as links during markdown conversion  |
-| `heading`           | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx)   |  Token inserted in items that were marked as headers during markdown conversion  |
-| `paragraph`           | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx)   |  Token inserted in items that were marked as paragraphs during markdown conversion  |
-| `image`           | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx)   |  Token inserted in items that were marked as images during markdown conversion  |
+| Token name      | Component                                                                   | Description                                                                                |
+| --------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `container`     | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | The main container of `Rich Text`                                                          |
+| `strong`        | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as bold during markdown conversion.               |
+| `italic`        | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as italic during markdown conversion              |
+| `link`          | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as links during markdown conversion               |
+| `heading`       | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as headers during markdown conversion             |
+| `paragraph`     | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as paragraphs during markdown conversion          |
+| `table`         | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as table during markdown conversion               |
+| `tableHead`     | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as thead during markdown conversion               |
+| `tableBody`     | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as tbody during markdown conversion               |
+| `list`          | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as lists (`<ul>`) during markdown conversion      |
+| `listItem`      | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as list items (`<li>`) during markdown conversion |
+| `headingLevel1` | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked `<h1>` during markdown conversion                 |
+| `headingLevel2` | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked `<h2>` during markdown conversion                 |
+| `headingLevel3` | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked `<h3>` during markdown conversion                 |
+| `headingLevel4` | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked `<h4>` during markdown conversion                 |
+| `headingLevel5` | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked `<h5>` during markdown conversion                 |
+| `headingLevel6` | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked `<h6>` during markdown conversion                 |
+
+Note: `heading-level-1` until `heading-level-6` are also added to heading HTML elements but these classes are deprecated, only the `headingLevelX` classes are officially supported, please use them.
 
 ## Troubleshooting
 
