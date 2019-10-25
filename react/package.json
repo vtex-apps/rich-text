@@ -28,5 +28,6 @@
     "prettier": "^1.16.4",
     "react-dom": "^16.8.4",
     "typescript": "3.5.2"
-  }
+  },
+  "version": "0.7.8"
 }
