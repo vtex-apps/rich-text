@@ -16,8 +16,7 @@
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
-    "vtex.native-types": "0.x",
-    "vtex.css-handles": "0.x"
+    "vtex.native-types": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

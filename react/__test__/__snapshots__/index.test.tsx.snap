@@ -334,7 +334,7 @@ exports[`Rich text component should render link with title 1`] = `
 exports[`Rich text component should render list 1`] = `
 <DocumentFragment>
   <div
-    class="container flex tl items-start justify-start t-body c-on-base"
+    class="container container--home flex tl items-start justify-start t-body c-on-base"
   >
     <div>
       <p
@@ -413,7 +413,7 @@ exports[`Rich text component should render with image 1`] = `
 exports[`Rich text component should render with image block class props 1`] = `
 <DocumentFragment>
   <div
-    class="container flex tl items-start justify-start t-body c-on-base"
+    class="container container--home flex tl items-start justify-start t-body c-on-base"
   >
     <div>
       <p
@@ -486,16 +486,16 @@ exports[`Rich text component should render with paragraph 1`] = `
 exports[`Rich text component should render with two different heading levels 1`] = `
 <DocumentFragment>
   <div
-    class="container flex tl items-start justify-start t-body c-on-base"
+    class="container container--home flex tl items-start justify-start t-body c-on-base"
   >
     <div>
       <h1
-        class="heading t-heading-1 headingLevel1 heading-level-1"
+        class="heading t-heading-1 heading-level-1"
       >
         Heading 1
       </h1>
       <h3
-        class="heading t-heading-3 headingLevel3 heading-level-3"
+        class="heading t-heading-3 heading-level-3"
       >
         Heading level 3
       </h3>
