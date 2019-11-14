@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useEffect, useState } from 'react'
+import React, { FunctionComponent, memo, useEffect, useState, useRef, useMemo } from 'react'
 import { injectIntl, InjectedIntlProps } from 'react-intl'
 import marked, { Renderer } from 'marked'
 import { values, last, test } from 'ramda'
@@ -206,18 +206,19 @@ const RichText: FunctionComponent<Props> = ({
 }) => {
   const [isMounted, setMounted] = useState(false)
   const handles = useCssHandles(CSS_HANDLES)
+  const renderer = useRef<Renderer>()
   useEffect(() => {
     setMounted(true)
   }, [])
 
   if (!isMounted) {
-    const renderer = new Renderer()
-    renderer.paragraph = text =>
+    renderer.current = new Renderer()
+    renderer.current.paragraph = text =>
       `<p class="lh-copy ${handles.paragraph}">${text}</p>`
-    renderer.strong = text => `<span class="b ${handles.strong}">${text}</span>`
-    renderer.em = text => `<span class="i ${handles.italic}">${text}</span>`
-    renderer.heading = renderHeading(handles)
-    renderer.link = (href: string, title: string, text: string) => {
+    renderer.current.strong = text => `<span class="b ${handles.strong}">${text}</span>`
+    renderer.current.em = text => `<span class="i ${handles.italic}">${text}</span>`
+    renderer.current.heading = renderHeading(handles)
+    renderer.current.link = (href: string, title: string, text: string) => {
       const targetAtr = getTargetFromUrl(href)
       const targetRemoved = !!targetAtr ? href.replace(/target=_blank/, '').replace(/\?\&/, '?') : href
 
@@ -237,8 +238,8 @@ const RichText: FunctionComponent<Props> = ({
       finalLink += `>${text}</a>`
       return finalLink
     }
-    renderer.html = html => escapeHtml(html)
-    renderer.table = (header, body) => `
+    renderer.current.html = html => escapeHtml(html)
+    renderer.current.table = (header, body) => `
     <table class="${handles.table}">
       <thead class="${handles.tableHead}">
         ${header}
@@ -247,20 +248,12 @@ const RichText: FunctionComponent<Props> = ({
         ${body}
       </tbody>
     </table>`
-    renderer.image = (href: string, title: string, text: string) =>
+    renderer.current.image = (href: string, title: string, text: string) =>
       `<img class="${
       handles.image
       }" src="${href}" alt="${text}" ${title ? `title="${title}"` : ''} />`
-    renderer.list = (body: string) => `<ul class="${handles.list}">${body}</ul>`
-    renderer.listitem = (text: string) => `<li class="${handles.listItem}">${text}</li>`
-
-    marked.setOptions({
-      gfm: true,
-      breaks: true,
-      sanitize: false, //Use insane lib for sanitizing
-      smartLists: true,
-      renderer,
-    })
+    renderer.current.list = (body: string) => `<ul class="${handles.list}">${body}</ul>`
+    renderer.current.listitem = (text: string) => `<li class="${handles.listItem}">${text}</li>`
   }
 
   const alignToken = safelyGetToken(alignTokens, textAlignment, 'textAlignment')
@@ -271,11 +264,21 @@ const RichText: FunctionComponent<Props> = ({
     'textPosition'
   )
 
-  const html = insane(
-    //TODO: While markdown component isn't released, it needs to be done this way.
-    marked(formatIOMessage({ id: text, intl })),
-    sanitizerConfig
-  )
+  const html = useMemo(() => {
+    marked.setOptions({
+      gfm: true,
+      breaks: true,
+      sanitize: false, //Use insane lib for sanitizing
+      smartLists: true,
+      renderer: renderer.current,
+    })
+
+    return insane(
+      //TODO: While markdown component isn't released, it needs to be done this way.
+      marked(formatIOMessage({ id: text, intl })),
+      sanitizerConfig
+    )
+  }, [text, intl, sanitizerConfig, marked, insane, formatIOMessage])
 
   return (
     <div
