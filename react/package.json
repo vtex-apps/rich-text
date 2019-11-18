@@ -29,5 +29,5 @@
     "react-dom": "^16.8.4",
     "typescript": "3.5.2"
   },
-  "version": "0.7.9"
+  "version": "0.8.0"
 }
