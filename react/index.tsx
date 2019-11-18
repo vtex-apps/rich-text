@@ -28,6 +28,7 @@ const CSS_HANDLES = [
   'headingLevel5',
   'headingLevel6',
   'list',
+  'list--ordered',
   'listItem',
   'image'
 ] as const
@@ -93,7 +94,7 @@ interface VTEXIOComponent extends FunctionComponent<Props> {
 type RichTextCssHandles = CssHandles<typeof CSS_HANDLES>
 
 const sanitizerConfig = {
-  allowedTags: ['p', 'span', 'a', 'div', 'br', 'img', 'iframe', 'table', 'thead', 'tbody', 'tr', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'li'],
+  allowedTags: ['p', 'span', 'a', 'div', 'br', 'img', 'iframe', 'table', 'thead', 'tbody', 'tr', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li'],
   allowedAttributes: {
     a: ['class', 'href', 'title', 'target'],
     span: ['class'],
@@ -111,6 +112,7 @@ const sanitizerConfig = {
     h5: ['class'],
     h6: ['class'],
     ul: ['class'],
+    ol: ['class'],
     li: ['class'],
   },
   allowedSchemes: ['http', 'https', 'mailto', 'tel'],
@@ -252,7 +254,10 @@ const RichText: FunctionComponent<Props> = ({
       `<img class="${
       handles.image
       }" src="${href}" alt="${text}" ${title ? `title="${title}"` : ''} />`
-    renderer.current.list = (body: string) => `<ul class="${handles.list}">${body}</ul>`
+    renderer.current.list = (body: string, ordered: boolean) => {
+      const tag = ordered ? 'ol' : 'ul'
+      return `<${tag} class="${handles.list} ${ordered ? handles['list--ordered'] : ''}">${body}</${tag}>`
+    }
     renderer.current.listitem = (text: string) => `<li class="${handles.listItem}">${text}</li>`
   }
 

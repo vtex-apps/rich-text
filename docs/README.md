@@ -146,7 +146,8 @@ Below, we describe the namespaces that are defined in the rich-text.
 | `table`         | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as table during markdown conversion               |
 | `tableHead`     | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as thead during markdown conversion               |
 | `tableBody`     | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as tbody during markdown conversion               |
-| `list`          | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as lists (`<ul>`) during markdown conversion      |
+| `list`          | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as lists (`<ul>` or `<ol>`) during markdown conversion      |
+| `list--ordered` | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as ordered lists (`<ol>`) during markdown conversion      |
 | `listItem`      | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked as list items (`<li>`) during markdown conversion |
 | `headingLevel1` | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked `<h1>` during markdown conversion                 |
 | `headingLevel2` | [index](https://github.com/vtex-apps/rich-text/blob/master/react/index.tsx) | Token inserted in items that were marked `<h2>` during markdown conversion                 |

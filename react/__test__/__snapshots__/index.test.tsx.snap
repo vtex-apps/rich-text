@@ -343,7 +343,7 @@ exports[`Rich text component should render list 1`] = `
         Teste 
       </p>
       <ul
-        class="list"
+        class="list "
       >
         <li
           class="listItem"
@@ -361,6 +361,41 @@ exports[`Rich text component should render list 1`] = `
           Item 3
         </li>
       </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Rich text component should render ordered list 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div>
+      <p
+        class="lh-copy paragraph"
+      >
+        Teste 
+      </p>
+      <ol
+        class="list list--ordered"
+      >
+        <li
+          class="listItem"
+        >
+          Item 1
+        </li>
+        <li
+          class="listItem"
+        >
+          Item 2
+        </li>
+        <li
+          class="listItem"
+        >
+          Item 3
+        </li>
+      </ol>
     </div>
   </div>
 </DocumentFragment>

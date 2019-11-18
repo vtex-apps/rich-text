@@ -228,6 +228,21 @@ teste|abc
     expect(component.asFragment()).toMatchSnapshot()
   })
 
+
+  it('should render ordered list', () => {
+    const component = render(
+      <RichText
+        {...defaultProps}
+        text={
+          `Teste \n 1. Item 1\n 2. Item 2\n 3. Item 3`
+        }
+        blockClass="home"
+      />
+    )
+    expect(component).toBeDefined()
+    expect(component.asFragment()).toMatchSnapshot()
+  })
+
   it('should sanitize the font prop', () => {
     const typography = 't-heading-1'
     const { container } = render(<RichText {...defaultProps} text="foo" font={`${typography} foo`} />)
