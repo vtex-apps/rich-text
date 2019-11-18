@@ -28,7 +28,7 @@ const CSS_HANDLES = [
   'headingLevel5',
   'headingLevel6',
   'list',
-  'list--ordered',
+  'listOrdered',
   'listItem',
   'image'
 ] as const
@@ -256,7 +256,7 @@ const RichText: FunctionComponent<Props> = ({
       }" src="${href}" alt="${text}" ${title ? `title="${title}"` : ''} />`
     renderer.current.list = (body: string, ordered: boolean) => {
       const tag = ordered ? 'ol' : 'ul'
-      return `<${tag} class="${handles.list} ${ordered ? handles['list--ordered'] : ''}">${body}</${tag}>`
+      return `<${tag} class="${handles.list} ${ordered ? handles.listOrdered : ''}">${body}</${tag}>`
     }
     renderer.current.listitem = (text: string) => `<li class="${handles.listItem}">${text}</li>`
   }
