@@ -378,7 +378,7 @@ exports[`Rich text component should render ordered list 1`] = `
         Teste 
       </p>
       <ol
-        class="list list--ordered"
+        class="list listOrdered"
       >
         <li
           class="listItem"
