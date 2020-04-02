@@ -148,15 +148,21 @@ exports[`Rich text component should render a table 1`] = `
         >
           
         
-          <tr>
+          <tr
+            class="tableTr"
+          >
             
 
-            <th>
+            <th
+              class="tableTh"
+            >
               foo
             </th>
             
 
-            <th>
+            <th
+              class="tableTh"
+            >
               bar
             </th>
             
@@ -173,15 +179,21 @@ exports[`Rich text component should render a table 1`] = `
         >
           
         
-          <tr>
+          <tr
+            class="tableTr"
+          >
             
 
-            <td>
+            <td
+              class="tableTd"
+            >
               teste
             </td>
             
 
-            <td>
+            <td
+              class="tableTd"
+            >
               abc
             </td>
             

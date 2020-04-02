@@ -89,12 +89,27 @@ Here are the possible values of `TextAlignmentEnum`
 In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization). 
 
 
-| CSS Handle                 | 
-| -------------------------- | 
-| `container`                |
-| `strong`          |                                       
-| `italic`           |
-| `link`           |
-| `heading`           | |
-| `paragraph`           |
-| `image`           |
+| CSS Handle |
+| --- |
+| `container` |
+| `heading` |
+| `headingLevel1` |
+| `headingLevel2` |
+| `headingLevel3` |
+| `headingLevel4` |
+| `headingLevel5` |
+| `headingLevel6` |
+| `image` |
+| `italic` |
+| `link` |
+| `list` |
+| `listItem` |
+| `listOrdered` |
+| `paragraph` |
+| `strong` |
+| `table` |
+| `tableBody` |
+| `tableHead` |
+| `tableTd` |
+| `tableTh` |
+| `tableTr` |

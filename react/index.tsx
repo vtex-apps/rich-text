@@ -13,24 +13,27 @@ import styles from './styles/index.css'
 
 const CSS_HANDLES = [
   'container',
-  'paragraph',
-  'strong',
-  'italic',
   'heading',
-  'link',
-  'table',
-  'tableHead',
-  'tableBody',
   'headingLevel1',
   'headingLevel2',
   'headingLevel3',
   'headingLevel4',
   'headingLevel5',
   'headingLevel6',
+  'image',
+  'italic',
+  'link',
   'list',
-  'listOrdered',
   'listItem',
-  'image'
+  'listOrdered',
+  'paragraph',
+  'strong',
+  'table',
+  'tableBody',
+  'tableHead',
+  'tableTd',
+  'tableTh',
+  'tableTr',
 ] as const
 
 import {
@@ -94,7 +97,30 @@ interface VTEXIOComponent extends FunctionComponent<Props> {
 type RichTextCssHandles = CssHandles<typeof CSS_HANDLES>
 
 const sanitizerConfig = {
-  allowedTags: ['p', 'span', 'a', 'div', 'br', 'img', 'iframe', 'table', 'thead', 'tbody', 'tr', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li'],
+  allowedTags: [
+    'p',
+    'span',
+    'a',
+    'div',
+    'br',
+    'img',
+    'iframe',
+    'table',
+    'thead',
+    'tbody',
+    'tr',
+    'td',
+    'th',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'ul',
+    'ol',
+    'li',
+  ],
   allowedAttributes: {
     a: ['class', 'href', 'title', 'target'],
     span: ['class'],
@@ -103,6 +129,9 @@ const sanitizerConfig = {
     table: ['class'],
     thead: ['class'],
     tbody: ['class'],
+    tr: ['class'],
+    td: ['class'],
+    th: ['class'],
     img: ['class', 'src', 'title', 'alt'],
     iframe: ['frameborder', 'height', 'src', 'width', 'style'],
     h1: ['class'],
@@ -250,13 +279,26 @@ const RichText: FunctionComponent<Props> = ({
         ${body}
       </tbody>
     </table>`
+    renderer.current.tablerow = content => {
+      return '<tr class=' + handles.tableTr + '>\n' + content + '</tr>\n'
+    }
+    renderer.current.tablecell = (content, flags) => {
+      const type = flags.header ? 'th' : 'td'
+      const tag = `<${type} class="${
+        type === 'th' ? handles.tableTh : handles.tableTd
+      }"
+        ${flags.align ? ' align="' + flags.align + '"' : ''}>`
+      return tag + content + '</' + type + '>\n'
+    }
     renderer.current.image = (href: string, title: string, text: string) =>
-      `<img class="${
-      handles.image
-      }" src="${href}" alt="${text}" ${title ? `title="${title}"` : ''} />`
+      `<img class="${handles.image}" src="${href}" alt="${text}" ${
+        title ? `title="${title}"` : ''
+      } />`
     renderer.current.list = (body: string, ordered: boolean) => {
       const tag = ordered ? 'ol' : 'ul'
-      return `<${tag} class="${handles.list} ${ordered ? handles.listOrdered : ''}">${body}</${tag}>`
+      return `<${tag} class="${handles.list} ${
+        ordered ? handles.listOrdered : ''
+      }">${body}</${tag}>`
     }
     renderer.current.listitem = (text: string) => `<li class="${handles.listItem}">${text}</li>`
   }
