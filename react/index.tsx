@@ -239,7 +239,7 @@ const RichText: FunctionComponent<Props> = ({
   const [isMounted, setMounted] = useState(false)
   const handles = useCssHandles(CSS_HANDLES)
   const renderer = useRef<Renderer>()
-  font = useResponsiveValue(font)
+  const responsiveFont = useResponsiveValue(font)
 
   useEffect(() => {
     setMounted(true)
@@ -333,7 +333,7 @@ const RichText: FunctionComponent<Props> = ({
   return (
     <div
       id={htmlId}
-      className={`${handles.container} flex ${alignToken} ${itemsToken} ${justifyToken} ${sanitizeFont(font)} ${sanitizeColor(textColor)}`}
+      className={`${handles.container} flex ${alignToken} ${itemsToken} ${justifyToken} ${sanitizeFont(responsiveFont)} ${sanitizeColor(textColor)}`}
     >
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
