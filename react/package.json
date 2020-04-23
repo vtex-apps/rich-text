@@ -27,7 +27,11 @@
     "eslint-config-vtex-react": "^4.0.0",
     "prettier": "^1.16.4",
     "react-dom": "^16.8.4",
-    "typescript": "3.8.3"
+    "typescript": "3.8.3",
+    "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.2/public/@types/vtex.css-handles",
+    "vtex.native-types": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.1/public/@types/vtex.native-types",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.99.0/public/@types/vtex.render-runtime",
+    "vtex.responsive-values": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.responsive-values@0.2.0/public/_types/react"
   },
   "version": "0.9.0"
 }
