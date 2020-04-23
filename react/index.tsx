@@ -5,6 +5,7 @@ import { values, last, test } from 'ramda'
 import escapeHtml from 'escape-html'
 import insane from 'insane'
 import { useCssHandles, CssHandles } from 'vtex.css-handles'
+import { useResponsiveValue } from 'vtex.responsive-values'
 
 import { formatIOMessage } from 'vtex.native-types'
 
@@ -238,6 +239,8 @@ const RichText: FunctionComponent<Props> = ({
   const [isMounted, setMounted] = useState(false)
   const handles = useCssHandles(CSS_HANDLES)
   const renderer = useRef<Renderer>()
+  font = useResponsiveValue(font)
+
   useEffect(() => {
     setMounted(true)
   }, [])
