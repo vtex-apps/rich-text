@@ -62,7 +62,7 @@ Check the [documentation of Markdown Language](https://www.markdownguide.org/che
 
 | Prop name           | Type      | Description                                                                                 |
 | ------------------- | --------- | ------------------------------------------------------------------------------------------- |
-| `font`     | `String` | Define the tachyon token to be used as font. Default: `t-body`    |
+| `font`     | `String` \| `{desktop: String, tablet: String, mobile: String}` | Define the tachyon token to be used as font. Default: `t-body`    |
 | `textColor`     | `String` | Define the tachyon token to be used as text color. Default: `c-on-base`                                          |
 | `text`        | `String` | Text written in markdown language to be displayed              |
 | `textAlignment`  | `TextAlignmentEnum` | Control the text alignment inside component. Default: `"LEFT"`                                                                |

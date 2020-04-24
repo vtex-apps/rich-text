@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Responsive value for `font` prop 
+
 ## [0.9.0] - 2020-04-02
 ### Added
 - New CSS Handles `tableTr`, `tableTh`, and `tableTd`.
