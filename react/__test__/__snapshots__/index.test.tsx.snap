@@ -5,7 +5,9 @@ exports[`Rich text component should allow mailto scheme on link 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -26,7 +28,9 @@ exports[`Rich text component should allow tel scheme on link 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -47,7 +51,9 @@ exports[`Rich text component should render a link with target 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -68,7 +74,9 @@ exports[`Rich text component should render a link with target as query string on
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -91,7 +99,9 @@ exports[`Rich text component should render a link with target as query string on
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -113,7 +123,9 @@ exports[`Rich text component should render a link with target as query string on
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -135,7 +147,9 @@ exports[`Rich text component should render a table 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       
     
       <table
@@ -216,7 +230,9 @@ exports[`Rich text component should render an iframe 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -242,7 +258,9 @@ exports[`Rich text component should render and sanitize malicious javascript 1`]
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -260,7 +278,9 @@ exports[`Rich text component should render and sanitize malicious javascript 2`]
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       &lt;DIV STYLE="background-image: url(&#1;javascript:alert('XSS'))"&gt;
     </div>
   </div>
@@ -272,7 +292,9 @@ exports[`Rich text component should render and sanitize malicious text 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -294,7 +316,9 @@ exports[`Rich text component should render and sanitize malicious text 2`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -314,7 +338,9 @@ exports[`Rich text component should render link with title 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -348,7 +374,9 @@ exports[`Rich text component should render list 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -383,7 +411,9 @@ exports[`Rich text component should render ordered list 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -418,7 +448,9 @@ exports[`Rich text component should render with bold 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -438,7 +470,9 @@ exports[`Rich text component should render with image 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -462,7 +496,9 @@ exports[`Rich text component should render with image block class props 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -496,7 +532,9 @@ exports[`Rich text component should render with image no title 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -519,7 +557,9 @@ exports[`Rich text component should render with paragraph 1`] = `
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <p
         class="lh-copy paragraph"
       >
@@ -535,7 +575,9 @@ exports[`Rich text component should render with two different heading levels 1`]
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
   >
-    <div>
+    <div
+      class="wrapper"
+    >
       <h1
         class="heading t-heading-1 headingLevel1 heading-level-1"
       >

@@ -1,4 +1,11 @@
-import React, { FunctionComponent, memo, useEffect, useState, useRef, useMemo } from 'react'
+import React, {
+  FunctionComponent,
+  memo,
+  useEffect,
+  useState,
+  useRef,
+  useMemo,
+} from 'react'
 import { injectIntl, InjectedIntlProps } from 'react-intl'
 import marked, { Renderer } from 'marked'
 import { values, last, test } from 'ramda'
@@ -35,6 +42,7 @@ const CSS_HANDLES = [
   'tableTd',
   'tableTh',
   'tableTr',
+  'wrapper',
 ] as const
 
 import {
@@ -148,7 +156,7 @@ const sanitizerConfig = {
   allowedSchemes: ['http', 'https', 'mailto', 'tel'],
 }
 
-const getLevel = (level: number) => level > 0 && level <= 6 ? level : 6
+const getLevel = (level: number) => (level > 0 && level <= 6 ? level : 6)
 
 const getTargetFromUrl = (url: string) => {
   const urlSplit = url.split('?')
@@ -220,10 +228,16 @@ const getHeadingLevelClass = (handles: RichTextCssHandles, level: number) => {
   }
 }
 
-const renderHeading = (handles: RichTextCssHandles) => (text: string, level: number) => {
+const renderHeading = (handles: RichTextCssHandles) => (
+  text: string,
+  level: number
+) => {
   const levelNumber = getLevel(level)
-  const classes =
-    `${handles.heading} t-heading-${levelNumber} ${getHeadingLevelClass(handles, levelNumber)} ${styles[`heading-level-${levelNumber}`]}`
+  const classes = `${
+    handles.heading
+  } t-heading-${levelNumber} ${getHeadingLevelClass(handles, levelNumber)} ${
+    styles[`heading-level-${levelNumber}`]
+  }`
   return `<h${levelNumber} class="${classes}">${text}</h${levelNumber}>`
 }
 
@@ -249,15 +263,21 @@ const RichText: FunctionComponent<Props> = ({
     renderer.current = new Renderer()
     renderer.current.paragraph = text =>
       `<p class="lh-copy ${handles.paragraph}">${text}</p>`
-    renderer.current.strong = text => `<span class="b ${handles.strong}">${text}</span>`
-    renderer.current.em = text => `<span class="i ${handles.italic}">${text}</span>`
+    renderer.current.strong = text =>
+      `<span class="b ${handles.strong}">${text}</span>`
+    renderer.current.em = text =>
+      `<span class="i ${handles.italic}">${text}</span>`
     renderer.current.heading = renderHeading(handles)
     renderer.current.link = (href: string, title: string, text: string) => {
       const targetAtr = getTargetFromUrl(href)
-      const targetRemoved = !!targetAtr ? href.replace(/target=_blank/, '').replace(/\?\&/, '?') : href
+      const targetRemoved = targetAtr
+        ? href.replace(/target=_blank/, '').replace(/\?&/, '?')
+        : href
 
       //clean trailing ? or &
-      const cleanHref = test(/\?|\&/, last(targetRemoved)) ? targetRemoved.slice(0, -1) : targetRemoved
+      const cleanHref = test(/\?|\&/, last(targetRemoved))
+        ? targetRemoved.slice(0, -1)
+        : targetRemoved
       const titleAtr = title ? `title="${title}"` : ''
 
       let finalLink = `<a class="${handles.link}" href="${cleanHref}"`
@@ -303,7 +323,8 @@ const RichText: FunctionComponent<Props> = ({
         ordered ? handles.listOrdered : ''
       }">${body}</${tag}>`
     }
-    renderer.current.listitem = (text: string) => `<li class="${handles.listItem}">${text}</li>`
+    renderer.current.listitem = (text: string) =>
+      `<li class="${handles.listItem}">${text}</li>`
   }
 
   const alignToken = safelyGetToken(alignTokens, textAlignment, 'textAlignment')
@@ -333,9 +354,16 @@ const RichText: FunctionComponent<Props> = ({
   return (
     <div
       id={htmlId}
-      className={`${handles.container} flex ${alignToken} ${itemsToken} ${justifyToken} ${sanitizeFont(responsiveFont)} ${sanitizeColor(textColor)}`}
+      className={`${
+        handles.container
+      } flex ${alignToken} ${itemsToken} ${justifyToken} ${sanitizeFont(
+        responsiveFont
+      )} ${sanitizeColor(textColor)}`}
     >
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div
+        className={handles.wrapper}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </div>
   )
 }
