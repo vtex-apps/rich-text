@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "rich-text",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "title": "Rich Text",
   "description": "Rich text component",
   "defaultLocale": "pt-BR",
