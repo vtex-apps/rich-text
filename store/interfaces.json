@@ -2,6 +2,8 @@
   "rich-text": {
     "component": "index",
     "content": {
+      "title": "admin/editor.rich-text.title",
+      "description": "admin/editor.rich-text.description",
       "properties": {
         "text": {
           "title": "admin/editor.rich-text.text.title",
