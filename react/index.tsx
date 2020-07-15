@@ -8,7 +8,7 @@ import React, {
 } from 'react'
 import { injectIntl, InjectedIntlProps } from 'react-intl'
 import marked, { Renderer } from 'marked'
-import { last, test } from 'ramda'
+import { values, last, test } from 'ramda'
 import escapeHtml from 'escape-html'
 import insane from 'insane'
 import { useCssHandles, CssHandles } from 'vtex.css-handles'
@@ -76,6 +76,14 @@ const defaultValues = {
   textPosition: textPositionTypes.TEXT_POSITION_LEFT.value,
   textAlignment: textAlignmentTypes.TEXT_ALIGNMENT_LEFT.value,
 }
+
+const getEnumValues = (
+  enumObject: Record<string, { value: string; name: string }>
+) => values(enumObject).map(({ value }) => value)
+
+const getEnumNames = (
+  enumObject: Record<string, { value: string; name: string }>
+) => values(enumObject).map(({ name }) => name)
 
 const safelyGetToken = (
   tokenMap: Record<string, string>,
@@ -373,6 +381,49 @@ const MemoizedRichText: VTEXIOComponent = memo(RichText)
 
 MemoizedRichText.schema = {
   title: 'admin/editor.rich-text.title',
+  description: 'admin/editor.rich-text.description',
+  type: 'object',
+  properties: {
+    textPosition: {
+      title: 'admin/editor.rich-text.textPosition.title',
+      description: 'admin/editor.rich-text.textPosition.description',
+      type: 'string',
+      enum: getEnumValues(textPositionTypes),
+      enumNames: getEnumNames(textPositionTypes),
+      default: defaultValues.textPosition,
+      isLayout: true,
+    },
+    textAlignment: {
+      title: 'admin/editor.rich-text.textAlignment.title',
+      description: 'admin/editor.rich-text.textAlignment.description',
+      type: 'string',
+      default: defaultValues.textAlignment,
+      enum: getEnumValues(textAlignmentTypes),
+      enumNames: getEnumNames(textAlignmentTypes),
+      isLayout: true,
+    },
+    font: {
+      title: 'admin/editor.rich-text.font.title',
+      description: 'admin/editor.rich-text.font.description',
+      type: 'string',
+      default: 't-body',
+      isLayout: true,
+    },
+    textColor: {
+      title: 'admin/editor.rich-text.textColor.title',
+      description: 'admin/editor.rich-text.textColor.description',
+      type: 'string',
+      default: 'c-on-base',
+      isLayout: true,
+    },
+    blockClass: {
+      title: 'admin/editor.rich-text.blockClass.title',
+      description: 'admin/editor.rich-text.blockClass.description',
+      type: 'string',
+      default: null,
+      isLayout: true,
+    },
+  },
 }
 
 export default injectIntl(MemoizedRichText)
