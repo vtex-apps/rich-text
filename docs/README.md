@@ -60,31 +60,7 @@ Check the [documentation of Markdown Language](https://www.markdownguide.org/che
 }
 ```
 
-| Prop name           | Type      | Description                                                                                 |
-| ------------------- | --------- | ------------------------------------------------------------------------------------------- |
-| `font`     | `String` \| `{desktop: String, tablet: String, mobile: String}` | Define the tachyon token to be used as font. Default: `t-body`    |
-| `textColor`     | `String` | Define the tachyon token to be used as text color. Default: `c-on-base`                                          |
-| `text`        | `String` | Text written in markdown language to be displayed              |
-| `textAlignment`  | `TextAlignmentEnum` | Control the text alignment inside component. Default: `"LEFT"`                                                                |
-| `textPosition`       | `TextPostionEnum` | Choose in which position of the component text will be displayed, left, center or right. Default: `"LEFT"`                                                           |
-| `blockClass`       | `String` | Unique class name to be appended to block classes. Default: ''                                                           |
-
-Here are the possible values of `TextPostionEnum`
-
-| Enum name | Enum value | Description |
-| --------- | ---- | ----------- |
-| Left | 'LEFT' | Text will be to the left. If `isFullModeStyle` is false, image will be on the right |
-| Center | 'CENTER' | Text will be in the center. Not applicable if `isFullModeStyle` is false. |
-| Right | 'RIGHT' | Text will be to the right. If `isFullModeStyle` is false, image will be on the left |
-
-Here are the possible values of `TextAlignmentEnum`
-
-| Enum name | Enum value | Description |
-| --------- | ---- | ----------- |
-| Left | 'LEFT' | Text alignment will be to the left. |
-| Center | 'CENTER' | Text alignment will be to the center. |
-| Right | 'RIGHT' | Text alignment will be to the right. |
-
+%PROPS=MemoizedRichText%
 
 ## Customization
 
