@@ -7,12 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.10.1] - 2020-07-09
+## [0.10.2-beta] - 2020-07-15
 ### Added
-- `title` and `description` to `content` of the `rich-text` interface to make it show in the new CMS.
+- Schema declaration and Doc Prop trigger.
 
 ### Removed
-- Unnecessary schema definition in `RichText`.
+- Handmade props table.
 
 ## [0.10.0] - 2020-05-19
 ### Added
