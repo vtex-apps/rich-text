@@ -60,7 +60,7 @@ Check the [documentation of Markdown Language](https://www.markdownguide.org/che
 }
 ```
 
-%PROPS=MemoizedRichText%
+%PROPS=index%
 
 ## Customization
 
