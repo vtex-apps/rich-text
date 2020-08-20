@@ -9,7 +9,7 @@ import React, {
 import { injectIntl, InjectedIntlProps } from 'react-intl'
 import marked, { Renderer } from 'marked'
 import escapeHtml from 'escape-html'
-import insane from 'insane'
+import insane from '@vtex/insane'
 import { useCssHandles, CssHandles } from 'vtex.css-handles'
 import { useResponsiveValue } from 'vtex.responsive-values'
 
@@ -123,27 +123,10 @@ const sanitizerConfig = {
     'li',
   ],
   allowedAttributes: {
-    a: ['class', 'href', 'title', 'target'],
-    span: ['class'],
-    p: ['class'],
-    div: ['class'],
-    table: ['class'],
-    thead: ['class'],
-    tbody: ['class'],
-    tr: ['class'],
-    td: ['class'],
-    th: ['class'],
-    img: ['class', 'src', 'title', 'alt'],
+    '*': ['class', 'title'],
+    a: ['href', 'target'],
+    img: ['src', 'alt'],
     iframe: ['frameborder', 'height', 'src', 'width', 'style'],
-    h1: ['class'],
-    h2: ['class'],
-    h3: ['class'],
-    h4: ['class'],
-    h5: ['class'],
-    h6: ['class'],
-    ul: ['class'],
-    ol: ['class'],
-    li: ['class'],
   },
   allowedSchemes: ['http', 'https', 'mailto', 'tel'],
 }
@@ -267,9 +250,7 @@ const RichText: FunctionComponent<Props> = ({
         : href
 
       //clean trailing ? or &
-      const cleanHref = targetRemoved.match(/(\?|&)$/)
-        ? targetRemoved.slice(0, -1)
-        : targetRemoved
+      const cleanHref = targetRemoved.replace(/(\?|&)$/, '')
       const titleAtr = title ? `title="${title}"` : ''
 
       let finalLink = `<a class="${handles.link}" href="${cleanHref}"`

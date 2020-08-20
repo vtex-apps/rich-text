@@ -1036,6 +1036,14 @@
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
+"@vtex/insane@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@vtex/insane/-/insane-2.8.0.tgz#f0184a490ce77d0b9ce764fcd07238d064d2e116"
+  integrity sha512-wAzITOKANrprxRvV7XxL8qAeh+vG0+QoyFmckqg/f05bDmkiSe6R1+81wyTcE2QNDyfkk0HaBSdVFFCD09kEgw==
+  dependencies:
+    assignment "2.0.0"
+    he "0.5.0"
+
 "@vtex/test-tools@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@vtex/test-tools/-/test-tools-0.2.0.tgz#3bb202a918bd60201ae23c55901d7308e638743c"
@@ -2671,14 +2679,6 @@ inquirer@^6.2.2:
     string-width "^2.1.0"
     strip-ansi "^5.0.0"
     through "^2.3.6"
-
-insane@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/insane/-/insane-2.6.2.tgz#c2ab68bb3e006ab451560d1b446917329c0a8120"
-  integrity sha1-wqtouz4AarRRVg0bRGkXMpwKgSA=
-  dependencies:
-    assignment "2.0.0"
-    he "0.5.0"
 
 intl-format-cache@^2.0.5:
   version "2.1.0"
