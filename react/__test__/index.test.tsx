@@ -23,9 +23,7 @@ describe('Rich text component', () => {
   })
 
   it('should render with paragraph', () => {
-    const component = render(
-      <RichText {...defaultProps} text={'IAM BOLD'} />
-    )
+    const component = render(<RichText {...defaultProps} text={'IAM BOLD'} />)
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
@@ -92,10 +90,8 @@ describe('Rich text component', () => {
     const component = render(
       <RichText
         {...defaultProps}
-        text={
-          `Inline-style: 
-          ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")`
-        }
+        text={`Inline-style: 
+          ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")`}
       />
     )
     expect(component).toBeDefined()
@@ -106,10 +102,8 @@ describe('Rich text component', () => {
     const component = render(
       <RichText
         {...defaultProps}
-        text={
-          `Inline-style: 
-          ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)`
-        }
+        text={`Inline-style: 
+          ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)`}
       />
     )
     expect(component).toBeDefined()
@@ -120,9 +114,7 @@ describe('Rich text component', () => {
     const component = render(
       <RichText
         {...defaultProps}
-        text={
-          `[I\'m an inline-style link with title](https://www.google.com "Google\'s Homepage")\n**Bollllddd**\n*this is talic*`
-        }
+        text={`[I\'m an inline-style link with title](https://www.google.com "Google\'s Homepage")\n**Bollllddd**\n*this is talic*`}
         blockClass="home"
       />
     )
@@ -134,8 +126,9 @@ describe('Rich text component', () => {
     const component = render(
       <RichText
         {...defaultProps}
-        text={ // It must be preceeded by Markdown tag or any other string, otherwise the lib marked escapes the iframe HTML tag.
-          "__<iframe frameborder=\"0\" height=\"100%\" src=\"https://invictastores.typeform.com/to/KmycOT?typeform-embed=embed-widget&amp;embed-hide-footer=true&amp;embed-hide-headers=true&amp;embed-opacity=50&amp;typeform-embed-id=d0pe3\" width=\"100%\" style=\"border: 0px;\"></iframe>__"
+        text={
+          // It must be preceeded by Markdown tag or any other string, otherwise the lib marked escapes the iframe HTML tag.
+          '__<iframe frameborder="0" height="100%" src="https://invictastores.typeform.com/to/KmycOT?typeform-embed=embed-widget&amp;embed-hide-footer=true&amp;embed-hide-headers=true&amp;embed-opacity=50&amp;typeform-embed-id=d0pe3" width="100%" style="border: 0px;"></iframe>__'
         }
       />
     )
@@ -204,9 +197,7 @@ teste|abc
     const component = render(
       <RichText
         {...defaultProps}
-        text={
-          `# Heading 1 # \n ### Heading level 3 ##`
-        }
+        text={`# Heading 1 # \n ### Heading level 3 ##`}
         blockClass="home"
       />
     )
@@ -218,9 +209,7 @@ teste|abc
     const component = render(
       <RichText
         {...defaultProps}
-        text={
-          `Teste \n * Item 1\n * Item 2\n * Item 3`
-        }
+        text={`Teste \n * Item 1\n * Item 2\n * Item 3`}
         blockClass="home"
       />
     )
@@ -228,14 +217,11 @@ teste|abc
     expect(component.asFragment()).toMatchSnapshot()
   })
 
-
   it('should render ordered list', () => {
     const component = render(
       <RichText
         {...defaultProps}
-        text={
-          `Teste \n 1. Item 1\n 2. Item 2\n 3. Item 3`
-        }
+        text={`Teste \n 1. Item 1\n 2. Item 2\n 3. Item 3`}
         blockClass="home"
       />
     )
@@ -245,7 +231,9 @@ teste|abc
 
   it('should sanitize the font prop', () => {
     const typography = 't-heading-1'
-    const { container } = render(<RichText {...defaultProps} text="foo" font={`${typography} foo`} />)
+    const { container } = render(
+      <RichText {...defaultProps} text="foo" font={`${typography} foo`} />
+    )
 
     const element = container.querySelector(`.${typography}`)
     const notFound = container.querySelector('.foo')
@@ -256,7 +244,9 @@ teste|abc
 
   it('should sanitize the textColor prop', () => {
     const color = 'c-muted-1'
-    const { container } = render(<RichText {...defaultProps} text="foo" textColor={`${color} foo`} />)
+    const { container } = render(
+      <RichText {...defaultProps} text="foo" textColor={`${color} foo`} />
+    )
 
     const element = container.querySelector(`.${color}`)
     const notFound = container.querySelector('.foo')
@@ -266,15 +256,18 @@ teste|abc
   })
 
   it('should allow tel scheme on link', () => {
-    const component = render(<RichText {...defaultProps} text="[Telefone](tel:+18882165252)" />)
+    const component = render(
+      <RichText {...defaultProps} text="[Telefone](tel:+18882165252)" />
+    )
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
 
   it('should allow mailto scheme on link', () => {
-    const component = render(<RichText {...defaultProps} text="[Mail me](mailto:test@vtex.com.br)" />)
+    const component = render(
+      <RichText {...defaultProps} text="[Mail me](mailto:test@vtex.com.br)" />
+    )
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
 })
-
