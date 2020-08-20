@@ -1,10 +1,10 @@
-export enum textPositionValues {
+export const enum TextPositionValues {
   CENTER = 'CENTER',
   LEFT = 'LEFT',
   RIGHT = 'RIGHT',
 }
 
-export enum textAlignmentValues {
+export const enum TextAlignmentValues {
   CENTER = 'CENTER',
   LEFT = 'LEFT',
   RIGHT = 'RIGHT',
@@ -12,36 +12,36 @@ export enum textAlignmentValues {
 
 export const textPositionTypes: Record<
   string,
-  { name: string; value: textPositionValues }
+  { name: string; value: TextPositionValues }
 > = {
   TEXT_POSITION_CENTER: {
     name: 'admin/editor.rich-text.textPosition.center',
-    value: textPositionValues.CENTER,
+    value: TextPositionValues.CENTER,
   },
   TEXT_POSITION_LEFT: {
     name: 'admin/editor.rich-text.textPosition.left',
-    value: textPositionValues.LEFT,
+    value: TextPositionValues.LEFT,
   },
   TEXT_POSITION_RIGHT: {
     name: 'admin/editor.rich-text.textPosition.right',
-    value: textPositionValues.RIGHT,
+    value: TextPositionValues.RIGHT,
   },
 }
 
 export const textAlignmentTypes: Record<
   string,
-  { name: string; value: textAlignmentValues }
+  { name: string; value: TextAlignmentValues }
 > = {
   TEXT_ALIGNMENT_CENTER: {
     name: 'admin/editor.rich-text.textAlignment.center',
-    value: textAlignmentValues.CENTER,
+    value: TextAlignmentValues.CENTER,
   },
   TEXT_ALIGNMENT_LEFT: {
     name: 'admin/editor.rich-text.textAlignment.left',
-    value: textAlignmentValues.LEFT,
+    value: TextAlignmentValues.LEFT,
   },
   TEXT_ALIGNMENT_RIGHT: {
     name: 'admin/editor.rich-text.textAlignment.right',
-    value: textAlignmentValues.RIGHT,
+    value: TextAlignmentValues.RIGHT,
   },
 }
