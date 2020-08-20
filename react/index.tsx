@@ -7,7 +7,7 @@ import React, {
   useRef,
   useMemo,
 } from 'react'
-import { injectIntl, InjectedIntlProps } from 'react-intl'
+import { injectIntl, WrappedComponentProps } from 'react-intl'
 import marked, { Renderer } from 'marked'
 import escapeHtml from 'escape-html'
 import insane from '@vtex/insane'
@@ -80,7 +80,7 @@ const safelyGetToken = (
   propName: PropTokensNames
 ) => tokenMap[valueWanted] || defaultValues[propName]
 
-interface Props extends InjectedIntlProps {
+interface Props extends WrappedComponentProps {
   font: string
   text: string
   textAlignment: TextAlignmentValues
