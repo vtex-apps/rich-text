@@ -8,7 +8,6 @@ import React, {
 } from 'react'
 import { injectIntl, InjectedIntlProps } from 'react-intl'
 import marked, { Renderer } from 'marked'
-import { last, test } from 'ramda'
 import escapeHtml from 'escape-html'
 import insane from 'insane'
 import { useCssHandles, CssHandles } from 'vtex.css-handles'
@@ -268,7 +267,7 @@ const RichText: FunctionComponent<Props> = ({
         : href
 
       //clean trailing ? or &
-      const cleanHref = test(/\?|\&/, last(targetRemoved))
+      const cleanHref = targetRemoved.match(/(\?|&)$/)
         ? targetRemoved.slice(0, -1)
         : targetRemoved
       const titleAtr = title ? `title="${title}"` : ''
@@ -342,7 +341,7 @@ const RichText: FunctionComponent<Props> = ({
       marked(formatIOMessage({ id: text, intl })),
       sanitizerConfig
     )
-  }, [text, intl, sanitizerConfig, marked, insane, formatIOMessage])
+  }, [text, intl])
 
   return (
     <div
