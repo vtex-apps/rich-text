@@ -1,4 +1,3 @@
-/* eslint-env jest */
 import React from 'react'
 import { render } from '@vtex/test-tools/react'
 

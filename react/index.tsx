@@ -275,7 +275,7 @@ const RichText: FunctionComponent<Props> = ({
       return finalLink
     }
 
-    renderer.current.html = html => escapeHtml(html)
+    renderer.current.html = (html) => escapeHtml(html)
     renderer.current.table = (header, body) => `
     <table class="${handles.table}">
       <thead class="${handles.tableHead}">
@@ -285,7 +285,7 @@ const RichText: FunctionComponent<Props> = ({
         ${body}
       </tbody>
     </table>`
-    renderer.current.tablerow = content => {
+    renderer.current.tablerow = (content) => {
       return `<tr class=${handles.tableTr}>\n${content}</tr>\n`
     }
 
