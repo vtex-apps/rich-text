@@ -6,11 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Update tooling dependencies and format project.
 
 ## [0.10.2] - 2020-08-20
 ### Changed
-- Replaced `insane` with `@vtex/insane`.
-- Removed `ramda` calls.
+- Replace `insane` with `@vtex/insane`.
+- Remove `ramda` calls.
 
 ## [0.10.1] - 2020-07-09
 ### Added
