@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import React, {
   FunctionComponent,
   memo,
@@ -244,14 +243,14 @@ const RichText: FunctionComponent<Props> = ({
 
   if (!isMounted) {
     renderer.current = new Renderer()
-    renderer.current.paragraph = (text: string) =>
-      `<p class="lh-copy ${handles.paragraph}">${text}</p>`
-    renderer.current.strong = (text: string) =>
-      `<span class="b ${handles.strong}">${text}</span>`
-    renderer.current.em = (text: string) =>
-      `<span class="i ${handles.italic}">${text}</span>`
+    renderer.current.paragraph = (content: string) =>
+      `<p class="lh-copy ${handles.paragraph}">${content}</p>`
+    renderer.current.strong = (content: string) =>
+      `<span class="b ${handles.strong}">${content}</span>`
+    renderer.current.em = (content: string) =>
+      `<span class="i ${handles.italic}">${content}</span>`
     renderer.current.heading = renderHeading(handles)
-    renderer.current.link = (href: string, title: string, text: string) => {
+    renderer.current.link = (href: string, title: string, content: string) => {
       const targetAtr = getTargetFromUrl(href)
       const targetRemoved = targetAtr
         ? href.replace(/target=_blank/, '').replace(/\?&/, '?')
@@ -271,7 +270,7 @@ const RichText: FunctionComponent<Props> = ({
         finalLink += ` ${targetAtr}`
       }
 
-      finalLink += `>${text}</a>`
+      finalLink += `>${content}</a>`
 
       return finalLink
     }
@@ -300,8 +299,8 @@ const RichText: FunctionComponent<Props> = ({
       return `${tag + content}</${type}>\n`
     }
 
-    renderer.current.image = (href: string, title: string, text: string) =>
-      `<img class="${handles.image}" src="${href}" alt="${text}" ${
+    renderer.current.image = (href: string, title: string, content: string) =>
+      `<img class="${handles.image}" src="${href}" alt="${content}" ${
         title ? `title="${title}"` : ''
       } />`
     renderer.current.list = (body: string, ordered: boolean) => {
@@ -312,8 +311,8 @@ const RichText: FunctionComponent<Props> = ({
       }">${body}</${tag}>`
     }
 
-    renderer.current.listitem = (text: string) =>
-      `<li class="${handles.listItem}">${text}</li>`
+    renderer.current.listitem = (content: string) =>
+      `<li class="${handles.listItem}">${content}</li>`
   }
 
   const alignToken = safelyGetToken(alignTokens, textAlignment, 'textAlignment')
