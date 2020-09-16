@@ -23,6 +23,27 @@ exports[`Rich text component should allow mailto scheme on link 1`] = `
 </DocumentFragment>
 `;
 
+exports[`Rich text component should allow sup tag 1`] = `
+<DocumentFragment>
+  <div
+    class="container flex tl items-start justify-start t-body c-on-base"
+  >
+    <div
+      class="wrapper"
+    >
+      <p
+        class="lh-copy paragraph"
+      >
+        Test 
+        <sup>
+          (r)
+        </sup>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Rich text component should allow tel scheme on link 1`] = `
 <DocumentFragment>
   <div

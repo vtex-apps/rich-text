@@ -270,4 +270,12 @@ teste|abc
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
+
+  it('should allow sup tag', () => {
+    const component = render(
+      <RichText {...defaultProps} text="Test <sup>(r)</sup>" />
+    )
+    expect(component).toBeDefined()
+    expect(component.asFragment()).toMatchSnapshot()
+  })
 })
