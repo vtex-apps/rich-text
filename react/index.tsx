@@ -6,17 +6,21 @@ import React, {
   useRef,
   useMemo,
 } from 'react'
-import { injectIntl, InjectedIntlProps } from 'react-intl'
+import { injectIntl, WrappedComponentProps } from 'react-intl'
 import marked, { Renderer } from 'marked'
 import escapeHtml from 'escape-html'
 import insane from '@vtex/insane'
 import { useCssHandles, CssHandles } from 'vtex.css-handles'
 import { useResponsiveValue } from 'vtex.responsive-values'
-
 import { formatIOMessage } from 'vtex.native-types'
 
-//@ts-ignore
 import styles from './styles/index.css'
+import {
+  textPositionTypes,
+  textAlignmentTypes,
+  TextPositionValues,
+  TextAlignmentValues,
+} from './typings/SchemaTypes'
 
 const CSS_HANDLES = [
   'container',
@@ -44,29 +48,22 @@ const CSS_HANDLES = [
   'wrapper',
 ] as const
 
-import {
-  textPositionTypes,
-  textAlignmentTypes,
-  textPositionValues,
-  textAlignmentValues,
-} from './typings/SchemaTypes'
-
 const justifyTokens = {
-  [textPositionValues.LEFT]: 'justify-start',
-  [textPositionValues.CENTER]: 'justify-center',
-  [textPositionValues.RIGHT]: 'justify-end',
+  [TextPositionValues.LEFT]: 'justify-start',
+  [TextPositionValues.CENTER]: 'justify-center',
+  [TextPositionValues.RIGHT]: 'justify-end',
 }
 
 const alignTokens = {
-  [textAlignmentValues.LEFT]: 'tl',
-  [textAlignmentValues.CENTER]: 'tc',
-  [textAlignmentValues.RIGHT]: 'tr',
+  [TextAlignmentValues.LEFT]: 'tl',
+  [TextAlignmentValues.CENTER]: 'tc',
+  [TextAlignmentValues.RIGHT]: 'tr',
 }
 
 const itemsTokens = {
-  [textAlignmentValues.LEFT]: 'items-start',
-  [textAlignmentValues.CENTER]: 'items-center',
-  [textAlignmentValues.RIGHT]: 'items-end',
+  [TextAlignmentValues.LEFT]: 'items-start',
+  [TextAlignmentValues.CENTER]: 'items-center',
+  [TextAlignmentValues.RIGHT]: 'items-end',
 }
 
 type PropTokensNames = 'textPosition' | 'textAlignment'
@@ -82,12 +79,12 @@ const safelyGetToken = (
   propName: PropTokensNames
 ) => tokenMap[valueWanted] || defaultValues[propName]
 
-interface Props extends InjectedIntlProps {
+interface Props extends WrappedComponentProps {
   font: string
   text: string
-  textAlignment: textAlignmentValues
+  textAlignment: TextAlignmentValues
   textColor: string
-  textPosition: textPositionValues
+  textPosition: TextPositionValues
   htmlId?: string
 }
 
@@ -136,11 +133,14 @@ const getLevel = (level: number) => (level > 0 && level <= 6 ? level : 6)
 
 const getTargetFromUrl = (url: string) => {
   const urlSplit = url.split('?')
+
   if (urlSplit.length < 2) {
     return ''
   }
-  const qs = urlSplit[1]
+
+  const [, qs] = urlSplit
   const hastTargetBlank = qs.includes('target=_blank')
+
   return hastTargetBlank ? 'target=_blank' : ''
 }
 
@@ -162,7 +162,7 @@ const sanitizeFont = (font: string) => {
     return 't-body'
   }
 
-  const first = font.split(' ')[0]
+  const [first] = font.split(' ')
 
   if (typography.indexOf(first) === -1) {
     return 't-body'
@@ -176,7 +176,7 @@ const sanitizeColor = (color: string) => {
     return 'c-on-base'
   }
 
-  const first = color.split(' ')[0]
+  const [first] = color.split(' ')
 
   if (first.indexOf('c-') === 0) {
     return first
@@ -189,16 +189,22 @@ const getHeadingLevelClass = (handles: RichTextCssHandles, level: number) => {
   switch (level) {
     case 1:
       return handles.headingLevel1
+
     case 2:
       return handles.headingLevel2
+
     case 3:
       return handles.headingLevel3
+
     case 4:
       return handles.headingLevel4
+
     case 5:
       return handles.headingLevel5
+
     case 6:
       return handles.headingLevel6
+
     default:
       return ''
   }
@@ -214,6 +220,7 @@ const renderHeading = (handles: RichTextCssHandles) => (
   } t-heading-${levelNumber} ${getHeadingLevelClass(handles, levelNumber)} ${
     styles[`heading-level-${levelNumber}`]
   }`
+
   return `<h${levelNumber} class="${classes}">${text}</h${levelNumber}>`
 }
 
@@ -237,24 +244,25 @@ const RichText: FunctionComponent<Props> = ({
 
   if (!isMounted) {
     renderer.current = new Renderer()
-    renderer.current.paragraph = text =>
-      `<p class="lh-copy ${handles.paragraph}">${text}</p>`
-    renderer.current.strong = text =>
-      `<span class="b ${handles.strong}">${text}</span>`
-    renderer.current.em = text =>
-      `<span class="i ${handles.italic}">${text}</span>`
+    renderer.current.paragraph = (content: string) =>
+      `<p class="lh-copy ${handles.paragraph}">${content}</p>`
+    renderer.current.strong = (content: string) =>
+      `<span class="b ${handles.strong}">${content}</span>`
+    renderer.current.em = (content: string) =>
+      `<span class="i ${handles.italic}">${content}</span>`
     renderer.current.heading = renderHeading(handles)
-    renderer.current.link = (href: string, title: string, text: string) => {
+    renderer.current.link = (href: string, title: string, content: string) => {
       const targetAtr = getTargetFromUrl(href)
       const targetRemoved = targetAtr
         ? href.replace(/target=_blank/, '').replace(/\?&/, '?')
         : href
 
-      //clean trailing ? or &
+      // clean trailing ? or &
       const cleanHref = targetRemoved.replace(/(\?|&)$/, '')
       const titleAtr = title ? `title="${title}"` : ''
 
       let finalLink = `<a class="${handles.link}" href="${cleanHref}"`
+
       if (titleAtr) {
         finalLink += ` ${titleAtr}`
       }
@@ -263,10 +271,12 @@ const RichText: FunctionComponent<Props> = ({
         finalLink += ` ${targetAtr}`
       }
 
-      finalLink += `>${text}</a>`
+      finalLink += `>${content}</a>`
+
       return finalLink
     }
-    renderer.current.html = html => escapeHtml(html)
+
+    renderer.current.html = (html) => escapeHtml(html)
     renderer.current.table = (header, body) => `
     <table class="${handles.table}">
       <thead class="${handles.tableHead}">
@@ -276,29 +286,34 @@ const RichText: FunctionComponent<Props> = ({
         ${body}
       </tbody>
     </table>`
-    renderer.current.tablerow = content => {
-      return '<tr class=' + handles.tableTr + '>\n' + content + '</tr>\n'
+    renderer.current.tablerow = (content) => {
+      return `<tr class=${handles.tableTr}>\n${content}</tr>\n`
     }
+
     renderer.current.tablecell = (content, flags) => {
       const type = flags.header ? 'th' : 'td'
       const tag = `<${type} class="${
         type === 'th' ? handles.tableTh : handles.tableTd
       }"
-        ${flags.align ? ' align="' + flags.align + '"' : ''}>`
-      return tag + content + '</' + type + '>\n'
+        ${flags.align ? ` align="${flags.align}"` : ''}>`
+
+      return `${tag + content}</${type}>\n`
     }
-    renderer.current.image = (href: string, title: string, text: string) =>
-      `<img class="${handles.image}" src="${href}" alt="${text}" ${
+
+    renderer.current.image = (href: string, title: string, content: string) =>
+      `<img class="${handles.image}" src="${href}" alt="${content}" ${
         title ? `title="${title}"` : ''
       } />`
     renderer.current.list = (body: string, ordered: boolean) => {
       const tag = ordered ? 'ol' : 'ul'
+
       return `<${tag} class="${handles.list} ${
         ordered ? handles.listOrdered : ''
       }">${body}</${tag}>`
     }
-    renderer.current.listitem = (text: string) =>
-      `<li class="${handles.listItem}">${text}</li>`
+
+    renderer.current.listitem = (content: string) =>
+      `<li class="${handles.listItem}">${content}</li>`
   }
 
   const alignToken = safelyGetToken(alignTokens, textAlignment, 'textAlignment')
@@ -313,13 +328,13 @@ const RichText: FunctionComponent<Props> = ({
     marked.setOptions({
       gfm: true,
       breaks: true,
-      sanitize: false, //Use insane lib for sanitizing
+      sanitize: false, // Use insane lib for sanitizing
       smartLists: true,
       renderer: renderer.current,
     })
 
     return insane(
-      //TODO: While markdown component isn't released, it needs to be done this way.
+      // TODO: While markdown component isn't released, it needs to be done this way.
       marked(formatIOMessage({ id: text, intl })),
       sanitizerConfig
     )

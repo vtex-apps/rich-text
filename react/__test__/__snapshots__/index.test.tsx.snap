@@ -294,7 +294,7 @@ exports[`Rich text component should render and sanitize malicious javascript 1`]
 </DocumentFragment>
 `;
 
-exports[`Rich text component should render and sanitize malicious javascript 2`] = `
+exports[`Rich text component should render and sanitize malicious javascript in css value 1`] = `
 <DocumentFragment>
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
@@ -332,7 +332,7 @@ exports[`Rich text component should render and sanitize malicious text 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Rich text component should render and sanitize malicious text 2`] = `
+exports[`Rich text component should render and sanitize malicious text in an attribute 1`] = `
 <DocumentFragment>
   <div
     class="container flex tl items-start justify-start t-body c-on-base"
