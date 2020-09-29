@@ -9,7 +9,7 @@
   "dependencies": {
     "@vtex/insane": "^2.8.0",
     "escape-html": "^1.0.3",
-    "marked": "^0.6.1",
+    "marked": "^0.7.0",
     "react-intl": "^3.0.0"
   },
   "devDependencies": {
