@@ -1,6 +1,5 @@
 {
   "admin/editor.rich-text.title": "Title of Rich Text component",
-  "admin/editor.rich-text.description": "Description of Rich Text component",
   "admin/editor.rich-text.text.title": "Title of text property",
   "admin/editor.rich-text.text.description": "Description of text property",
   "admin/editor.rich-text.textPosition.title": "Title of textPosition property",

@@ -1,6 +1,5 @@
 {
   "admin/editor.rich-text.title": "Rich Text",
-  "admin/editor.rich-text.description": "A component which displays text written in Markdown language",
   "admin/editor.rich-text.text.title": "Text",
   "admin/editor.rich-text.text.description": "Text in markdown language to be displayed",
   "admin/editor.rich-text.textPosition.title": "Text Position",
