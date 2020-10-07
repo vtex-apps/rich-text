@@ -1,6 +1,5 @@
 {
   "admin/editor.rich-text.title": "Rich Text",
-  "admin/editor.rich-text.description": "Um componente com imagem e texto onde você pode escolher como apresentar seu conteúdo",
   "admin/editor.rich-text.text.title": "Texto",
   "admin/editor.rich-text.text.description": "Texto em linguagem markdown a ser mostrado",
   "admin/editor.rich-text.textPosition.title": "Posição do texto",
