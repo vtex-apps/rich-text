@@ -198,6 +198,7 @@ type Props = {
   textColor?: string
   textPosition?: TextPositionValues
   htmlId?: string
+  classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
 }
 
 function RichText({
@@ -207,10 +208,14 @@ function RichText({
   textAlignment = DEFAULT_VALUES.textAlignment,
   textColor = 'c-on-base',
   htmlId,
+  classes,
 }: Props) {
   const intl = useIntl()
+  const { handles } = useCssHandles(CSS_HANDLES, {
+    classes,
+  })
+
   const [isMounted, setMounted] = useState(false)
-  const { handles } = useCssHandles(CSS_HANDLES)
   const renderer = useRef<Renderer>()
   const responsiveFont = useResponsiveValue(font)
 
