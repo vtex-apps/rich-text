@@ -1,26 +1,20 @@
-import React, {
-  FunctionComponent,
-  memo,
-  useEffect,
-  useState,
-  useRef,
-  useMemo,
-} from 'react'
-import { injectIntl, WrappedComponentProps } from 'react-intl'
+import React, { memo, useEffect, useState, useRef, useMemo } from 'react'
+import { useIntl } from 'react-intl'
 import marked, { Renderer } from 'marked'
 import escapeHtml from 'escape-html'
 import insane from '@vtex/insane'
-import { useCssHandles, CssHandles } from 'vtex.css-handles'
+import { useCssHandles } from 'vtex.css-handles'
 import { useResponsiveValue } from 'vtex.responsive-values'
 import { formatIOMessage } from 'vtex.native-types'
+import type { CssHandlesTypes } from 'vtex.css-handles'
 
-import styles from './styles/index.css'
 import {
   textPositionTypes,
   textAlignmentTypes,
   TextPositionValues,
   TextAlignmentValues,
 } from './typings/SchemaTypes'
+import styles from './styles/index.css'
 
 const CSS_HANDLES = [
   'container',
@@ -48,27 +42,40 @@ const CSS_HANDLES = [
   'wrapper',
 ] as const
 
-const justifyTokens = {
+const JUSTIFY_TOKENS = {
   [TextPositionValues.LEFT]: 'justify-start',
   [TextPositionValues.CENTER]: 'justify-center',
   [TextPositionValues.RIGHT]: 'justify-end',
-}
+} as const
 
-const alignTokens = {
+const ALIGN_TOKENS = {
   [TextAlignmentValues.LEFT]: 'tl',
   [TextAlignmentValues.CENTER]: 'tc',
   [TextAlignmentValues.RIGHT]: 'tr',
-}
+} as const
 
-const itemsTokens = {
+const ITEMS_TOKENS = {
   [TextAlignmentValues.LEFT]: 'items-start',
   [TextAlignmentValues.CENTER]: 'items-center',
   [TextAlignmentValues.RIGHT]: 'items-end',
-}
+} as const
+
+const TYPOGRAPHY = [
+  't-heading-1',
+  't-heading-2',
+  't-heading-3',
+  't-heading-4',
+  't-heading-5',
+  't-heading-6',
+  't-body',
+  't-small',
+  't-mini',
+  't-code',
+] as const
 
 type PropTokensNames = 'textPosition' | 'textAlignment'
 
-const defaultValues = {
+const DEFAULT_VALUES = {
   textPosition: textPositionTypes.TEXT_POSITION_LEFT.value,
   textAlignment: textAlignmentTypes.TEXT_ALIGNMENT_LEFT.value,
 }
@@ -77,22 +84,7 @@ const safelyGetToken = (
   tokenMap: Record<string, string>,
   valueWanted: string,
   propName: PropTokensNames
-) => tokenMap[valueWanted] || defaultValues[propName]
-
-interface Props extends WrappedComponentProps {
-  font: string
-  text: string
-  textAlignment: TextAlignmentValues
-  textColor: string
-  textPosition: TextPositionValues
-  htmlId?: string
-}
-
-interface VTEXIOComponent extends FunctionComponent<Props> {
-  schema?: any
-}
-
-type RichTextCssHandles = CssHandles<typeof CSS_HANDLES>
+) => tokenMap[valueWanted] || DEFAULT_VALUES[propName]
 
 const sanitizerConfig = {
   allowedTags: [
@@ -144,19 +136,6 @@ const getTargetFromUrl = (url: string) => {
   return hastTargetBlank ? 'target=_blank' : ''
 }
 
-const typography = [
-  't-heading-1',
-  't-heading-2',
-  't-heading-3',
-  't-heading-4',
-  't-heading-5',
-  't-heading-6',
-  't-body',
-  't-small',
-  't-mini',
-  't-code',
-]
-
 const sanitizeFont = (font: string) => {
   if (!font) {
     return 't-body'
@@ -164,7 +143,7 @@ const sanitizeFont = (font: string) => {
 
   const [first] = font.split(' ')
 
-  if (typography.indexOf(first) === -1) {
+  if (TYPOGRAPHY.indexOf(first as typeof TYPOGRAPHY[number]) === -1) {
     return 't-body'
   }
 
@@ -185,29 +164,17 @@ const sanitizeColor = (color: string) => {
   return 'c-on-base'
 }
 
+type RichTextCssHandles = CssHandlesTypes.CssHandles<typeof CSS_HANDLES>
+
 const getHeadingLevelClass = (handles: RichTextCssHandles, level: number) => {
-  switch (level) {
-    case 1:
-      return handles.headingLevel1
+  if (level === 1) return handles.headingLevel1
+  if (level === 2) return handles.headingLevel2
+  if (level === 3) return handles.headingLevel3
+  if (level === 4) return handles.headingLevel4
+  if (level === 5) return handles.headingLevel5
+  if (level === 6) return handles.headingLevel6
 
-    case 2:
-      return handles.headingLevel2
-
-    case 3:
-      return handles.headingLevel3
-
-    case 4:
-      return handles.headingLevel4
-
-    case 5:
-      return handles.headingLevel5
-
-    case 6:
-      return handles.headingLevel6
-
-    default:
-      return ''
-  }
+  return ''
 }
 
 const renderHeading = (handles: RichTextCssHandles) => (
@@ -224,17 +191,26 @@ const renderHeading = (handles: RichTextCssHandles) => (
   return `<h${levelNumber} class="${classes}">${text}</h${levelNumber}>`
 }
 
-const RichText: FunctionComponent<Props> = ({
-  font,
-  text,
-  textAlignment,
-  textColor,
-  textPosition,
+type Props = {
+  font?: string
+  text?: string
+  textAlignment?: TextAlignmentValues
+  textColor?: string
+  textPosition?: TextPositionValues
+  htmlId?: string
+}
+
+function RichText({
+  font = 't-body',
+  text = '',
+  textPosition = DEFAULT_VALUES.textPosition,
+  textAlignment = DEFAULT_VALUES.textAlignment,
+  textColor = 'c-on-base',
   htmlId,
-  intl,
-}) => {
+}: Props) {
+  const intl = useIntl()
   const [isMounted, setMounted] = useState(false)
-  const handles = useCssHandles(CSS_HANDLES)
+  const { handles } = useCssHandles(CSS_HANDLES)
   const renderer = useRef<Renderer>()
   const responsiveFont = useResponsiveValue(font)
 
@@ -316,10 +292,15 @@ const RichText: FunctionComponent<Props> = ({
       `<li class="${handles.listItem}">${content}</li>`
   }
 
-  const alignToken = safelyGetToken(alignTokens, textAlignment, 'textAlignment')
-  const itemsToken = safelyGetToken(itemsTokens, textPosition, 'textPosition')
+  const alignToken = safelyGetToken(
+    ALIGN_TOKENS,
+    textAlignment,
+    'textAlignment'
+  )
+
+  const itemsToken = safelyGetToken(ITEMS_TOKENS, textPosition, 'textPosition')
   const justifyToken = safelyGetToken(
-    justifyTokens,
+    JUSTIFY_TOKENS,
     textPosition,
     'textPosition'
   )
@@ -357,18 +338,11 @@ const RichText: FunctionComponent<Props> = ({
   )
 }
 
-RichText.defaultProps = {
-  font: 't-body',
-  text: '',
-  textPosition: defaultValues.textPosition,
-  textAlignment: defaultValues.textAlignment,
-  textColor: 'c-on-base',
-}
+const MemoizedRichText = memo(RichText)
 
-const MemoizedRichText: VTEXIOComponent = memo(RichText)
-
-MemoizedRichText.schema = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+;(MemoizedRichText as any).schema = {
   title: 'admin/editor.rich-text.title',
 }
 
-export default injectIntl(MemoizedRichText)
+export default MemoizedRichText

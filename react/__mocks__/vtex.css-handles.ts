@@ -5,9 +5,5 @@ export const useCssHandles = (cssHandles: string[]) => {
     handles[handle] = handle
   })
 
-  return handles
-}
-
-export const applyModifiers = (className: string, modifiers: string) => {
-  return `${className} ${className}--${modifiers}`
+  return { handles }
 }
