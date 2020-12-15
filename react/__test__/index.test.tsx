@@ -116,19 +116,6 @@ describe('Rich text component', () => {
     expect(component.asFragment()).toMatchSnapshot()
   })
 
-  it('should render with image block class props', () => {
-    const component = render(
-      <RichText
-        {...defaultProps}
-        text={`[I'm an inline-style link with title](https://www.google.com "Google's Homepage")\n**Bollllddd**\n*this is talic*`}
-        blockClass="home"
-      />
-    )
-
-    expect(component).toBeDefined()
-    expect(component.asFragment()).toMatchSnapshot()
-  })
-
   it('should render an iframe', () => {
     const component = render(
       <RichText
@@ -208,7 +195,6 @@ teste|abc
       <RichText
         {...defaultProps}
         text={`# Heading 1 # \n ### Heading level 3 ##`}
-        blockClass="home"
       />
     )
 
@@ -221,7 +207,6 @@ teste|abc
       <RichText
         {...defaultProps}
         text={`Teste \n * Item 1\n * Item 2\n * Item 3`}
-        blockClass="home"
       />
     )
 
@@ -234,7 +219,6 @@ teste|abc
       <RichText
         {...defaultProps}
         text={`Teste \n 1. Item 1\n 2. Item 2\n 3. Item 3`}
-        blockClass="home"
       />
     )
 
@@ -290,6 +274,7 @@ teste|abc
     const component = render(
       <RichText {...defaultProps} text="Test <sup>(r)</sup>" />
     )
+
     expect(component).toBeDefined()
     expect(component.asFragment()).toMatchSnapshot()
   })
