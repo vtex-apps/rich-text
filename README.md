@@ -65,6 +65,7 @@ Check the [documentation of Markdown Language](https://www.markdownguide.org/che
 | `text`        | `String` | Text written in markdown language to be displayed              |
 | `textAlignment`  | `TextAlignmentEnum` | Control the text alignment inside component. Default: `"LEFT"`                                                                |
 | `textPosition`       | `TextPostionEnum` | Choose in which position of the component text will be displayed, left, center or right. Default: `"LEFT"`                                                           |
+| `htmlId`     | `String` | HTML ID of the element.                                          |
 | `blockClass`       | `String` | Unique class name to be appended to block classes. Default: ''                                                           |
 
 Here are the possible values of `TextPostionEnum`
