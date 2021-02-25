@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "Text îmbogățit",
+  "admin/editor.rich-text.text.title": "Text",
+  "admin/editor.rich-text.text.description": "De afișat text în limbajul markdown",
+  "admin/editor.rich-text.textPosition.title": "Poziție text",
+  "admin/editor.rich-text.textPosition.description": "Alege în care poziție a componentei va fi textul afișat, stânga, centru sau dreapta",
+  "admin/editor.rich-text.textAlignment.title": "Alinierea textului",
+  "admin/editor.rich-text.textAlignment.description": "Controlează alinierea textului în interiorul componentei",
+  "admin/editor.rich-text.textPosition.left": "Stânga",
+  "admin/editor.rich-text.textPosition.center": "Centru",
+  "admin/editor.rich-text.textPosition.right": "Dreapta",
+  "admin/editor.rich-text.textAlignment.left": "Stânga",
+  "admin/editor.rich-text.textAlignment.center": "Centru",
+  "admin/editor.rich-text.textAlignment.right": "Dreapta",
+  "admin/editor.rich-text.font.title": "Token font",
+  "admin/editor.rich-text.font.description": "Specifică token-ul fontului care să fie folosit în calitate de cel prestabilit",
+  "admin/editor.rich-text.textColor.title": "Token culoare text",
+  "admin/editor.rich-text.textColor.description": "Specifică token-ul culorii textului care să fie folosit",
+  "admin/editor.rich-text.blockClass.title": "Clasa de blocuri",
+  "admin/editor.rich-text.blockClass.description": "Denumire unică a clasei care se anexează claselor de blocuri"
+}
