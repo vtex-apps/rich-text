@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - Crowdin configuration file.
+
 ## [0.12.0] - 2020-12-15
 ### Added
 - Add support for custom classes override.
