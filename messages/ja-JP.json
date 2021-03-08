@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "リッチテキスト",
+  "admin/editor.rich-text.text.title": "テキスト",
+  "admin/editor.rich-text.text.description": "表示するマークダウン言語のテキスト",
+  "admin/editor.rich-text.textPosition.title": "テキストの位置",
+  "admin/editor.rich-text.textPosition.description": "コンポーネントテキストが表示される位置を左、中央、右から選びます。",
+  "admin/editor.rich-text.textAlignment.title": "文字揃え",
+  "admin/editor.rich-text.textAlignment.description": "コンポーネント内の文字揃えをコントロールします",
+  "admin/editor.rich-text.textPosition.left": "左",
+  "admin/editor.rich-text.textPosition.center": "中央",
+  "admin/editor.rich-text.textPosition.right": "右",
+  "admin/editor.rich-text.textAlignment.left": "左",
+  "admin/editor.rich-text.textAlignment.center": "中央",
+  "admin/editor.rich-text.textAlignment.right": "右",
+  "admin/editor.rich-text.font.title": "フォントトークン",
+  "admin/editor.rich-text.font.description": "デフォルトで使うフォントトークンを指定する",
+  "admin/editor.rich-text.textColor.title": "テキストカラートークン",
+  "admin/editor.rich-text.textColor.description": "使用するテキストカラートークンを指定する",
+  "admin/editor.rich-text.blockClass.title": "ブロッククラス",
+  "admin/editor.rich-text.blockClass.description": "ブロッククラスに添付する独自のクラス名"
+}
