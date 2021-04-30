@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "Rich tekst",
+  "admin/editor.rich-text.text.title": "Tekst",
+  "admin/editor.rich-text.text.description": "Tekst in markdown-taal die moet worden weergegeven",
+  "admin/editor.rich-text.textPosition.title": "Tekstpositie",
+  "admin/editor.rich-text.textPosition.description": "Kies in welke positie de componenttekst wordt weergegeven, links, in het midden of rechts",
+  "admin/editor.rich-text.textAlignment.title": "Tekstuitlijning",
+  "admin/editor.rich-text.textAlignment.description": "Regel de tekstuitlijning binnen het onderdeel",
+  "admin/editor.rich-text.textPosition.left": "Links",
+  "admin/editor.rich-text.textPosition.center": "Midden",
+  "admin/editor.rich-text.textPosition.right": "Rechts",
+  "admin/editor.rich-text.textAlignment.left": "Links",
+  "admin/editor.rich-text.textAlignment.center": "Midden",
+  "admin/editor.rich-text.textAlignment.right": "Rechts",
+  "admin/editor.rich-text.font.title": "Lettertype token",
+  "admin/editor.rich-text.font.description": "Specificeer het lettertype-token dat als standaard moet worden gebruikt",
+  "admin/editor.rich-text.textColor.title": "Tekstkleurtoken",
+  "admin/editor.rich-text.textColor.description": "Geef het tekstkleurtoken op dat moet worden gebruikt",
+  "admin/editor.rich-text.blockClass.title": "Klasse blokkeren",
+  "admin/editor.rich-text.blockClass.description": "Unieke klassenaam die moet worden toegevoegd om klassen te blokkeren"
+}

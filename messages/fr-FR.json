@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "Texte enrichi",
+  "admin/editor.rich-text.text.title": "TextE",
+  "admin/editor.rich-text.text.description": "Texte à afficher dans la langue de démarque",
+  "admin/editor.rich-text.textPosition.title": "Position du texte",
+  "admin/editor.rich-text.textPosition.description": "Choisir la position dans laquelle le texte composant sera affiché, à gauche, au centre ou à droite",
+  "admin/editor.rich-text.textAlignment.title": "Alignement du texte",
+  "admin/editor.rich-text.textAlignment.description": "Contrôler l’alignement du texte à l’intérieur du composant",
+  "admin/editor.rich-text.textPosition.left": "Gauche",
+  "admin/editor.rich-text.textPosition.center": "Centre",
+  "admin/editor.rich-text.textPosition.right": "Droite",
+  "admin/editor.rich-text.textAlignment.left": "Gauche",
+  "admin/editor.rich-text.textAlignment.center": "Centre",
+  "admin/editor.rich-text.textAlignment.right": "Droite",
+  "admin/editor.rich-text.font.title": "Police d’écriture",
+  "admin/editor.rich-text.font.description": "Préciser la police à utiliser par défaut",
+  "admin/editor.rich-text.textColor.title": "Couleur du texte",
+  "admin/editor.rich-text.textColor.description": "Préciser la couleur du texte à utiliser",
+  "admin/editor.rich-text.blockClass.title": "Classe de bloc",
+  "admin/editor.rich-text.blockClass.description": "Nom de classe unique à ajouter aux classes de bloc"
+}
