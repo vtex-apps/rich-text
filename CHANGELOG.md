@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - I18n Ro and Jp.
 
-### Changed
+### Fixed
 
 - Crowdin configuration file.
 
