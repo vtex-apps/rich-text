@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "Rich Text",
+  "admin/editor.rich-text.text.title": "Testo",
+  "admin/editor.rich-text.text.description": "Testi da visualizzare in linguaggio markdown",
+  "admin/editor.rich-text.textPosition.title": "Posizione testo",
+  "admin/editor.rich-text.textPosition.description": "Scegli in quale posizione verrà visualizzato il testo del componente: sinistra, centro o destra",
+  "admin/editor.rich-text.textAlignment.title": "Allineamento testo",
+  "admin/editor.rich-text.textAlignment.description": "Controlla l'allineamento del testo all'interno del componente",
+  "admin/editor.rich-text.textPosition.left": "Sinistra",
+  "admin/editor.rich-text.textPosition.center": "Centro",
+  "admin/editor.rich-text.textPosition.right": "Destra",
+  "admin/editor.rich-text.textAlignment.left": "Sinistra",
+  "admin/editor.rich-text.textAlignment.center": "Centro",
+  "admin/editor.rich-text.textAlignment.right": "Destra",
+  "admin/editor.rich-text.font.title": "Token font",
+  "admin/editor.rich-text.font.description": "Specifica il token del font da utilizzare come predefinito",
+  "admin/editor.rich-text.textColor.title": "Token colore del testo",
+  "admin/editor.rich-text.textColor.description": "Specifica il token del colore del testo da utilizzare",
+  "admin/editor.rich-text.blockClass.title": "Classe di blocco",
+  "admin/editor.rich-text.blockClass.description": "Nome di classe univoco da aggiungere alle classi di blocco"
+}

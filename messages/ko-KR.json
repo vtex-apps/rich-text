@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "리치 텍스트",
+  "admin/editor.rich-text.text.title": "텍스트",
+  "admin/editor.rich-text.text.description": "표시할 마크다운 언어로 된 텍스트",
+  "admin/editor.rich-text.textPosition.title": "텍스트 위치",
+  "admin/editor.rich-text.textPosition.description": "왼쪽, 가운데 또는 오른쪽에 표시될 구성요소 텍스트의 위치 선택",
+  "admin/editor.rich-text.textAlignment.title": "텍스트 정렬",
+  "admin/editor.rich-text.textAlignment.description": "구성 요소 내부의 텍스트 정렬 제어",
+  "admin/editor.rich-text.textPosition.left": "왼쪽",
+  "admin/editor.rich-text.textPosition.center": "가운데",
+  "admin/editor.rich-text.textPosition.right": "오른쪽",
+  "admin/editor.rich-text.textAlignment.left": "왼쪽",
+  "admin/editor.rich-text.textAlignment.center": "가운데",
+  "admin/editor.rich-text.textAlignment.right": "오른쪽",
+  "admin/editor.rich-text.font.title": "폰트 토큰",
+  "admin/editor.rich-text.font.description": "기본값으로 사용할 폰트 토큰 지정",
+  "admin/editor.rich-text.textColor.title": "텍스트 색 토큰",
+  "admin/editor.rich-text.textColor.description": "사용할 텍스트 색 토큰 지정",
+  "admin/editor.rich-text.blockClass.title": "블록 클래스",
+  "admin/editor.rich-text.blockClass.description": "블록 클래스에 추가할 고유 클래스 이름"
+}
