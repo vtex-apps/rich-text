@@ -66,10 +66,10 @@ Check the [documentation of Markdown Language](https://www.markdownguide.org/che
 | `textColor`     | `String` | Define the tachyon token to be used as text color. Default: `c-on-base`                                          |
 | `text`        | `String` | Text written in markdown language to be displayed              |
 | `textAlignment`  | `TextAlignmentEnum` | Control the text alignment inside component. Default: `"LEFT"`                                                                |
-| `textPosition`       | `TextPostionEnum` | Choose in which position of the component text will be displayed, left, center or right. Default: `"LEFT"`                                                           |
+| `textPosition`       | `TextPositionEnum` | Choose in which position of the component text will be displayed, left, center or right. Default: `"LEFT"`                                                           |
 | `blockClass`       | `String` | Unique class name to be appended to block classes. Default: ''                                                           |
 
-Here are the possible values of `TextPostionEnum`
+Here are the possible values of `TextPositionEnum`
 
 | Enum name | Enum value | Description |
 | --------- | ---- | ----------- |
