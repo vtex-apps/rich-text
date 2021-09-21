@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
-- I18n pseudo-language to implement In Context tool.
+- I18n Bg and Bs (pseudo-language to implement In-context tool).
 
 ## [0.14.1] - 2021-06-17
 
