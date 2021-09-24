@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "RTF текст",
+  "admin/editor.rich-text.text.title": "Текст",
+  "admin/editor.rich-text.text.description": "Текст в маркдаун език, който ще се показва",
+  "admin/editor.rich-text.textPosition.title": "Разположение на текста",
+  "admin/editor.rich-text.textPosition.description": "Изберете в коя позиция на компонента ще се показва текстът – ляво, центрирано или дясно",
+  "admin/editor.rich-text.textAlignment.title": "Подравняване на текста",
+  "admin/editor.rich-text.textAlignment.description": "Контролира подравняването на текста в компонента",
+  "admin/editor.rich-text.textPosition.left": "Ляво",
+  "admin/editor.rich-text.textPosition.center": "Центрирано",
+  "admin/editor.rich-text.textPosition.right": "Дясно",
+  "admin/editor.rich-text.textAlignment.left": "Ляво",
+  "admin/editor.rich-text.textAlignment.center": "Центрирано",
+  "admin/editor.rich-text.textAlignment.right": "Дясно",
+  "admin/editor.rich-text.font.title": "Маркер за шрифт",
+  "admin/editor.rich-text.font.description": "Посочете маркера за шрифт, който да се използва по подразбиране",
+  "admin/editor.rich-text.textColor.title": "Маркер за цвят на текст",
+  "admin/editor.rich-text.textColor.description": "Посочете маркера за цвят на текст, който ще се използва",
+  "admin/editor.rich-text.blockClass.title": "Блок клас",
+  "admin/editor.rich-text.blockClass.description": "Уникално име на клас, което да се добавя към блок класовете"
+}
