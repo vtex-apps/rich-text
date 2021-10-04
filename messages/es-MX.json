@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "Texto RTF",
+  "admin/editor.rich-text.text.title": "Texto",
+  "admin/editor.rich-text.text.description": "Texto en lenguaje de markdown que se mostrará",
+  "admin/editor.rich-text.textPosition.title": "Posición del texto",
+  "admin/editor.rich-text.textPosition.description": "Elija en que posición del componente se mostrará el texto: izquierda, centro o derecha",
+  "admin/editor.rich-text.textAlignment.title": "Alineación del texto",
+  "admin/editor.rich-text.textAlignment.description": "Controle la alineación del texto dentro del componente",
+  "admin/editor.rich-text.textPosition.left": "Izquierda",
+  "admin/editor.rich-text.textPosition.center": "Centro",
+  "admin/editor.rich-text.textPosition.right": "Derecha",
+  "admin/editor.rich-text.textAlignment.left": "Izquierda",
+  "admin/editor.rich-text.textAlignment.center": "Centro",
+  "admin/editor.rich-text.textAlignment.right": "Derecha",
+  "admin/editor.rich-text.font.title": "Token de fuente",
+  "admin/editor.rich-text.font.description": "Especifique el token de fuente que se utilizará como estándar",
+  "admin/editor.rich-text.textColor.title": "Token de color del texto",
+  "admin/editor.rich-text.textColor.description": "Especifique el token de color de texto que se utilizará",
+  "admin/editor.rich-text.blockClass.title": "Clase del bloque",
+  "admin/editor.rich-text.blockClass.description": "Nombre de clase único que se adjuntará a las clases de los bloques"
+}
