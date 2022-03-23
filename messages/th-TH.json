@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "Rich Text",
+  "admin/editor.rich-text.text.title": "ข้อความ",
+  "admin/editor.rich-text.text.description": "ข้อความในภาษา Markdown ที่จะให้แสดง",
+  "admin/editor.rich-text.textPosition.title": "ตำแหน่งข้อความ",
+  "admin/editor.rich-text.textPosition.description": "เลือกตำแหน่งที่จะแสดงข้อความส่วนประกอบ การจัดชิดซ้าย กลาง หรือชิดขวา",
+  "admin/editor.rich-text.textAlignment.title": "การจัดแนวข้อความ",
+  "admin/editor.rich-text.textAlignment.description": "ควบคุมแนวข้อความในส่วนประกอบ",
+  "admin/editor.rich-text.textPosition.left": "ซ้าย",
+  "admin/editor.rich-text.textPosition.center": "กลาง",
+  "admin/editor.rich-text.textPosition.right": "ขวา",
+  "admin/editor.rich-text.textAlignment.left": "ซ้าย",
+  "admin/editor.rich-text.textAlignment.center": "กลาง",
+  "admin/editor.rich-text.textAlignment.right": "ขวา",
+  "admin/editor.rich-text.font.title": "โทเค็นของฟอนต์",
+  "admin/editor.rich-text.font.description": "ระบุโทเค็นของแบบอักษรที่จะให้เป็นค่าเริ่มต้น",
+  "admin/editor.rich-text.textColor.title": "โทเค็นสีข้อความ",
+  "admin/editor.rich-text.textColor.description": "ระบุสีของข้อความที่จะใช้",
+  "admin/editor.rich-text.blockClass.title": "คลาสของบล็อค",
+  "admin/editor.rich-text.blockClass.description": "ชื่อคลาสที่เป็นค่าเฉพาะที่จะใช้ต่อท้ายคลาสของบล็อค"
+}
