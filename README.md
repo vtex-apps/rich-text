@@ -50,7 +50,7 @@ Check the [documentation of Markdown Language](https://www.markdownguide.org/che
   "props": {
     "textAlignment": "CENTER",
     "textPosition": "CENTER",
-    "text": "Visit our [help](https://help.vtex.com/en/faq/what-is-vtex-io) section.\n*Be Bold!*\n**This is italic**",
+    "text": "Visit our [help](https://help.vtex.com/en/faq/what-is-vtex-io) section.\n**Be Bold!**\n*This is italic*",
     "textColor": "c-on-emphasis",
     "font": "t-heading-5",
     "blockClass": "help-message"
