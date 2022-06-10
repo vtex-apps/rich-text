@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "نصّ مُنـسّق",
+  "admin/editor.rich-text.text.title": "النص",
+  "admin/editor.rich-text.text.description": "نص في لغة markdown ليتم عرضه",
+  "admin/editor.rich-text.textPosition.title": "موقع النص",
+  "admin/editor.rich-text.textPosition.description": "اختر موضع نص المكون الذي سيتم عرضه، يسار أو وسط أو يمين",
+  "admin/editor.rich-text.textAlignment.title": "توجيه النص",
+  "admin/editor.rich-text.textAlignment.description": "التحكم في توجيه النص داخل المكون",
+  "admin/editor.rich-text.textPosition.left": "اليسار",
+  "admin/editor.rich-text.textPosition.center": "الوسط",
+  "admin/editor.rich-text.textPosition.right": "اليمين",
+  "admin/editor.rich-text.textAlignment.left": "اليسار",
+  "admin/editor.rich-text.textAlignment.center": "الوسط",
+  "admin/editor.rich-text.textAlignment.right": "اليمين",
+  "admin/editor.rich-text.font.title": "نوع الكتابة",
+  "admin/editor.rich-text.font.description": "حدد الرمز المميز لخط الكتابة لاستخدامه كافتراضي",
+  "admin/editor.rich-text.textColor.title": "رمز لون النص",
+  "admin/editor.rich-text.textColor.description": "حدد رمز لون النص لاستخدامه",
+  "admin/editor.rich-text.blockClass.title": "حظر الصف الدراسي",
+  "admin/editor.rich-text.blockClass.description": "الاسم الفريد للصف المراد إرفاقه بحظر الصفوف"
+}
