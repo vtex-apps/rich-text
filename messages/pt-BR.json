@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "Rich Text",
+  "admin/editor.rich-text.text.title": "Texto",
+  "admin/editor.rich-text.text.description": "Texto a ser mostrado em linguagem Markdown",
+  "admin/editor.rich-text.textPosition.title": "Posição do texto",
+  "admin/editor.rich-text.textPosition.description": "Escolha em qual posição o texto deve ser apresentado (à esquerda, centralizado ou à direita)",
+  "admin/editor.rich-text.textAlignment.title": "Alinhamento do texto",
+  "admin/editor.rich-text.textAlignment.description": "Controla o alinhamento dos textos dentro do componente",
+  "admin/editor.rich-text.textPosition.left": "À esquerda",
+  "admin/editor.rich-text.textPosition.center": "Centralizado",
+  "admin/editor.rich-text.textPosition.right": "À direita",
+  "admin/editor.rich-text.textAlignment.left": "À esquerda",
+  "admin/editor.rich-text.textAlignment.center": "Centralizado",
+  "admin/editor.rich-text.textAlignment.right": "À direita",
+  "admin/editor.rich-text.font.title": "Token de fonte",
+  "admin/editor.rich-text.font.description": "Especifique o token de fonte para ser usado como padrão",
+  "admin/editor.rich-text.textColor.title": "Token de cor",
+  "admin/editor.rich-text.textColor.description": "Especifique o token de cor do texto para ser usado como padrão",
+  "admin/editor.rich-text.blockClass.title": "Classe do bloco",
+  "admin/editor.rich-text.blockClass.description": "Nome da classe do bloco para ser anexado às classes padrão do bloco"
+}
