@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "富文本",
+  "admin/editor.rich-text.text.title": "文本",
+  "admin/editor.rich-text.text.description": "在 Markdown 語言中需要顯示的文本",
+  "admin/editor.rich-text.textPosition.title": "文本位置",
+  "admin/editor.rich-text.textPosition.description": "選擇組件文字將顯示的位置：左邊、中間或右邊",
+  "admin/editor.rich-text.textAlignment.title": "文本對齊",
+  "admin/editor.rich-text.textAlignment.description": "控制組件內的文本對齊方式",
+  "admin/editor.rich-text.textPosition.left": "靠左對齊",
+  "admin/editor.rich-text.textPosition.center": "居中對齊",
+  "admin/editor.rich-text.textPosition.right": "靠右對齊",
+  "admin/editor.rich-text.textAlignment.left": "靠左對齊",
+  "admin/editor.rich-text.textAlignment.center": "居中對齊",
+  "admin/editor.rich-text.textAlignment.right": "靠右對齊",
+  "admin/editor.rich-text.font.title": "字體令牌",
+  "admin/editor.rich-text.font.description": "指定作爲預設值使用的字體令牌",
+  "admin/editor.rich-text.textColor.title": "文本顏色令牌",
+  "admin/editor.rich-text.textColor.description": "指定要使用的文本顏色令牌",
+  "admin/editor.rich-text.blockClass.title": "塊類別",
+  "admin/editor.rich-text.blockClass.description": "需要添加到塊類別的唯一類別名稱"
+}
