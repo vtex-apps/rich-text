@@ -28,7 +28,7 @@ For example, the text `[Help](https://developers.vtex.com/vtex-developer-docs/do
   </div>
 ```
 
-Please refer to the [Markdown Documentation](https://www.markdownguide.org/cheat-sheet/) for more info.
+>Refer to the [Markdown Documentation](https://www.markdownguide.org/cheat-sheet/) for more info, but take into account that we do not support Heading IDs. 
 
 ## Configuration
 
