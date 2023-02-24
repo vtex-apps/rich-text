@@ -1,0 +1,21 @@
+{
+  "admin/editor.rich-text.title": "Rich-Text",
+  "admin/editor.rich-text.text.title": "Text",
+  "admin/editor.rich-text.text.description": "Text in Markdown Sprache angezeigt werden",
+  "admin/editor.rich-text.textPosition.title": "Textposition",
+  "admin/editor.rich-text.textPosition.description": "Wählen Sie, an welcher Position der Text der Komponente angezeigt werden soll: links, mittig oder rechts",
+  "admin/editor.rich-text.textAlignment.title": "Textausrichtung",
+  "admin/editor.rich-text.textAlignment.description": "Steuern Sie die Textausrichtung innerhalb der Komponente",
+  "admin/editor.rich-text.textPosition.left": "Links",
+  "admin/editor.rich-text.textPosition.center": "Mittig",
+  "admin/editor.rich-text.textPosition.right": "Rechts",
+  "admin/editor.rich-text.textAlignment.left": "Links",
+  "admin/editor.rich-text.textAlignment.center": "Mittig",
+  "admin/editor.rich-text.textAlignment.right": "Rechts",
+  "admin/editor.rich-text.font.title": "Font-Token",
+  "admin/editor.rich-text.font.description": "Geben Sie den Font-Token an, der als Standard verwendet werden soll",
+  "admin/editor.rich-text.textColor.title": "Textfarbe Token",
+  "admin/editor.rich-text.textColor.description": "Geben Sie das Textfarbe Token an, das verwendet werden soll",
+  "admin/editor.rich-text.blockClass.title": "Blockklasse",
+  "admin/editor.rich-text.blockClass.description": "Eindeutiger Klassenname, der an Blockklassen angehängt werden soll"
+}
