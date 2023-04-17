@@ -9,12 +9,12 @@ The Rich Text block converts texts written in Markdown to HTML and displays it i
 
 ![image](https://user-images.githubusercontent.com/12139385/70084949-119b1f80-15ee-11ea-91dd-1277427c8aee.png)
 
-For example, the text `[Help](https://developers.vtex.com/vtex-developer-docs/docs/welcome).\n**Be Bold!**\n*This is italic*` is converted to:
+For example, the text `[Help](https://developers.vtex.com/docs/guides).\n**Be Bold!**\n*This is italic*` is converted to:
 
-```
+```html
 <div>
       <p>
-        <a href="https://developers.vtex.com/vtex-developer-docs/docs/welcome">
+        <a href="https://developers.vtex.com/docs/guides">
          Help
         </a>
         <br />
@@ -47,7 +47,7 @@ Please refer to the [Markdown Documentation](https://www.markdownguide.org/cheat
   "props": {
     "textAlignment": "CENTER",
     "textPosition": "CENTER",
-    "text": "Visit our [help](https://developers.vtex.com/vtex-developer-docs/docs/welcome) section.\n**Be Bold!**\n*This is italic*",
+    "text": "Visit our [help](https://developers.vtex.com/docs/guides) section.\n**Be Bold!**\n*This is italic*",
     "textColor": "c-on-emphasis",
     "font": "t-heading-5",
     "blockClass": "help-message"
@@ -80,10 +80,9 @@ Please refer to the [Markdown Documentation](https://www.markdownguide.org/cheat
 | Center | 'CENTER' | Text alignment will be to the center. |
 | Right | 'RIGHT' | Text alignment will be to the right. |
 
-
 ## Customization
 
-To apply CSS customizations in this and other blocks, follow the [Using CSS handles for store customization](https://developers.vtex.com/vtex-developer-docs/docs/vtex-io-documentation-using-css-handles-for-store-customization) guide.
+To apply CSS customizations in this and other blocks, follow the [Using CSS handles for store customization](https://developers.vtex.com/docs/guides/vtex-io-documentation-using-css-handles-for-store-customization) guide.
 
 | CSS Handle |
 | --- |
