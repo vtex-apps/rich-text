@@ -57,12 +57,13 @@ For more information, please refer to the [Markdown documentation](https://www.m
 
 | Prop name       | Type                | Description                                                                                                  |
 | --------------- | ------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `font`          | `string`            | `{desktop: string, tablet: string, mobile: string}` | Tachyon token to be used as a font. Default: `t-body`. |
+| `blockClass`    | `string`            | Unique class name to be appended to block classes. Default: ''                                               |
+| `font`          | `string`            | Tachyon token to be used as a font. Default: `t-body`. |
+| `htmlId`     | `String` | HTML ID of the element.                                          |
 | `textColor`     | `string`            | Tachyon token to be used as text color. Default: `c-on-base`.                                                |
 | `text`          | `string`            | Text written in Markdown language to be displayed.                                                           |
 | `textAlignment` | `TextAlignmentEnum` | Text alignment inside the component. Default: `"LEFT"`.                                                      |
 | `textPosition`  | `TextPostionEnum`   | Text position in relation to the component. Default: `"LEFT"`.                                               |
-| `blockClass`    | `string`            | Unique class name to be appended to block classes. Default: ''                                               |
 
 - **`TextPostionEnum` possible values**
 
