@@ -9,7 +9,7 @@ The Rich Text block converts texts written in Markdown to HTML and displays them
 
 ![image](https://cdn.jsdelivr.net/gh/vtexdocs/dev-portal-content@main/images/vtex-rich-text-0.png)
 
-For example, the text `[Help](https://developers.vtex.com/docs/guides/welcome).\n**Be Bold!**\n*This is italic*` is converted to:
+For example, the text `[Help](https://developers.vtex.com/).\n**Be Bold!**\n*This is italic*` is converted to:
 
 ```html
 <div>
