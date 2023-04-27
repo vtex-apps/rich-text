@@ -47,7 +47,7 @@ For more information, please refer to the [Markdown documentation](https://www.m
   "props": {
     "textAlignment": "CENTER",
     "textPosition": "CENTER",
-    "text": "Visit our [help](https://developers.vtex.com/docs/guides/welcome) section.\n**Be Bold!**\n*This is italic*",
+    "text": "Visit our [help](https://developers.vtex.com/) section.\n**Be Bold!**\n*This is italic*",
     "textColor": "c-on-emphasis",
     "font": "t-heading-5",
     "blockClass": "help-message"
