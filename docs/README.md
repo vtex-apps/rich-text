@@ -14,7 +14,7 @@ For example, the text `[Help](https://developers.vtex.com/).\n**Be Bold!**\n*Thi
 ```html
 <div>
       <p>
-        <a href="https://developers.vtex.com/docs/guides/welcome">
+        <a href="https://developers.vtex.com/">
          Help
         </a>
         <br />
