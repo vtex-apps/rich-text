@@ -5,16 +5,16 @@
 
 # Rich Text
 
-The Rich Text block converts texts written in Markdown to HTML and displays it in your storefront.
+The Rich Text block converts texts written in Markdown to HTML and displays them in your storefront.
 
-![image](https://user-images.githubusercontent.com/12139385/70084949-119b1f80-15ee-11ea-91dd-1277427c8aee.png)
+![image](https://cdn.jsdelivr.net/gh/vtexdocs/dev-portal-content@main/images/vtex-rich-text-0.png)
 
-For example, the text `[Help](https://developers.vtex.com/docs/guides).\n**Be Bold!**\n*This is italic*` is converted to:
+For example, the text `[Help](https://developers.vtex.com/).\n**Be Bold!**\n*This is italic*` is converted to:
 
 ```html
 <div>
       <p>
-        <a href="https://developers.vtex.com/docs/guides">
+        <a href="https://developers.vtex.com/">
          Help
         </a>
         <br />
@@ -22,17 +22,17 @@ For example, the text `[Help](https://developers.vtex.com/docs/guides).\n**Be Bo
         <br />
         <span class="i">This is italic</span>
       </p>
-      
+
 
     </div>
   </div>
 ```
 
-Please refer to the [Markdown Documentation](https://www.markdownguide.org/cheat-sheet/) for more info.
+For more information, please refer to the [Markdown documentation](https://www.markdownguide.org/cheat-sheet/).
 
 ## Configuration
 
-1. Import the rich text's app to your theme's dependencies in the `manifest.json` as in the following example:
+1. Import the rich text app to your theme dependencies in the `manifest.json` as in the following example:
 
 ```json
   "dependencies": {
@@ -40,14 +40,14 @@ Please refer to the [Markdown Documentation](https://www.markdownguide.org/cheat
   }
 ```
 
-2. Add the `rich-text` block to your blocks files in the desired template position. For example:
+2. Add the `rich-text` block to your block files in the desired template position. For example:
 
 ```json
 "rich-text": {
   "props": {
     "textAlignment": "CENTER",
     "textPosition": "CENTER",
-    "text": "Visit our [help](https://developers.vtex.com/docs/guides) section.\n**Be Bold!**\n*This is italic*",
+    "text": "Visit our [help](https://developers.vtex.com/) section.\n**Be Bold!**\n*This is italic*",
     "textColor": "c-on-emphasis",
     "font": "t-heading-5",
     "blockClass": "help-message"
@@ -55,60 +55,60 @@ Please refer to the [Markdown Documentation](https://www.markdownguide.org/cheat
 }
 ```
 
-| Prop name           | Type      | Description                                                                                 |
-| ------------------- | --------- | ------------------------------------------------------------------------------------------- |
-| `font`     | `String` \| `{desktop: String, tablet: String, mobile: String}` | Tachyon token to be used as font. Default: `t-body`    |
-| `textColor`     | `String` | Tachyon token to be used as text color. Default: `c-on-base`                                          |
-| `text`        | `String` | Text written in markdown language to be displayed.              |
-| `textAlignment`  | `TextAlignmentEnum` | Text alignment inside the component. Default: `"LEFT"`                                                                |
-| `textPosition`       | `TextPostionEnum` | Text position in relation to the component. Default: `"LEFT"`                                                           |
-| `blockClass`       | `String` | Unique class name to be appended to block classes. Default: ''                                                           |
+| Prop name       | Type                | Description                                                                                                  |
+| --------------- | ------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `font`          | `string`            | `{desktop: string, tablet: string, mobile: string}` | Tachyon token to be used as a font. Default: `t-body`. |
+| `textColor`     | `string`            | Tachyon token to be used as text color. Default: `c-on-base`.                                                |
+| `text`          | `string`            | Text written in Markdown language to be displayed.                                                           |
+| `textAlignment` | `TextAlignmentEnum` | Text alignment inside the component. Default: `"LEFT"`.                                                      |
+| `textPosition`  | `TextPostionEnum`   | Text position in relation to the component. Default: `"LEFT"`.                                               |
+| `blockClass`    | `string`            | Unique class name to be appended to block classes. Default: ''                                               |
 
 - **`TextPostionEnum` possible values**
 
-| Enum name | Enum value | Description |
-| --------- | ---- | ----------- |
-| Left | 'LEFT' | Text will be to the left. If `isFullModeStyle` is false, image will be on the right. |
-| Center | 'CENTER' | Text will be in the center. Not applicable if `isFullModeStyle` is false. |
-| Right | 'RIGHT' | Text will be to the right. If `isFullModeStyle` is false, image will be on the left. |
+| Enum name | Enum value | Description                                                                                  |
+| --------- | ---------- | -------------------------------------------------------------------------------------------- |
+| Left      | 'LEFT'     | The text will be on the left. If `isFullModeStyle` is false, the image will be on the right. |
+| Center    | 'CENTER'   | The text will be in the center. Not applicable if `isFullModeStyle` is false.                |
+| Right     | 'RIGHT'    | The text will be on the right. If `isFullModeStyle` is false, the image will be on the left. |
 
 - **`TextAlignmentEnum` possible values**
 
-| Enum name | Enum value | Description |
-| --------- | ---- | ----------- |
-| Left | 'LEFT' | Text alignment will be to the left. |
-| Center | 'CENTER' | Text alignment will be to the center. |
-| Right | 'RIGHT' | Text alignment will be to the right. |
+| Enum name | Enum value | Description                           |
+| --------- | ---------- | ------------------------------------- |
+| Left      | 'LEFT'     | Text alignment will be to the left.   |
+| Center    | 'CENTER'   | Text alignment will be to the center. |
+| Right     | 'RIGHT'    | Text alignment will be to the right.  |
 
 ## Customization
 
-To apply CSS customizations in this and other blocks, follow the [Using CSS handles for store customization](https://developers.vtex.com/docs/guides/vtex-io-documentation-using-css-handles-for-store-customization) guide.
+To apply CSS customizations to this and other blocks, please follow the [Using CSS handles for store customization](https://developers.vtex.com/docs/guides/vtex-io-documentation-using-css-handles-for-store-customization) guide.
 
-| CSS Handle |
-| --- |
-| `container` |
-| `heading` |
+| CSS Handle      |
+| --------------- |
+| `container`     |
+| `heading`       |
 | `headingLevel1` |
 | `headingLevel2` |
 | `headingLevel3` |
 | `headingLevel4` |
 | `headingLevel5` |
 | `headingLevel6` |
-| `image` |
-| `italic` |
-| `link` |
-| `list` |
-| `listItem` |
-| `listOrdered` |
-| `paragraph` |
-| `strong` |
-| `table` |
-| `tableBody` |
-| `tableHead` |
-| `tableTd` |
-| `tableTh` |
-| `tableTr` |
-| `wrapper` |
+| `image`         |
+| `italic`        |
+| `link`          |
+| `list`          |
+| `listItem`      |
+| `listOrdered`   |
+| `paragraph`     |
+| `strong`        |
+| `table`         |
+| `tableBody`     |
+| `tableHead`     |
+| `tableTd`       |
+| `tableTh`       |
+| `tableTr`       |
+| `wrapper`       |
 
 <!-- DOCS-IGNORE:start -->
 ## Contributors ✨
