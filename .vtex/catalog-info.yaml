@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: rich-text
+  description: The Rich Text block converts texts written in Markdown to HTML and
+    displays them in your storefront.
+  tags:
+    - typescript
+    - react:16
+  annotations:
+    vtex.com/janus-acronym: ""
+    vtex.com/o11y-os-index: ""
+    grafana/dashboard-selector: ""
+    github.com/project-slug: vtex-apps/rich-text
+    vtex.com/platform-flow-id: ""
+    backstage.io/techdocs-ref: dir:../
+    vtex.com/application-id: WC2BFPOR
+spec:
+  system: store-framework-ui-apps
+  lifecycle: stable
+  owner: te-0013
+  type: frontend-ui
+  dependsOn: []
+  subcomponentOf: store-framework
