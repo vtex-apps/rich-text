@@ -9,7 +9,7 @@ The Rich Text block converts texts written in Markdown to HTML and displays them
 
 ![image](https://cdn.jsdelivr.net/gh/vtexdocs/dev-portal-content@main/images/vtex-rich-text-0.png)
 
-For example, the text
+For example, the following markdown content
 
 ```txt
 [Help](https://developers.vtex.com/vtex-developer-docs/docs/welcome).\n**Be Bold!**\n*This is italic*
@@ -61,7 +61,7 @@ Learn more in [Markdown documentation](https://www.markdownguide.org/cheat-sheet
 | `font`          | `string`            | Tachyon token used as a font. Default: `t-body`. |
 | `htmlId`     | `String` | HTML ID of the element.                                          |
 | `textColor`     | `string`            | Tachyon token used as text color. Default: `c-on-base`.                                                |
-| `text`          | `string`            | Text written in Markdown language to display.                                                           |
+| `text`          | `string`            | Text written in Markdown.                                                           |
 | `textAlignment` | `TextAlignmentEnum` | Text alignment inside the component. Default: `"LEFT"`.                                                      |
 | `textPosition`  | `TextPostionEnum`   | Text position in relation to the component. Default: `"LEFT"`.                                               |
 
