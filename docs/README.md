@@ -5,11 +5,11 @@
 
 # Rich Text
 
-The Rich Text block converts texts written in Markdown to HTML and displays them in your storefront.
+The Rich Text block converts text written in Markdown to HTML and displays it on your storefront.
 
 ![image](https://cdn.jsdelivr.net/gh/vtexdocs/dev-portal-content@main/images/vtex-rich-text-0.png)
 
-For example, the following markdown content
+For example, the following Markdown content
 
 ```txt
 [Help](https://developers.vtex.com/vtex-developer-docs/docs/welcome).\n**Be Bold!**\n*This is italic*
@@ -39,7 +39,7 @@ Learn more in [Markdown documentation](https://www.markdownguide.org/cheat-sheet
   }
 ```
 
-2. Add the `rich-text` block to your block files in the desired template position. For example:
+2. Add the `rich-text` block to your block files in the desired template position. Example:
 
 ```json
 "rich-text": {
@@ -53,17 +53,18 @@ Learn more in [Markdown documentation](https://www.markdownguide.org/cheat-sheet
   }
 }
 ```
+
 ## Props
 
 | Prop name       | Type                | Description                                                                                                  |
 | --------------- | ------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `blockClass`    | `string`            | Unique class name appended to block classes. Default: ''                                               |
-| `font`          | `string`            | Tachyon token used as a font. Default: `t-body`. |
+| `font`          | `string`            | Tachyon token used as font. Default: `t-body`. |
 | `htmlId`     | `String` | HTML ID of the element.                                          |
 | `textColor`     | `string`            | Tachyon token used as text color. Default: `c-on-base`.                                                |
 | `text`          | `string`            | Text written in Markdown.                                                           |
 | `textAlignment` | `TextAlignmentEnum` | Text alignment inside the component. Default: `"LEFT"`.                                                      |
-| `textPosition`  | `TextPostionEnum`   | Text position in relation to the component. Default: `"LEFT"`.                                               |
+| `textPosition`  | `TextPostionEnum`   | Text position relative to the component. Default: `"LEFT"`.                                               |
 
 * **`TextAlignmentEnum` possible values**
 
@@ -77,14 +78,13 @@ Learn more in [Markdown documentation](https://www.markdownguide.org/cheat-sheet
 
 | Enum name | Enum value | Description                           |
 | --------- | ---------- | ------------------------------------- |
-| Left      | 'LEFT'     | Positions the content at the left of the component.   |
-| Center    | 'CENTER'   | Positions the content at the horizontal center of the component. |
-| Right     | 'RIGHT'    | Positions the content at the right of the component. |
-
+| Left      | 'LEFT'     | Positions content at the left of the component.   |
+| Center    | 'CENTER'   | Positions content at the horizontal center of the component. |
+| Right     | 'RIGHT'    | Positions content at the right of the component. |
 
 ## Customization
 
-To apply CSS customizations to this and other blocks, please follow the [Using CSS handles for store customization](https://developers.vtex.com/docs/guides/vtex-io-documentation-using-css-handles-for-store-customization) guide.
+To apply CSS customizations to this and other blocks, follow the guide [Using CSS handles for store customization](https://developers.vtex.com/docs/guides/vtex-io-documentation-using-css-handles-for-store-customization).
 
 | CSS Handle      |
 | --------------- |
@@ -113,6 +113,7 @@ To apply CSS customizations to this and other blocks, please follow the [Using C
 | `wrapper`       |
 
 <!-- DOCS-IGNORE:start -->
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
