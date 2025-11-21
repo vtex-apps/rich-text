@@ -7,10 +7,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Changed
-- Documentation and actions/cache updates carried forward to 0.16.x.
-
-# [0.16.1] - 2025-10-03
-### Changed
 - Update docs/README.md.
 - Align release line above 0.16.0.
 
