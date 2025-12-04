@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update docs/README.md.
 - Align release line above 0.16.0.
 
+### Added
+- German translation.
+
 ## [0.15.5] - 2025-10-03
 ### Changed
 - Update GitHub actions/cache to v4
