@@ -60,19 +60,6 @@ const ITEMS_TOKENS = {
   [TextAlignmentValues.RIGHT]: 'items-end',
 } as const
 
-const TYPOGRAPHY = [
-  't-heading-1',
-  't-heading-2',
-  't-heading-3',
-  't-heading-4',
-  't-heading-5',
-  't-heading-6',
-  't-body',
-  't-small',
-  't-mini',
-  't-code',
-] as const
-
 type PropTokensNames = 'textPosition' | 'textAlignment'
 
 const DEFAULT_VALUES = {
@@ -143,11 +130,11 @@ const sanitizeFont = (font: string) => {
 
   const [first] = font.split(' ')
 
-  if (TYPOGRAPHY.indexOf(first as typeof TYPOGRAPHY[number]) === -1) {
-    return 't-body'
+  if (first.indexOf('t-') === 0) {
+    return first
   }
 
-  return first
+  return 't-body'
 }
 
 const sanitizeColor = (color: string) => {
