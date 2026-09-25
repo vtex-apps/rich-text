@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Update DK Catalog platform-flow-id
+- `font` prop accepts any typography token (`t-*`), including custom styles declared in the theme's `style.json`, the same way `textColor` accepts any `c-*` token.
 
 ## [0.16.1] - 2025-12-04
 ### Changed

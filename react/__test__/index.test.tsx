@@ -239,6 +239,29 @@ teste|abc
     expect(notFound).toBeFalsy()
   })
 
+  it('should accept custom typography tokens in the font prop', () => {
+    const typography = 't-action--small'
+    const { container } = render(
+      <RichText {...defaultProps} text="foo" font={typography} />
+    )
+
+    const element = container.querySelector(`.${typography}`)
+
+    expect(element).toBeTruthy()
+  })
+
+  it('should fall back to t-body when the font prop is not a typography token', () => {
+    const { container } = render(
+      <RichText {...defaultProps} text="foo" font="custom-class" />
+    )
+
+    const element = container.querySelector('.t-body')
+    const notFound = container.querySelector('.custom-class')
+
+    expect(element).toBeTruthy()
+    expect(notFound).toBeFalsy()
+  })
+
   it('should sanitize the textColor prop', () => {
     const color = 'c-muted-1'
     const { container } = render(

@@ -59,7 +59,7 @@ Learn more in [Markdown documentation](https://www.markdownguide.org/cheat-sheet
 | Prop name       | Type                | Description                                                                                                  |
 | --------------- | ------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `blockClass`    | `string`            | Unique class name appended to block classes. Default: ''                                               |
-| `font`          | `string`            | Tachyon token used as font. Default: `t-body`. |
+| `font`          | `string`            | Typography token (`t-*`) used as font, including custom styles declared in the theme's `style.json`. Default: `t-body`. |
 | `htmlId`     | `String` | HTML ID of the element.                                          |
 | `textColor`     | `string`            | Tachyon token used as text color. Default: `c-on-base`.                                                |
 | `text`          | `string`            | Text written in Markdown.                                                           |
